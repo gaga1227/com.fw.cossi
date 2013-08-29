@@ -9,12 +9,6 @@
 
 
 /* ==========================================================================
-   IMPORTS
-   ========================================================================== */
-@import url("content-viewport-img-layout.css");
-
-
-/* ==========================================================================
    RESET
    ========================================================================== */
    
@@ -29,7 +23,7 @@
 .contentViewport table:first-child, .contentViewport table.first-child { margin-top:0; }
 
 /* body */
-body.ps, .contentViewport { color:#333; font-family:'Montserrat',sans-serif; font-size:15px; font-weight:400; line-height:24px; }
+body, .contentViewport { color:#333; font-family:'Montserrat',Arial,sans-serif; font-size:15px; font-weight:400; line-height:24px; }
 
 
 /* ==========================================================================
@@ -37,9 +31,9 @@ body.ps, .contentViewport { color:#333; font-family:'Montserrat',sans-serif; fon
    ========================================================================== */
 
 /* styles */
-.contentViewport h1, .h1 { color:#333; font-size:42px; line-height:54px; font-weight:400; font-style:normal; margin:0!important; padding: 0px 0px 24px 0px; }
-.contentViewport h2, .h2 { color:#333; font-size:36px; line-height:45px; font-weight:400; font-style:normal; margin:0!important; padding:16px 0px  8px 0px; }
-.contentViewport h3, .h3 { color:#333; font-size:24px; line-height:32px; font-weight:400; font-style:normal; margin:0!important; padding:16px 0px  8px 0px; }  
+.contentViewport h1, .h1 { color:#333; font-size:42px; line-height:54px; font-weight:700; font-style:normal; margin:0!important; padding: 0px 0px 24px 0px; }
+.contentViewport h2, .h2 { color:#333; font-size:36px; line-height:45px; font-weight:700; font-style:normal; margin:0!important; padding:16px 0px  8px 0px; }
+.contentViewport h3, .h3 { color:#333; font-size:24px; line-height:32px; font-weight:700; font-style:normal; margin:0!important; padding:16px 0px  8px 0px; }  
 .contentViewport h4, .h4 { color:#333; font-size:16px; line-height:24px; font-weight:700; font-style:normal; margin:0!important; padding: 8px 0px  0px 0px; }  
 .contentViewport h5, .h5 { color:#333; font-size:15px; line-height:24px; font-weight:700; font-style:normal; margin:0!important; padding: 8px 0px  0px 0px; }  
 .contentViewport p,  .p  { color:#333; font-size:15px; line-height:24px; font-weight:400; font-style:normal; margin:0!important; padding: 0px 0px  8px 0px; }
@@ -47,7 +41,7 @@ body.ps, .contentViewport { color:#333; font-family:'Montserrat',sans-serif; fon
 /* fonts */ 
 .contentViewport h1, .h1,
 .contentViewport h2, .h2,
-.contentViewport h2, .h3 { font-family:'Merriweather',serif; }
+.contentViewport h2, .h3 { font-family:'Chaparral',georgia,serif; }
 
 
 /* ==========================================================================
@@ -77,7 +71,7 @@ body.ps, .contentViewport { color:#333; font-family:'Montserrat',sans-serif; fon
 .contentViewport li:first-child { margin-top:0; }
 
 /* item bullet */
-.contentViewport li 	{ padding:0 0 0 18px; background:url(../../img/blt-list-lv1.png) 1px 10px no-repeat; }
+.contentViewport li 	{ padding:0 0 0 18px; background:url(../img/blt-list-lv1.png) 1px 10px no-repeat; }
 .contentViewport ol li 	{ padding:0 0 0 0; background:none; }
 
 /* -------------------------------------------------------------------------- */
@@ -95,7 +89,7 @@ body.ps, .contentViewport { color:#333; font-family:'Montserrat',sans-serif; fon
 .contentViewport li li:first-child { margin-top:0px; }
 
 /* item bullet */
-.contentViewport li li 		{ padding:0 0 0 18px; background:url(../../img/blt-list-lv2.png) 1px 10px no-repeat; }
+.contentViewport li li 		{ padding:0 0 0 18px; background:url(../img/blt-list-lv2.png) 1px 10px no-repeat; }
 .contentViewport li ol li 	{ padding:0 0 0 0; background:none; }
 
 /* -------------------------------------------------------------------------- */
@@ -119,94 +113,25 @@ body.ps, .contentViewport { color:#333; font-family:'Montserrat',sans-serif; fon
 .ie7 .contentViewport li ul li 	{ padding-left:6px; }
 .ie7 .contentViewport li ol li 	{ padding-left:0; }
 
-.ie6 .contentViewport ul 		{ margin-left:16px; }
-.ie6 .contentViewport ol 		{ margin-left:22px; }
-.ie6 .contentViewport ul li 	{ list-style:disc; background:none; padding-left:6px; } 
-.ie6 .contentViewport ol li 	{ list-style:decimal; }
-.ie6 .contentViewport ol ul li 	{ list-style:disc; }
-.ie6 .contentViewport ol ol li 	{ list-style:lower-alpha; } 
-.ie6 .contentViewport li ul		{ margin-left:16px; }
-.ie6 .contentViewport li ol 	{ margin-left:22px; }
-.ie6 .contentViewport li ul li 	{ padding-left:6px; }
-.ie6 .contentViewport li ol li 	{ padding-left:0; }
-
 
 /* ==========================================================================
    style - LEADERTEXT
    ========================================================================== */
 .contentViewport .leaderText  { 
 	color:#333; font-size:18px; line-height:24px; font-weight:700; font-style:normal; margin:0!important; padding:0px 0px 8px 0px; }
-
-
-/* ==========================================================================
-   style - BLOCKQUOTE/CITE
-   ========================================================================== */
-
-/* blockquote */
-.contentViewport blockquote p:before,
-.contentViewport blockquote p:after { 
-	content:''; }
-	
-/* container */
-.contentViewport blockquote,
-.contentViewport .blockquote { 
-	display:block; position:relative; width:auto; max-width:460px; height:auto; margin:8px 0 8px -4px; padding:20px 35px 12px 55px;
-	color:#262626; background:#fff url(../../img/bg-quote.png) 16px 20px no-repeat; border-left:4px solid #00aab8; }
-	
-	/* common */
-	.contentViewport blockquote,
-	.contentViewport blockquote p,
-	.contentViewport blockquote li,
-	.contentViewport blockquote span,
-	.contentViewport .blockquote,
-	.contentViewport .blockquote p,
-	.contentViewport .blockquote li,
-	.contentViewport .blockquote span { 
-		color:#262626; font-family:'Merriweather',serif; font-size:20px; font-weight:400; line-height:38px; font-style:normal; }
-
-	/* cite */
-	.contentViewport blockquote + cite,
-	.contentViewport blockquote + .cite,
-	.contentViewport .blockquote + cite,
-	.contentViewport .blockquote + .cite {	
-		display:block; max-width:495px; padding:0 0 16px 55px;
-		background:#ebebeb; text-align:right; }
 		
 
 /* ==========================================================================
    style - TEXT
    ========================================================================== */
 
-/* acronym */
-.contentViewport acronym {
-	border-bottom:1px dotted #666; cursor:pointer; }
-
-/* caption */
-.contentViewport .caption {
-	color:#333; font-size:15px; font-weight:400; }
-
-/* cite */
-.contentViewport cite,
-.contentViewport .cite {
-	color:#888; font-size:13px; font-weight:400; font-style:normal; line-height:16px; }
-
-/* date */
-.contentViewport .date {
-	color:#4c4c4c; font-size:13px; font-weight:700; text-transform:uppercase; }
-
 /* note */
 .contentViewport .note {
 	color:#333; font-size:13px; font-weight:700; }
 
-/* quote */
-.contentViewport .quote	{ 
-	color:#222; font-family:'Merriweather',serif; font-size:18px; font-weight:400; font-style:normal; }
-.contentViewport p.quote { 
-	max-width:550px; padding:8px 0 16px 0; }
-
 /* reference */ 
 .contentViewport .reference { 
-	color:#333; font-family:'Merriweather',serif; font-size:16px; font-weight:400; font-style:normal; }
+	color:#333; font-family:'Chaparral',georgia,serif; font-size:16px; font-weight:400; font-style:normal; }
 
 /* tag */ 
 .contentViewport .tag { 
@@ -215,98 +140,6 @@ body.ps, .contentViewport { color:#333; font-family:'Montserrat',sans-serif; fon
 /* title */ 
 .contentViewport .title { 
 	color:#333; font-size:18px; font-weight:700; }
-
-/* -------------------------------------------------------------------------- */
-/* assistive */
-
-/* inlineTextHighlight */
-.contentViewport .inlineTextHighlight {
-	color:#fff; background:#ff0080; }
-
-/* discreetText */
-.contentViewport .discreetText {
-	color:#888; font-size:12px; font-weight:400; }
-	
-/* small */ 
-.contentViewport .small { 
-	font-size:11px; }
-
-
-/* ==========================================================================
-   cog - DIVIDER
-   ========================================================================== */
-
-/* common */
-.divider,
-.contentViewport .divider { 	
-	display:block; width:100%; margin:0; padding:0; float:none; clear:both; overflow:hidden;
-	font-size:0; line-height:0; text-indent:-9999em; text-align:center; }
-
-/* -------------------------------------------------------------------------- */
-/* extend */
-
-/* stump */
-.dividerStump, .contentViewport .dividerStump {
-	border-top:4px solid #99bc33; width:28%; height:12px; margin:8px 0 0 0; }
-
-/* solid */
-.dividerSolid, .contentViewport .dividerSolid {
-	border-top:4px solid #99bc33; height:12px; margin:8px 0 0 0; }
-
-/* lite */
-.dividerLite, .contentViewport .dividerLite {
-	border-top:1px solid #99bc33; height:15px; margin:8px 0 0 0; }
-
-
-/* ==========================================================================
-   cog - SPECIALBOX
-   ========================================================================== */
-   
-/* -------------------------------------------------------------------------- */
-/* specialBox */
-.contentViewport .specialBox {
-	display:block; position:relative; width:auto; max-width:500px; height:auto; margin:8px 0 16px 0; padding:20px 25px 12px 25px; overflow:hidden;
-	color:#333; background:#fff; }	
-	
-	/*title*/
-	.contentViewport .specialBox .title { color:#99bc33; }
-		
-	/* a */
-	.contentViewport .specialBox a { color:#99bc33!important; }
-	
-	/* header */
-	.contentViewport .specialBox > .header { display:none; }
-	
-/* -------------------------------------------------------------------------- */
-/* extend */	
-
-/* specialBox.withHeader */
-.contentViewport .specialBox.withHeader {  }
-	
-	/* header */
-	.contentViewport .specialBox.withHeader > .header { 
-		display:block; position:relative; width:auto; height:auto; margin:-20px -25px 20px -25px; padding:6px 25px; overflow:hidden;
-		color:#fff; background:#9bb731; border-top:1px solid #edf2d8; }
-	
-		/* icon */
-		.contentViewport .specialBox > .header > .icon {
-			position:absolute; top:6px; right:10px; width:24px; height:24px; margin:0; padding:0; overflow:hidden;
-			color:#fff; font-size:0; line-height:0; }
-		.ie7 .contentViewport .specialBox > .header > .icon,
-		.contentViewport .specialBox > .header > .icon:before { 
-			font-size:20px; line-height:24px; }
-			
-/* specialBox.withIcon */
-.contentViewport .specialBox.withIcon { 
-	max-width:450px; min-height:24px; padding:11px 40px 3px 60px; }
-	
-	/* icon */
-	.contentViewport .specialBox.withIcon > .icon { 
-		position:absolute; top:0; left:0; width:46px; height:46px; margin:0; padding:0; overflow:hidden;
-		color:#fff; background:#9bb731; font-size:0; line-height:0; }
-	.ie7 .contentViewport .specialBox.withIcon > .icon,
-	.contentViewport .specialBox.withIcon > .icon:before { 
-		font-size:21px; line-height:46px; }
 
 
 /* ==========================================================================
@@ -351,13 +184,6 @@ body.ps, .contentViewport { color:#333; font-family:'Montserrat',sans-serif; fon
 	.contentViewport .styledTable td.alt { 
 		background:#f5f5f5; }
 
-/* -------------------------------------------------------------------------- */
-/* layoutMode */
-.contentViewport table.layoutMode 		{ width:auto; color:#333; border-collapse:collapse; }
-.contentViewport table.layoutMode,
-.contentViewport table.layoutMode th,
-.contentViewport table.layoutMode td 	{ margin:0; padding:0; }
-
 
 /* ==========================================================================
    cog - BUTTON
@@ -396,12 +222,7 @@ body.ps, .contentViewport { color:#333; font-family:'Montserrat',sans-serif; fon
 		
 	/* icon */
 	.btnText .icon,
-	.btnText .iconInline 		{ font-size:0; line-height:0; }
-	
-	.ie7 .btnText .icon,
-	.ie7 .btnText .iconInline,
-	.btnText .icon:before,
-	.btnText .iconInline:before	{ font-size:14px; line-height:24px; }	
+	.btnText .iconInline 		{ font-size:14px; line-height:24px; }
 	
 /* -------------------------------------------------------------------------- */
 /* btnBox */
@@ -427,12 +248,7 @@ body.ps, .contentViewport { color:#333; font-family:'Montserrat',sans-serif; fon
 		
 	/* icon */
 	.btnBox .icon,
-	.btnBox .iconInline 		{ font-size:0; line-height:0; }
-	
-	.ie7 .btnBox .icon,
-	.ie7 .btnBox .iconInline,
-	.btnBox .icon:before,
-	.btnBox .iconInline:before 	{ font-size:16px; line-height:50px; }	
+	.btnBox .iconInline 		{ font-size:16px; line-height:50px; }
 
 /* -------------------------------------------------------------------------- */
 /* btnBox.compact */
@@ -446,47 +262,3 @@ body.ps, .contentViewport { color:#333; font-family:'Montserrat',sans-serif; fon
 .btnBox.highlight:hover,
 .btnBox.highlight:focus,
 .btnBox.highlight:active { background:#1f353f; }
-
-
-/* ==========================================================================
-   style - MISC
-   ========================================================================== */
-   
-/* -------------------------------------------------------------------------- */
-/* override */
-.contentViewport .iconInline.left { padding-right:5px }
-
-/* -------------------------------------------------------------------------- */
-/* helpers */
-.contentViewport .clearer {	float:none; clear:both; height:0; line-height:0; overflow:hidden; visibility:hidden; }
-
-/* -------------------------------------------------------------------------- */
-/* widgets */
-.contentViewport .interaction,
-.contentViewport .flashcontent { display:block; position:relative; margin:0 auto 16px auto; padding:0; overflow:hidden; }
-
-
-/* ==========================================================================
-   responsive - ALL
-   ========================================================================== */
-@media only screen and (max-width:500px) {
-
-	/* smaller headings */
-	.contentViewport h1, .h1 { font-size:32px; line-height:40px; padding:8px 0 16px 0; } 
-	.contentViewport h2, .h2 { font-size:24px; line-height:32px; } 
-	.contentViewport h3, .h3 { font-size:18px; line-height:24px; } 
-	
-	/* smaller blockquote */
-	.contentViewport blockquote,
-	.contentViewport .blockquote { padding:20px 25px 12px 25px; background-image:none; }
-	
-	.contentViewport blockquote,
-	.contentViewport blockquote p,
-	.contentViewport blockquote li,
-	.contentViewport blockquote span,
-	.contentViewport .blockquote,
-	.contentViewport .blockquote p,
-	.contentViewport .blockquote li,
-	.contentViewport .blockquote span { font-size:18px; line-height:32px; }
-
-}

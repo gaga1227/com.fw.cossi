@@ -36,10 +36,10 @@ th, td { vertical-align:top; }
     color:#000; background:#ccc; }
 
 /* Link styles*/
-a           { color: #00aab8; /*theme green*/ } 
-a:visited   { color: #00aab8; /*theme green*/ }
-a:hover     { color: #00aab8; /*theme green*/ }
-a:focus     { color: #00aab8; /*theme green*/ }
+a           { color: #33485f; /*theme night*/ } 
+a:visited   { color: #33485f; /*theme night*/ }
+a:hover     { color: #33485f; /*theme night*/ }
+a:focus     { color: #33485f; /*theme night*/ }
 
 /* Link transitions */
 a {
@@ -139,35 +139,36 @@ body {
 
 /* ------------------------------------------------------------------------------ */
 /* container */
-#header { background:#ededed; }
-	
-	/* padder */
-	#header > .padder { padding:35px 0; }
+#header { background:#e3ded8; height:80px; }
 	
 	/* -------------------------------------------------------------------------- */
 	/* brand */
 	#header .brand { 
-		display:block; position:relative; width:450px; height:auto; margin:0; padding:0; overflow:hidden;
+		display:block; position:relative; width:270px; height:80px; margin:0; padding:0; overflow:hidden;
+		background:url(../img/img-brand.png);
 		text-decoration:none!important; cursor:pointer; }
+	
+	/* -------------------------------------------------------------------------- */
+	/* schoolTitle */
+	#header .schoolTitle { 
+		position:absolute; top:0; right:310px; width:380px; height:80px; margin:0; padding:0; overflow:hidden;
+		color:#697076; font-size:15px; font-weight:700; line-height:18px; text-align:right; text-transform:uppercase;
+		white-space:nowrap; }
 		
-		/* common */
-		#header .brand span { 
-			display:block; width:auto; margin:0 0 0 110px; overflow:hidden; }
+		/* span */
+		#header .schoolTitle span { 
+			display:inline-block; width:auto; height:auto; max-width:330px; max-height:36px; margin:22px 25px; padding:0; overflow:hidden; vertical-align:middle;
+			white-space:normal; }
+		#header .schoolTitle:before { 
+			content:'';
+			display:inline-block; width:1px; height:80px; font-size:0; line-height:0; vertical-align:middle; }
 			
-		/* title */
-		#header .brand .title { 
-			margin-top:20px;
-			color:#1f353f; font-family:'Chaparral',georgia,serif; font-weight:700; font-size:20px; line-height:25px; }
-			#header .brand .title .small { font-size:14px; font-style:normal; }
+	/* -------------------------------------------------------------------------- */
+	/* menu */
 			
-		/* subtitle */
-		#header .brand .subtitle { 
-			color:#1a9ba6; font-weight:700; font-size:12px; line-height:20px; text-transform:uppercase; }
 			
-		/* img */
-		#header .brand img { 
-			display:block; position:absolute; top:0; left:10px; width:90px; height:auto; }
-
+			
+		
 
 /* ==========================================================================
    structure - NAV

@@ -1,5 +1,15 @@
 @font-face {
     font-family:'Chaparral';
+    src: url('chaparralpro-regular-webfont.eot');
+    src: url('chaparralpro-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('chaparralpro-regular-webfont.woff') format('woff'),
+         url('chaparralpro-regular-webfont.ttf') format('truetype'),
+         url('chaparralpro-regular-webfont.svg#ChaparralProRegular') format('svg');
+    font-weight:400;
+    font-style:normal;
+}
+@font-face {
+    font-family:'Chaparral';
     src: url('chaparralpro-bold-webfont.eot');
     src: url('chaparralpro-bold-webfont.eot?#iefix') format('embedded-opentype'),
          url('chaparralpro-bold-webfont.woff') format('woff'),
@@ -32,7 +42,13 @@
 @media screen and (-webkit-min-device-pixel-ratio:0) {
     @font-face {
         font-family:'Chaparral';
+		src:url('chaparralpro-regular-webfont.svg#ChaparralProRegular') format('svg');
+		font-weight:400;
+    }
+	@font-face {
+        font-family:'Chaparral';
 		src:url('chaparralpro-bold-webfont.svg#ChaparralProBold') format('svg');
+		font-weight:700;
     }
 	@font-face {
         font-family:'Montserrat';

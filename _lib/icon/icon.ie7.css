@@ -50,3 +50,4 @@
 .ie7 .fwicon-edit 				{zoom:expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe01e;');}
 .ie7 .fwicon-caret-down 		{zoom:expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe01f;');}
 .ie7 .fwicon-export		 		{zoom:expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe020;');}
+.ie7 .fwicon-reload		 		{zoom:expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe021;');}

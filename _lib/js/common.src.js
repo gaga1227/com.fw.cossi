@@ -23,12 +23,14 @@ WebFontUtils = {
 /* ------------------------------------------------------------------------------ */
 /* init */
 /* ------------------------------------------------------------------------------ */
+var Accordions;
 function init(){
 	//layout assistance
 	//insertFirstLastChild('');
 	
 	//widgets
 	initHeaderMenus();
+	Accordions = new initAccordions();
 	
 	//template specific functions
 	

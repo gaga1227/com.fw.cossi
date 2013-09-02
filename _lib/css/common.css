@@ -139,7 +139,7 @@ body {
 
 /* ------------------------------------------------------------------------------ */
 /* container */
-#header { background:#e3ded8; height:80px; }
+#header { background:#e3ded8; height:80px; z-index:900; }
 	
 	/* -------------------------------------------------------------------------- */
 	/* brand */
@@ -162,68 +162,113 @@ body {
 		#header .schoolTitle:before { 
 			content:'';
 			display:inline-block; width:1px; height:80px; font-size:0; line-height:0; vertical-align:middle; }
+	
+	/* -------------------------------------------------------------------------- */
+	/* btnMenu */
+	#header .btnMenu { 
+		position:absolute; top:0; height:80px; margin:0; padding:0;
+		color:#6c7177; cursor:pointer!important; outline:0 none!important;
+		/*transition*/
+		/*-webkit-transform:translate3d(0,0,0);*/
+		-webkit-transition:background 0.3s ease-in-out;
+		-moz-transition:background 0.3s ease-in-out;
+		-o-transition:background 0.3s ease-in-out;
+		transition:background 0.3s ease-in-out; }
+		
+		/* interaction */
+		#header .btnMenu:hover,
+		#header .btnMenu:focus,
+		#header .btnMenu:active,
+		#header .btnMenu.active { 
+			background:#f7f4ef; }
+			
+		/* active */
+		#header .btnMenu.active,
+		#header .btnMenu.active .label { border-color:transparent!important; }
+	
+	/* -------------------------------------------------------------------------- */
+	/* menuDeanery */
+	#header #menuDeanery { 
+		right:70px; width:240px; }
+		
+		/* label */
+		#header #menuDeanery .label { 
+			display:block; width:auto; height:auto; margin:0; padding:0 50px 0 25px; overflow:hidden;
+			white-space:nowrap; text-overflow:ellipsis;
+			border-left:1px solid #cfcac4; border-right:1px solid #cfcac4;
+			color:#5b5e60; font-size:15px; font-weight:700; line-height:80px; text-transform:uppercase; }
+			
+		/* icon */
+		#header #menuDeanery .icon {
+			top:50%; right:20px; width:16px; height:16px; margin:-8px 0 0 0; padding:0;
+			font-size:16px; line-height:1em; }
 			
 	/* -------------------------------------------------------------------------- */
-	/* menu */
+	/* menuSystem */
+	#header #menuSystem { 
+		right:0; width:70px; text-align:center; }
 			
+		/* icon */
+		#header #menuSystem .icon {
+			top:0; left:0; width:100%; height:100%; margin:0; padding:0;
+			font-size:32px; line-height:80px; }
 			
-			
-		
 
 /* ==========================================================================
-   structure - NAV
+   structure - MENU
    ========================================================================== */
    
 /* -------------------------------------------------------------------------- */
-/* container */ 
-#nav { overflow:hidden; background:#1f353f; }
+/* common */ 
+#header .menu,
+#header .menu li,
+#header .menu a { 
+	display:block; position:relative; width:auto; height:auto; margin:0; padding:0; overflow:hidden;
+	list-style:none; text-align:left; }
 
-	/* ------------------------------------------------------------------------------ */
-	/* navSelect */
-	#navSelect { display:none; }
-	
-	/* ------------------------------------------------------------------------------ */
-	/* navItems */
-	#navItems { 
-		margin:0; padding:0; overflow:hidden; 
-		white-space:nowrap; text-overflow:ellipsis; text-align:center; }
-	
-		/* navItem */
-		#nav .navItem { 
-			display:inline-block; width:auto; height:60px; margin:0; padding:0; overflow:hidden; 
-			color:#bcbfc1; font-size:16px; font-weight:700; line-height:26px; text-align:center; vertical-align:middle;
-			text-decoration:none!important; outline:0 none!important;
-			/*transition*/
-			/*-webkit-transform:translate3d(0,0,0);*/
-			-webkit-transition:color 0.3s ease-in-out, background-color 0.3s ease-in-out;
-			-moz-transition:color 0.3s ease-in-out, background-color 0.3s ease-in-out;
-			-o-transition:color 0.3s ease-in-out, background-color 0.3s ease-in-out;
-			transition:color 0.3s ease-in-out, background-color 0.3s ease-in-out; }
+/* interaction */
+#header .menu { 
+	position:absolute; top:80px; right:0; max-height:0; padding:0;
+	color:#393e42; background:#f7f4ef;
+	font-size:15px; font-weight:700; line-height:20px;
+	/*border-radius*/-webkit-border-radius:0 0 5px 5px; border-radius:0 0 5px 5px;
+	/*background-clip*/-moz-background-clip:padding; -webkit-background-clip:padding-box; background-clip:padding-box;
+	/*transition*/
+	/*-webkit-transform:translate3d(0,0,0);*/
+	-webkit-transition:max-height 0.3s ease-in-out, padding 0.3s ease-in-out;
+	-moz-transition:max-height 0.3s ease-in-out, padding 0.3s ease-in-out;
+	-o-transition:max-height 0.3s ease-in-out, padding 0.3s ease-in-out;
+	transition:max-height 0.3s ease-in-out, padding 0.3s ease-in-out; }
+#header .active > .menu { 
+	max-height:500px; padding:15px 0; }
+
+	/* a */
+	#header .menu a { 
+		padding:10px 25px;
+		color:#5b5e60; text-decoration:none!important; outline:0 none!important; }
+	#header .menu a:hover,
+	#header .menu a:focus,
+	#header .menu a:active { 
+		color:#e1e2e4; background:#6b7076; }
 		
-		/* oldie fix */
-		.oldie #nav .navItem { 
-			letter-spacing:-1px; }
-			
-			/* items - label */
-			#nav .navItem .label { 
-				display:block; width:auto; margin:16px 10px; padding:0 3px; 
-				white-space:nowrap;	border-bottom:2px solid transparent; }
-				
-		/* navItem - interaction */	
-		.no-touch #nav .navItem:hover,
-		.no-touch #nav .navItem:focus,
-		.touch #nav .navItem:active { 
-			color:#fff; }
+	/* icon */
+	#header .menu a .iconInline { 
+		font-size:16px;
+		/*transition*/
+		/*-webkit-transform:translate3d(0,0,0);*/
+		-webkit-transition:none 0.3s ease-in-out;
+		-moz-transition:none 0.3s ease-in-out;
+		-o-transition:none 0.3s ease-in-out;
+		transition:none 0.3s ease-in-out; }
+
+/* -------------------------------------------------------------------------- */
+/* menuDeanery */
+#header #menuDeanery .menu { width:400px; }
+
+/* -------------------------------------------------------------------------- */
+/* menuSystem */
+#header #menuSystem .menu { width:200px; }
 		
-		/* navItem - selected */
-		#nav .navItem.selected,
-		#nav .navItem.selected .label,
-		.no-touch #nav .navItem.selected:hover,
-		.no-touch #nav .navItem.selected:focus,
-		.touch #nav .navItem.selected:active { 
-			color:#fff; border-bottom-color:#06b4c3; 
-			pointer-events:none; cursor:default; }
-	
 
 /* ==========================================================================
    structure - BANNER

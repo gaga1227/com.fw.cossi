@@ -26,7 +26,10 @@ WebFontUtils = {
 function init(){
 	//layout assistance
 	//insertFirstLastChild('');
-		
+	
+	//widgets
+	initHeaderMenus();
+	
 	//template specific functions
 	
 	//debug

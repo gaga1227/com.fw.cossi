@@ -116,8 +116,8 @@ body {
 	/* -------------------------------------------------------------------------- */
 	/* blockings */
 	#container, 
-		.section,
-			.section > .padder { 
+		.section, .secHeader,
+			.section > .padder, .secHeader > .padder { 
 		display:block; position:relative; width:auto; height:auto; margin:0 auto; padding:0; }
 	
 	/* container */
@@ -125,12 +125,18 @@ body {
 		min-width:0px; }
 	
 	/* sections */
-	.section { 
+	.section,
+	.secHeader { 
 		min-width:980px; }	
 		
 	/* padders */
-	.section > .padder {
-		min-width:0px; max-width:980px; }
+	.section > .padder,
+	.secHeader > .padder {
+		min-width:0px; max-width:960px; }
+		
+	.section > .padder.full,
+	.secHeader > .padder.full {
+		max-width:980px; }
 		
 
 /* ==========================================================================
@@ -282,9 +288,7 @@ body {
 	
 	/* -------------------------------------------------------------------------- */
 	/* padder */
-	#banner > .padder { 
-		position:absolute; top:0; left:50%; width:100%; height:100%; margin:0 0 0 -480px; z-index:11;
-		color:#fff; }
+	#banner > .padder { }
 		
 		
 		
@@ -298,16 +302,37 @@ body {
 
 /* -------------------------------------------------------------------------- */
 /* container */
-#content { background:#ebebeb; }
+#content { background:#d9d4c7; }
 	
 	/* -------------------------------------------------------------------------- */
-	/* common */
-	#main,
-	#aside 	{ position:relative; width:auto; height:auto; margin:0; padding:0; }
+	/* section */
+	#content > .section.bgLite { background:#f0ece4; }
+	#content > .section > .padder { padding:55px 0; }
 	
 	/* -------------------------------------------------------------------------- */
-	/* main */
-	#main 	{ width:68.75%; padding:40px 0 90px 0; float:left; clear:left; min-height:400px; }
+	/* secHeader */	
+	#content > .secHeader { background:#2c3e51;	}
+		
+		/* heading */
+		#content > .secHeader .heading { 
+			position:relative; width:auto; height:auto; margin:0; padding:18px 80px; overflow:hidden;
+			color:#fff; font-size:17px; font-weight:700; line-height:24px; }
+			
+			/* index */
+			#content > .secHeader .heading .index {
+				position:absolute; top:0; left:0; width:55px; height:100%; margin:0; padding:0; overflow:hidden;
+				font-family:font-family:'Chaparral',georgia,serif; font-size:32px; font-weight:700; line-height:60px; text-align:center; }
+				
+			/* icon */
+			#content > .secHeader .heading .icon {
+				position:absolute; top:0; right:0; width:55px; height:60px; margin:0; padding:0; overflow:hidden;
+				font-size:16px; line-height:60px; }
+				
+				
+				
+				
+				
+				
 
 
 /* ==========================================================================
@@ -317,7 +342,7 @@ body {
 /* -------------------------------------------------------------------------- */
 /* container */
 #footer { 
-	background:#2f3f48; border-top:1px solid #3e4d56; }
+	background:#2f363d; border-top:9px solid #95a5a6; }
 	
 	/* -------------------------------------------------------------------------- */
 	/* footerLinks */
@@ -326,7 +351,7 @@ body {
 	#footerLinks,
 	#footerLinks li { 
 		list-style:none; margin:0; padding:0;
-		color:#a9b5bb; font-size:12px; font-weight:400; line-height:1em; }
+		color:#d9d4c7; font-size:12px; font-weight:400; line-height:1em; }
 	
 	/* container */
 	#footerLinks { margin-right:32%; padding:25px 0; }
@@ -334,12 +359,12 @@ body {
 		/* li */
 		#footerLinks li { 
 			margin-left:10px; padding-left:10px; float:left; 
-			border-left:1px solid #a9b5bb; }
+			border-left:1px solid #d9d4c7; }
 		#footerLinks li:first-child { 
 			margin:0; padding:0; border:none; }
 			
 			/* a */
-			#footerLinks a 			{ color:#a9b5bb; text-decoration:none; }
+			#footerLinks a 			{ color:#d9d4c7; text-decoration:none; }
 			#footerLinks a:hover,
 			#footerLinks a:focus,
 			#footerLinks a:active 	{ color:#fff; text-decoration:underline; }
@@ -347,9 +372,9 @@ body {
 	/* -------------------------------------------------------------------------- */
 	/* btnFW */
 	#btnFW { 
-		display:block; position:absolute; top:50%; right:16%; width:150px; height:20px; margin:-10px -75px 0 0; padding:0; overflow:hidden;
+		display:block; position:absolute; top:50%; right:0; width:150px; height:20px; margin:-10px 20px 0 0; padding:0; overflow:hidden;
 		background:url(../img/btn-fw.png) center center no-repeat; border:none;
-		/*opacity*/opacity:0.5; -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=50)"; filter:alpha(opacity=50);
+		/*opacity*/opacity:0.8; -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=80)"; filter:alpha(opacity=80);
 		/*transition*/
 		/*-webkit-transform:translate3d(0,0,0);*/
 		-webkit-transition:opacity 0.3s ease-in-out;
@@ -368,29 +393,35 @@ body {
 /* -------------------------------------------------------------------------- */
 /* columns common */
 .colFull,
+.colFocus,
 .col2a,
 .col2b,
 .col3a,
 .col3b,
-.col3c { display:block; position:relative; height:auto; margin:0; padding:0; overflow:visible; }
+.col3c { display:block; position:relative; height:auto; margin:0; padding:0; }
 
 /* -------------------------------------------------------------------------- */
 /* contentViewport */
-.colFull .contentViewport,
-.col2a   .contentViewport,
-.col2b   .contentViewport,
-.col3a   .contentViewport,
-.col3b   .contentViewport,
-.col3c   .contentViewport { width:auto; }
+.colFull  .contentViewport,
+.colFocus .contentViewport,
+.col2a    .contentViewport,
+.col2b    .contentViewport,
+.col3a    .contentViewport,
+.col3b    .contentViewport,
+.col3c    .contentViewport { width:auto; }
 	
 /* -------------------------------------------------------------------------- */
 /* colFull */
 .colFull { width:auto; float:none; clear:both; }
+
+/* -------------------------------------------------------------------------- */
+/* colFocus */
+.colFocus { width:780px; margin:0 auto; float:none; clear:both; }
 	
 /* -------------------------------------------------------------------------- */
 /* col2 */
 .col2a,
-.col2b { width:47%; }
+.col2b { width:48%; }
 .col2a { float:left; clear:left; }
 .col2b { float:right; clear:right; }
 
@@ -398,10 +429,10 @@ body {
 /* col3 */
 .col3a,
 .col3b,
-.col3c	 			{ width:29.6%; }
+.col3c	 			{ width:30.6%; }
 .col3a	 			{ float:left; clear:left; }
 .col3b,
-.formView .col3b	{ float:left; clear:none; margin-left:5.6%; }
+.formView .col3b	{ float:left; clear:none; margin-left:4.1%; }
 .col3c 				{ float:right; clear:right; }
 
 
@@ -628,11 +659,6 @@ body {
 	display:block; position:absolute; margin:0; padding:0; overflow:hidden;
 	/*border-radius*/-webkit-border-radius:50%; border-radius:50%;
 	/*background-clip*/-moz-background-clip:padding; -webkit-background-clip:padding-box; background-clip:padding-box; }
-
-
-/* ==========================================================================
-   section - 
-   ========================================================================== */
 
 
 /* ==========================================================================

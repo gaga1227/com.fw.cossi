@@ -20,7 +20,7 @@
 .contentViewport h5:first-child,	.contentViewport h5.first-child,
 .contentViewport p:first-child,		.contentViewport p.first-child,
 .contentViewport div:first-child,	.contentViewport div.first-child,
-.contentViewport table:first-child, .contentViewport table.first-child { margin-top:0; }
+.contentViewport table:first-child, .contentViewport table.first-child { margin-top:0; padding-top:0; }
 
 /* body */
 body, .contentViewport { color:#333; font-family:'Montserrat',Arial,sans-serif; font-size:15px; font-weight:400; line-height:22px; }
@@ -197,7 +197,7 @@ body, .contentViewport { color:#333; font-family:'Montserrat',Arial,sans-serif; 
 /* -------------------------------------------------------------------------- */
 /* btnText */
 .btnText { 
-	display:inline-block; position:relative; margin:0 16px 16px 0; padding:0; width:auto; height:24px; vertical-align:middle;
+	display:inline-block; position:relative; margin:0 10px 10px 0; padding:0; width:auto; height:24px; vertical-align:middle;
 	text-decoration:none!important; outline:0 none!important; cursor:pointer; }
 .btnText:hover,
 .btnText:focus,

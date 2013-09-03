@@ -128,3 +128,107 @@ function initAccordions() {
 	//return to DOM
 	return accordions;	
 }
+/* ------------------------------------------------------------------------------ */
+/* initSecAside */
+/* ------------------------------------------------------------------------------ */
+function initSecAside() {
+	//vars
+	var asides = { count:0 },
+		asideCls = 'secAside',
+		activeCls = 'active',
+		isIE7 = $('html').hasClass('ie7'),
+		getWindowHeight = function(){
+			return $(window).height();
+		};
+	
+	//update collection obj
+	asides.openAS = function(idx){
+		var token = 'as',
+			as = asides[token + idx];
+		if (!as) return 'no AS instance';
+		if (as.active){
+			//console.log('already active');
+			return token + idx + ' already active';	
+		} else {
+			as.$el.addClass(activeCls);
+			as.active = true;
+			asides.refreshAS(as.id);
+			return token + idx + ' activated';
+		}
+	}
+	asides.closeAS = function(idx){
+		var token = 'as',
+			as = asides[token + idx];
+		if (!as) return 'no AS instance';
+		if (!as.active){
+			//console.log('already NOT active');
+			return token + idx + ' already NOT active';	
+		} else {
+			as.$el.removeClass(activeCls);
+			as.active = false;
+			return token + idx + ' de-activated';
+		}
+	}
+	asides.toggleAS = function(idx){
+		var token = 'as',
+			as = asides[token + idx],
+			$win = $(window);
+		if (!as) return 'no AS instance';
+		if (as.active){
+			this.closeAS(idx);
+			$win.unbind('resize.aside');
+		} else {
+			this.openAS(idx);
+			$win.bind('resize.aside', function(e){
+				asides.refreshAS(as.id);
+			});
+		}
+		return token + idx + ' toggled';
+	}
+	asides.refreshAS = function(idx){
+		var token = 'as',
+			as = asides[token + idx],
+			newHeight,
+			paddings;
+		if (!as) return 'no AS instance';
+		
+		//update content height
+		paddings = Math.abs(as.$content.height() - as.$content.innerHeight());
+		newHeight = getWindowHeight() - as.gapTop - as.gapBtm - ( as.$header.length ? as.$header.height() : 0 ) - ( isIE7 ? paddings : 0);
+		as.$content.height( newHeight );
+		//console.log( getWindowHeight(), as.gapTop, as.gapBtm, as.$header.height());
+				
+		return token + idx + ' refreshed';	
+	}
+	
+	//search DOM for as instances
+	$.each($('.'+asideCls), function(idx, ele){
+		var as,
+			$aside = $(ele),
+			$asHeader = $aside.find('> .header'),
+			$asContent = $aside.find('> .scroller'),
+			$asBtn = $aside.find('> .btnTrigger'),
+			topGap = parseInt($aside.css('top'), 10);
+		//add instance to control and collection objs
+		asides['as' + String(idx+1)] = as = {
+			id:			idx + 1,
+			$el:		$aside,
+			$header:	$asHeader,
+			$content:	$asContent,
+			$btn:		$asBtn,
+			active:		$aside.hasClass(activeCls),
+			gapTop:		topGap,
+			gapBtm:		60//topGap
+		};
+		asides.count++;
+		
+		//bind hehavior
+		as.$btn.on('click', function(e){
+			e.preventDefault();
+			asides.toggleAS(as.id);	
+		});
+	});
+	
+	//return to DOM
+	return asides;	
+}

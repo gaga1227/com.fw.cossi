@@ -239,6 +239,7 @@ body {
 	font-size:15px; font-weight:700; line-height:20px;
 	/*border-radius*/-webkit-border-radius:0 0 5px 5px; border-radius:0 0 5px 5px;
 	/*background-clip*/-moz-background-clip:padding; -webkit-background-clip:padding-box; background-clip:padding-box;
+	/*box-shadow*/-webkit-box-shadow:0px 1px 0px 0px rgba(0,0,0,0.1); box-shadow:0px 1px 0px 0px rgba(0,0,0,0.1);
 	/*transition*/
 	/*-webkit-transform:translate3d(0,0,0);*/
 	-webkit-transition:max-height 0.3s ease-in-out, padding 0.3s ease-in-out;
@@ -283,13 +284,64 @@ body {
 /* -------------------------------------------------------------------------- */
 /* container */
 #banner { 
-	display:none; overflow:hidden;
-	background:#00aab8; }	
+	overflow:hidden;
+	background:#2b3d50;/*ngt-d1*/ }
+	
+	/* bg */
+	#banner .bg { 
+		position:absolute; top:0; right:-300px; width:800px; height:300px; margin:0; padding:0; overflow:hidden;
+		background:url(../img/bg-banner.png) 0 0 no-repeat; }
 	
 	/* -------------------------------------------------------------------------- */
-	/* padder */
-	#banner > .padder { }
+	/* main */
+	#banner .main { 
+		position:relative; width:500px; height:auto; margin:0; padding:90px 0 40px 0; overflow:hidden; float:left; clear:left;
+		color:#fff; }
+	
+	/* custom */
+	#banner .main.lessTopGap { padding-top:50px; }
 		
+		/* common */
+		#banner .main .h1,
+		#banner .main .h3,
+		#banner .main .leaderText,
+		#banner .main p,
+		#banner .main a { color:#fff; }
+		
+		/* h1 */
+		#banner .main .h1 {  }
+		
+		/* h3 */
+		#banner .main .h3 { 
+			overflow:hidden; white-space:nowrap; text-overflow:ellipsis;
+			font-size:22px; line-height:30px; }
+		
+		/* leaderText */
+		#banner .main .leaderText {  }
+		
+		/* btnIcon */
+		#banner .main .btnIcon + .btnIcon { 
+			margin-right:15px; }
+		
+	/* -------------------------------------------------------------------------- */
+	/* aside */
+	#banner .aside { 
+		position:relative; width:440px; height:100%; margin:0; padding:0; overflow:hidden; float:right; clear:right;
+		color:#fff; text-align:right; }
+		
+		/* btnGroup */
+		#banner .aside .btnGroup { margin-top:100px; height:60px; }
+		
+		
+	/* -------------------------------------------------------------------------- */
+	/* extra */
+	#banner .extra { 
+		position:relative; width:auto; height:auto; min-height:60px; margin:0; padding:0; overflow:hidden; float:none; clear:both;
+		color:#fff; }
+		
+		/* tabGroup */
+		#banner .extra .tabGroup { margin-top:20px; height:60px; }
+				
 		
 /* ==========================================================================
    structure - CONTENT SHELL
@@ -307,13 +359,17 @@ body {
 	/* -------------------------------------------------------------------------- */
 	/* secHeader */	
 	#content > .secHeader { 
-		background:#2c3e51; }
+		background:#2c3e51; border-bottom:1px solid rgba(0,0,0,0.1); }
 		
 		/* heading */
 		#content > .secHeader .heading { 
 			position:relative; width:auto; height:24px; margin:0; padding:18px 80px; overflow:hidden;
-			white-space:nowrap; text-overflow:ellipsis;
 			color:#fff; font-size:17px; font-weight:700; line-height:24px; }
+			
+			/* label */
+			#content > .secHeader .heading .label { 
+				display:block; width:100%; height:auto; margin:0; padding:0; overflow:hidden;
+				white-space:nowrap; text-overflow:ellipsis; }
 			
 			/* index */
 			#content > .secHeader .heading .index {
@@ -594,66 +650,29 @@ body {
 	pointer-events:none; cursor:default!important; }
 
 /* -------------------------------------------------------------------------- */
-/* btnItem */
-.btnItem { 
-	display:block; position:relative; width:auto; height:auto; margin:0; padding:8px 25px 8px 20px; overflow:hidden;
-	white-space:nowrap; text-overflow:ellipsis;
-	color:#444; background:#fff; border-top:1px solid #ddd;
-	font-size:13px; font-weight:700; line-height:16px; text-transform:uppercase;
-	text-decoration:none!important; outline:0 none!important; cursor:pointer;
-	/*transition*/
-	/*-webkit-transform:translate3d(0,0,0);*/
-	-webkit-transition:background-color 0.3s ease-in-out;
-	-moz-transition:background-color 0.3s ease-in-out;
-	-o-transition:background-color 0.3s ease-in-out;
-	transition:background-color 0.3s ease-in-out; }
-/*.btnItem:last-child { border:none; }*/
-
-/* interaction */
-.btnItem:hover,
-.btnItem:focus,
-.btnItem:active { background:#fff; } 
-
-	/* icon */
-	.btnItem .iconInline { 
-		width:32px; height:32px; vertical-align:middle;
-		color:#fff!important; font-size:21px; line-height:32px; }
-	
-	/* label */
-	.btnItem .label { 
-		/*transition*/
-		/*-webkit-transform:translate3d(0,0,0);*/
-		-webkit-transition:color 0.3s ease-in-out;
-		-moz-transition:color 0.3s ease-in-out;
-		-o-transition:color 0.3s ease-in-out;
-		transition:color 0.3s ease-in-out; }
-
-/* -------------------------------------------------------------------------- */
 /* btnIcon */
 .btnIcon { 
-	display:block; position:relative; width:48px; height:48px; margin:0; padding:0; overflow:hidden;
-	color:#fff; background:#1f353f; 
-	font-weight:400; font-size:21px; line-height:48px; 
+	display:inline-block; position:relative; width:30px; height:30px; margin:0 1px; padding:0; overflow:hidden;
+	background:rgba(255,255,255,0.3); vertical-align:middle;
+	font-weight:400; font-size:24px; line-height:30px; 
 	text-decoration:none!important; outline:0 none!important; cursor:pointer;
-	/*box-shadow*/-webkit-box-shadow:1px 1px 1px 0px rgba(0,0,0,0.15); box-shadow:1px 1px 1px 0px rgba(0,0,0,0.15);
 	/*transition*/
 	/*-webkit-transform:translate3d(0,0,0);*/
-	-webkit-transition:color 0.3s ease-in-out, background-color 0.3s ease-in-out, -webkit-box-shadow 0.3s ease-in-out;
-	-moz-transition:color 0.3s ease-in-out, background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-	-o-transition:color 0.3s ease-in-out, background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-	transition:color 0.3s ease-in-out, background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out; }
+	-webkit-transition:color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+	-moz-transition:color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+	-o-transition:color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+	transition:color 0.3s ease-in-out, background-color 0.3s ease-in-out; }
 
 /* interaction */
 .btnIcon:hover,
 .btnIcon:focus,
 .btnIcon:active { 
-	background:#00aee4;
-	/*box-shadow*/-webkit-box-shadow:none; box-shadow:none; } 
+	background:rgba(255,255,255,0.5); } 
 
 	/* icon */
 	.btnIcon .icon { 
 		top:0; left:0; width:100%; height:100%;
-		color:#fff!important; font-size:21px; line-height:48px; }
+		color:#fff!important; }
 		
 
 /* ==========================================================================

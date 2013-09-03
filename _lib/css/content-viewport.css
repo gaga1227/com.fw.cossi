@@ -31,26 +31,26 @@ body, .contentViewport { color:#333; font-family:'Montserrat',Arial,sans-serif; 
    ========================================================================== */
 
 /* styles */
-.contentViewport h1, .h1 { color:#333; font-size:42px; line-height:54px; font-weight:700; font-style:normal; margin:0!important; padding: 0px 0px 30px 0px; }
-.contentViewport h2, .h2 { color:#333; font-size:36px; line-height:45px; font-weight:700; font-style:normal; margin:0!important; padding:10px 0px 10px 0px; }
-.contentViewport h3, .h3 { color:#333; font-size:24px; line-height:32px; font-weight:700; font-style:normal; margin:0!important; padding:10px 0px 10px 0px; }  
-.contentViewport h4, .h4 { color:#333; font-size:16px; line-height:22px; font-weight:700; font-style:normal; margin:0!important; padding:10px 0px  0px 0px; }  
-.contentViewport h5, .h5 { color:#333; font-size:15px; line-height:22px; font-weight:700; font-style:normal; margin:0!important; padding:10px 0px  0px 0px; }  
-.contentViewport p,  .p  { color:#333; font-size:15px; line-height:22px; font-weight:400; font-style:normal; margin:0!important; padding: 0px 0px 10px 0px; }
+.contentViewport h1, .h1 { color:#2c3e51; font-size:48px; line-height:48px; font-weight:700; font-style:normal; margin:0!important; padding:10px 0px 20px 0px; }
+.contentViewport h2, .h2 { color:#2c3e51; font-size:36px; line-height:36px; font-weight:700; font-style:normal; margin:0!important; padding:10px 0px 10px 0px; }
+.contentViewport h3, .h3 { color:#2c3e51; font-size:17px; line-height:18px; font-weight:700; font-style:normal; margin:0!important; padding:10px 0px 10px 0px; }  
+.contentViewport h4, .h4 { color:#333;    font-size:15px; line-height:22px; font-weight:700; font-style:normal; margin:0!important; padding:10px 0px  0px 0px; }  
+.contentViewport h5, .h5 { color:#333;    font-size:15px; line-height:22px; font-weight:700; font-style:normal; margin:0!important; padding:10px 0px  0px 0px; }  
+.contentViewport p,  .p  { color:#333;    font-size:15px; line-height:22px; font-weight:400; font-style:normal; margin:0!important; padding: 0px 0px 10px 0px; }
 
-/* fonts */ 
+/* fonts/custom */ 
 .contentViewport h1, .h1,
-.contentViewport h2, .h2,
-.contentViewport h2, .h3 { font-family:'Chaparral',georgia,serif; }
+.contentViewport h2, .h2 { font-family:'Chaparral',georgia,serif; }
+.contentViewport h3, .h3 { text-transform:uppercase; }
 
 
 /* ==========================================================================
    elem - LINK
    ========================================================================== */
-.contentViewport a 			{ color:#00aab8; text-decoration:none; }
+.contentViewport a 			{ color:#33485f; text-decoration:none; }
 .contentViewport a:hover,
 .contentViewport a:focus,
-.contentViewport a:active 	{ color:#00aab8; text-decoration:underline; }
+.contentViewport a:active 	{ color:#33485f; text-decoration:underline; }
 
 
 /* ==========================================================================
@@ -117,8 +117,8 @@ body, .contentViewport { color:#333; font-family:'Montserrat',Arial,sans-serif; 
 /* ==========================================================================
    style - LEADERTEXT
    ========================================================================== */
-.contentViewport .leaderText  { 
-	color:#333; font-size:18px; line-height:24px; font-weight:700; font-style:normal; margin:0!important; padding:0px 0px 8px 0px; }
+.leaderText, .contentViewport .leaderText  { 
+	color:#2c3e51; font-size:15px; line-height:20px; font-weight:700; font-style:normal; margin:0!important; padding:0px 0px 8px 0px; }
 		
 
 /* ==========================================================================

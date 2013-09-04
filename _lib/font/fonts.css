@@ -50,6 +50,7 @@
 		src:url('chaparralpro-bold-webfont.svg#ChaparralProBold') format('svg');
 		font-weight:700;
     }
+	/* SVG font doesn't not support system italic style
 	@font-face {
         font-family:'Montserrat';
 		src:url('montserrat-regular-webfont.svg#montserratregular') format('svg');
@@ -60,4 +61,5 @@
 		src:url('montserrat-bold-webfont.svg#montserratbold') format('svg');
 		font-weight:700;
     }
+	*/
 }

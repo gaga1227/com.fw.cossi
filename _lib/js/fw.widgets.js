@@ -193,8 +193,8 @@ function initSecAside() {
 		if (!as) return 'no AS instance';
 		
 		//update content height
-		paddings = Math.abs(as.$content.height() - as.$content.innerHeight());
-		newHeight = getWindowHeight() - as.gapTop - as.gapBtm - ( as.$header.length ? as.$header.height() : 0 ) - ( isIE7 ? paddings : 0);
+		//paddings = Math.abs(as.$content.height() - as.$content.innerHeight());
+		newHeight = getWindowHeight() - as.gapTop - as.gapBtm - ( as.$header.length ? as.$header.height() : 0 );// - ( isIE7 ? paddings : 0);
 		as.$content.height( newHeight );
 		//console.log( getWindowHeight(), as.gapTop, as.gapBtm, as.$header.height());
 				

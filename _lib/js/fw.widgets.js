@@ -232,3 +232,50 @@ function initSecAside() {
 	//return to DOM
 	return asides;	
 }
+/* ------------------------------------------------------------------------------ */
+/* initBtnSwitch */
+/* ------------------------------------------------------------------------------ */
+function initBtnSwitch(){
+	var	$switches = $('.btnSwitch'),
+		activeCls = 'checked';
+	
+	if (!$switches.length) {
+		return 'no switch ctrl found!';
+	}
+	
+	//event handler
+	function updateSwitch($tgt, toggle){
+		var $switch = $tgt,
+			$chkbox = $switch.find('input'),
+			checked = toggle ? !$chkbox.prop('checked') : $chkbox.prop('checked');
+		if (checked) {
+			$switch.addClass(activeCls);
+		} else {
+			$switch.removeClass(activeCls);
+		}
+		$chkbox.prop('checked', checked);
+		//console.log($chkbox.attr('id'), $chkbox.prop('checked'));
+	}
+	
+	//bind button event
+	$switches.on('click', function(e){
+		var $switch = $(this);
+		updateSwitch($switch, true);
+	});
+	
+	/*
+	$switches.on('swipeLeft swipeRight', function(e){
+		var $switch = $(this),
+			checked = $switch.find('input').prop('checked'),
+			type = e.type;
+		if ( (type == 'swipeLeft' && checked) || (type == 'swipeRight' && !checked) ) {
+			updateSwitch($switch, true);
+		}
+	});
+	*/
+	
+	//init states
+	$.each($switches, function(idx,ele){
+		updateSwitch($(ele), false);
+	});	
+}

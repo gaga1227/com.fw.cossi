@@ -32,6 +32,7 @@ function init(){
 	initHeaderMenus();
 	Accordions = new initAccordions();
 	Asides = new initSecAside();
+	initBtnSwitch();
 	
 	//template specific functions
 	

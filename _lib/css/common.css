@@ -771,7 +771,6 @@ a .icon, a .iconInline {
 .btn.disabled { 
 	pointer-events:none; cursor:default!important; }
 
-
 /* -------------------------------------------------------------------------- */
 /* btnIcon */
 .btnIcon { 
@@ -835,6 +834,93 @@ a .icon, a .iconInline {
 .btnBox.compact, .btnBox.compact .label { font-size:13px; line-height:40px; }
 .btnBox.compact .icon,
 .btnBox.compact .iconInline { font-size:8px; }
+
+/* -------------------------------------------------------------------------- */
+/* switch */
+.btnSwitch {
+	display:inline-block; position:relative; width:90px; height:35px; margin:0; padding:0; overflow:hidden;
+	text-decoration:none!important; outline:0 none!important; cursor:pointer!important;
+	background:#687475; 
+	/*border-radius*/-webkit-border-radius:18px; border-radius:18px;
+	/*background-clip*/-moz-background-clip:padding; -webkit-background-clip:padding-box; background-clip:padding-box;
+	/*user-select*/-webkit-user-select:none; -moz-user-select:none; -ms-user-select:none; user-select:none;
+	/*touch*/-webkit-touch-callout:none; -webkit-tap-highlight-color:rgba(0,0,0,0);
+	/*transition*/
+	/*-webkit-transform:translate3d(0,0,0);*/
+	-webkit-transition:background-color 0.3s ease-in-out;
+	-moz-transition:background-color 0.3s ease-in-out;
+	-o-transition:background-color 0.3s ease-in-out;
+	transition:background-color 0.3s ease-in-out; }
+
+ 	/* input */
+ 	.btnSwitch input { display:none; }
+
+	/* -------------------------------------------------------------------------- */
+	/* switch-controls */
+	.btnSwitch .switch-controls {
+		display:block; position:absolute; top:0; left:-50px; width:140px; height:auto; margin:0; padding:0; overflow:hidden;
+		white-space:nowrap;
+		/*transition*/
+		/*-webkit-transform:translate3d(0,0,0);*/
+		-webkit-transition:left 0.3s ease-in-out;
+		-moz-transition:left 0.3s ease-in-out;
+		-o-transition:left 0.3s ease-in-out;
+		transition:left 0.3s ease-in-out; }
+
+		/* common */
+		.btnSwitch .switch-controls > span,
+		.btnSwitch .switch-controls > label { vertical-align:middle; }
+
+		/* label */
+		.btnSwitch .switch-controls label {
+			display:inline-block; width:25px; height:25px; margin:5px -13px 5px -12px; padding:0; overflow:hidden;
+			color:#a1a9aa; background:#a1a9aa; 
+			cursor:pointer!important; outline:0 none!important;
+			/*border-radius*/-webkit-border-radius:50%; border-radius:50%;
+			/*background-clip*/-moz-background-clip:padding; -webkit-background-clip:padding-box; background-clip:padding-box;
+			/*transition*/
+			/*-webkit-transform:translate3d(0,0,0);*/
+			-webkit-transition:background 0.3s ease-in-out;
+			-moz-transition:background 0.3s ease-in-out;
+			-o-transition:background 0.3s ease-in-out;
+			transition:background 0.3s ease-in-out; }
+		.no-touch .btnSwitch:hover .switch-controls label { 
+			color:#b6c0c1; background:#b6c0c1; }
+		
+		/* switch-left/right */
+		.btnSwitch .switch-left,
+		.btnSwitch .switch-right {
+			display:inline-block; width:67px; height:25px; margin:0; padding:0; overflow:hidden;
+			white-space:nowrap;	vertical-align:middle; text-align:center; text-transform:uppercase;
+			color:#fff; font-size:15px; font-weight:700; line-height:25px; }
+
+/* checked */
+.btnSwitch.checked { background:#00b15e; }
+.btnSwitch.checked .switch-controls { left:5px; }
+.btnSwitch.checked .switch-controls label 					{ color:#21db75; background:#21db75; }
+.no-touch .btnSwitch.checked:hover .switch-controls label	{ color:#64efa3; background:#64efa3; }
+
+/* -------------------------------------------------------------------------- */
+/* btnGroup */
+.btnGroup { 
+	display:block; position:relative; width:auto; height:auto; margin:0; padding:0; overflow:hidden;
+	white-space:nowrap; }
+
+	/* btn */
+	.btnGroup .btn { 
+		margin-left:1px;
+		/*border-radius*/-webkit-border-radius:0; border-radius:0; }
+	.btnGroup .btn.first { 
+		margin-left:0;
+		/*border-radius*/-webkit-border-radius:3px 0 0 3px; border-radius:3px 0 0 3px; }
+	.btnGroup .btn.last { 
+		/*border-radius*/-webkit-border-radius:0 3px 3px 0; border-radius:0 3px 3px 0; }
+		
+/* -------------------------------------------------------------------------- */
+/* selected */
+.btn.selected { 
+	/*box-shadow*/-webkit-box-shadow:inset 0px 0px 10px 0px rgba(0,0,0,0.2); box-shadow:inset 0px 0px 10px 0px rgba(0,0,0,0.2); }
+
 
 /* ==========================================================================
    common - BG
@@ -1105,7 +1191,7 @@ a .icon, a .iconInline {
 			.org .c-l1,
 .newTheme > .org .c-l1					{ color:#fc8627!important; }
 			.org .c-l2,
-.newTheme > .org .c-l2					{ color:#d3a5a5!important; }
+.newTheme > .org .c-l2					{ color:#eaaf7f!important; }
 			.org .c-l3,
 .newTheme > .org .c-l3					{ color:#eabfbe!important; }
 			.org .c-l4,
@@ -1120,7 +1206,7 @@ a .icon, a .iconInline {
 			.org .bgc-l1,
 .newTheme > .org .bgc-l1				{ background-color:#fc8627!important; }
 			.org .bgc-l2,
-.newTheme > .org .bgc-l2				{ background-color:#d3a5a5!important; }
+.newTheme > .org .bgc-l2				{ background-color:#eaaf7f!important; }
 			.org .bgc-l3,
 .newTheme > .org .bgc-l3				{ background-color:#eabfbe!important; }
 			.org .bgc-l4,

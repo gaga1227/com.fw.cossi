@@ -81,7 +81,7 @@ a {
 	color:#666; background:#fff;
 	font-size:32px; line-height:60px;
 	/*border-radius*/-webkit-border-radius:50%; border-radius:50%;
-	/*background-clip*/-moz-background-clip:padding; -webkit-background-clip:padding-box; background-clip:padding-box; }
+	/*background-clip*/-moz-background-clip:padding; -webkit-background-clip:padding; background-clip:padding-box; }
 
 /* -------------------------------------------------------------------------- */
 /* webfont */
@@ -238,7 +238,7 @@ body {
 	color:#393e42; background:#f7f4ef;
 	font-size:15px; font-weight:700; line-height:20px;
 	/*border-radius*/-webkit-border-radius:0 0 5px 5px; border-radius:0 0 5px 5px;
-	/*background-clip*/-moz-background-clip:padding; -webkit-background-clip:padding-box; background-clip:padding-box;
+	/*background-clip*/-moz-background-clip:padding; -webkit-background-clip:padding; background-clip:padding-box;
 	/*box-shadow*/-webkit-box-shadow:0px 1px 0px 0px rgba(0,0,0,0.1); box-shadow:0px 1px 0px 0px rgba(0,0,0,0.1);
 	/*transition*/
 	/*-webkit-transform:translate3d(0,0,0);*/
@@ -445,7 +445,7 @@ body {
 	position:fixed; top:200px; right:-350px; width:350px; height:auto; margin:0; padding:0; z-index:800;
 	background:#f7f4ef;
 	/*border-radius*/-webkit-border-radius:5px 0 0 5px; border-radius:5px 0 0 5px;
-	/*background-clip*/-moz-background-clip:padding; -webkit-background-clip:padding-box; background-clip:padding-box;
+	/*background-clip*/-moz-background-clip:padding; -webkit-background-clip:padding; background-clip:padding-box;
 	/*box-shadow*/-webkit-box-shadow:0px 2px 1px 0px rgba(0,0,0,0.1); box-shadow:0px 2px 1px 0px rgba(0,0,0,0.1);
 	/*transition*/
 	/*-webkit-transform:translate3d(0,0,0);*/
@@ -461,7 +461,7 @@ body {
 		color:#fff; font-size:13px; font-weight:400; line-height:50px; text-transform:uppercase; 
 		text-decoration:none!important; outline:0 none!important; cursor:pointer!important;
 		/*border-radius*/-webkit-border-radius:3px 0 0 3px; border-radius:3px 0 0 3px;
-		/*background-clip*/-moz-background-clip:padding; -webkit-background-clip:padding-box; background-clip:padding-box;
+		/*background-clip*/-moz-background-clip:padding; -webkit-background-clip:padding; background-clip:padding-box;
 		/*user-select*/-webkit-user-select:none; -moz-user-select:none; -ms-user-select:none; user-select:none;
 		/*touch*/-webkit-touch-callout:none; -webkit-tap-highlight-color:rgba(0,0,0,0);
 		/*transition*/
@@ -509,7 +509,7 @@ body {
 		color:#fff; background:#1aaf5d; 
 		font-family:'Chaparral',georgia,serif; font-weight:700; font-size:28px; line-height:60px;
 		/*border-radius*/-webkit-border-radius:5px 0 0 0; border-radius:5px 0 0 0;
-		/*background-clip*/-moz-background-clip:padding; -webkit-background-clip:padding-box; background-clip:padding-box; }
+		/*background-clip*/-moz-background-clip:padding; -webkit-background-clip:padding; background-clip:padding-box; }
 		
 		/* iconInline */
 		.secAside > .header .iconInline { 
@@ -674,7 +674,7 @@ body {
 	color:#fff; background:#fff; text-align:center; 
 	font-size:15px; font-weight:400; line-height:20px;
 	/*border-radius*/-webkit-border-radius:5px; border-radius:5px;
-	/*background-clip*/-moz-background-clip:padding; -webkit-background-clip:padding-box; background-clip:padding-box; }
+	/*background-clip*/-moz-background-clip:padding; -webkit-background-clip:padding; background-clip:padding-box; }
 	
 	/* common */
 	.sysmsg h3,
@@ -727,7 +727,7 @@ body {
 			position:relative; width:auto; height:auto; margin:0 0 30px 0; padding:10px 20px; overflow:hidden;
 			color:#f0ece4; background:#687475; font-size:13px; font-weight:700; line-height:20px; text-transform:uppercase;
 			/*border-radius*/-webkit-border-radius:3px; border-radius:3px;
-			/*background-clip*/-moz-background-clip:padding; -webkit-background-clip:padding-box; background-clip:padding-box; }
+			/*background-clip*/-moz-background-clip:padding; -webkit-background-clip:padding; background-clip:padding-box; }
 		
 		/* -------------------------------------------------------- */
 		/* label */			
@@ -755,7 +755,7 @@ body {
 			color:#2b3d50; background:#f7f4ef; border:2px solid #bcc3c8;
 			font-family:'Montserrat',sans-serif; font-size:15px; line-height:18px; font-weight:400;
 			/*border-radius*/-webkit-border-radius:5px; border-radius:5px;
-			/*background-clip*/-moz-background-clip:padding; -webkit-background-clip:padding-box; background-clip:padding-box;
+			/*background-clip*/-moz-background-clip:padding; -webkit-background-clip:padding; background-clip:padding-box;
 			/*transition*/
 			/*-webkit-transform:translate3d(0,0,0);*/
 			-webkit-transition:background 0.3s ease-in-out, border-color 0.3s ease-in-out;
@@ -786,7 +786,7 @@ body {
 			color:#2b3d50; background:#f7f4ef; border:none; resize:vertical;
 			font-family:'Montserrat',sans-serif; font-size:15px; line-height:18px; font-weight:400;
 			/*border-radius*/-webkit-border-radius:5px; border-radius:5px;
-			/*background-clip*/-moz-background-clip:padding; -webkit-background-clip:padding-box; background-clip:padding-box;
+			/*background-clip*/-moz-background-clip:padding; -webkit-background-clip:padding; background-clip:padding-box;
 			/*transition*/
 			/*-webkit-transform:translate3d(0,0,0);*/
 			-webkit-transition:background 0.3s ease-in-out, border-color 0.3s ease-in-out;
@@ -852,10 +852,10 @@ body {
 		font-weight:700; text-transform:uppercase; }
 	.tblList .tblMasterHead:first-child { 
 		/*border-radius*/-webkit-border-radius:5px 5px 0 0; border-radius:5px 5px 0 0;
-		/*background-clip*/-moz-background-clip:padding; -webkit-background-clip:padding-box; background-clip:padding-box; }
+		/*background-clip*/-moz-background-clip:padding; -webkit-background-clip:padding; background-clip:padding-box; }
 	.tblList .tblMasterHead:nth-last-child(2) { 
 		/*border-radius*/-webkit-border-radius:0 0 5px 5px; border-radius:0 0 5px 5px;
-		/*background-clip*/-moz-background-clip:padding; -webkit-background-clip:padding-box; background-clip:padding-box; }
+		/*background-clip*/-moz-background-clip:padding; -webkit-background-clip:padding; background-clip:padding-box; }
 	.tblList .tblMasterHead.open:nth-last-child(2) { 
 		/*border-radius*/-webkit-border-radius:0; border-radius:0; }
 	
@@ -871,7 +871,7 @@ body {
 	.tblList .tblBody:last-child,
 	.tblList .tblBody:last-child .tblRow:last-child { 
 		/*border-radius*/-webkit-border-radius:0 0 5px 5px; border-radius:0 0 5px 5px;
-		/*background-clip*/-moz-background-clip:padding; -webkit-background-clip:padding-box; background-clip:padding-box; }
+		/*background-clip*/-moz-background-clip:padding; -webkit-background-clip:padding; background-clip:padding-box; }
 	
 /* -------------------------------------------------------------------------- */
 /* reviewList */
@@ -903,6 +903,46 @@ body {
 
 .tblList#reviewList .tblBody .tblHead .c3,
 .tblList#reviewList .tblBody .tblHead .c4 { color:#2c3e51; }
+
+
+/* ==========================================================================
+   comp - TABLE CONTENT
+   ========================================================================== */
+
+/* -------------------------------------------------------------------------- */
+/* container */
+.tblContent { 
+	display:table; width:100%; border-collapse:separate; }
+	
+	/* -------------------------------------------------------------------------- */
+	/* common */
+	.tblContent th,
+	.tblContent td { 
+		text-align:left; vertical-align:top; }
+	
+	/* -------------------------------------------------------------------------- */
+	/* th */
+	.tblContent th { 
+		margin:0; padding:12px 25px;
+		color:#fff; background:#687475; border-bottom:14px solid #d9d4c7; text-transform:uppercase;
+		font-size:13px; font-weight:700; line-height:16px; }
+	.bgNorm .tblContent th { border-bottom-color:#d9d4c7; }
+	.bgLite .tblContent th { border-bottom-color:#f0ece4; }
+	
+	.tblContent th:first-child { 
+		/*border-radius*/-webkit-border-radius:3px 0 0 3px; border-radius:3px 0 0 3px; }
+	.tblContent th:last-child { 
+		/*border-radius*/-webkit-border-radius:0 3px 3px 0; border-radius:0 3px 3px 0; }
+		
+	/* -------------------------------------------------------------------------- */
+	/* td */
+	.tblContent td { 
+		margin:0; padding:20px 25px 10px 25px;
+		background:#fff; border:2px solid #f0ece4;
+		/*border-radius*/-webkit-border-radius:5px; border-radius:5px; }
+
+	.tblContent td:first-child { border-left:none; }
+	.tblContent td:last-child { border-right:none; }
 
 
 /* ==========================================================================
@@ -994,7 +1034,7 @@ a .icon, a .iconInline {
 	background:#2b3d50; white-space:nowrap; text-overflow:ellipsis;
 	text-decoration:none!important; outline:0 none!important; cursor:pointer;
 	/*border-radius*/-webkit-border-radius:3px; border-radius:3px;
-	/*background-clip*/-moz-background-clip:padding; -webkit-background-clip:padding-box; background-clip:padding-box; }
+	/*background-clip*/-moz-background-clip:padding; -webkit-background-clip:padding; background-clip:padding-box; }
 .btnBox:hover,
 .btnBox:focus,
 .btnBox:active { 
@@ -1033,7 +1073,7 @@ a .icon, a .iconInline {
 	text-decoration:none!important; outline:0 none!important; cursor:pointer!important;
 	background:#687475; 
 	/*border-radius*/-webkit-border-radius:18px; border-radius:18px;
-	/*background-clip*/-moz-background-clip:padding; -webkit-background-clip:padding-box; background-clip:padding-box;
+	/*background-clip*/-moz-background-clip:padding; -webkit-background-clip:padding; background-clip:padding-box;
 	/*user-select*/-webkit-user-select:none; -moz-user-select:none; -ms-user-select:none; user-select:none;
 	/*touch*/-webkit-touch-callout:none; -webkit-tap-highlight-color:rgba(0,0,0,0);
 	/*transition*/
@@ -1068,7 +1108,7 @@ a .icon, a .iconInline {
 			color:#a1a9aa; background:#a1a9aa; 
 			cursor:pointer!important; outline:0 none!important;
 			/*border-radius*/-webkit-border-radius:50%; border-radius:50%;
-			/*background-clip*/-moz-background-clip:padding; -webkit-background-clip:padding-box; background-clip:padding-box;
+			/*background-clip*/-moz-background-clip:padding; -webkit-background-clip:padding; background-clip:padding-box;
 			/*transition*/
 			/*-webkit-transform:translate3d(0,0,0);*/
 			-webkit-transition:background 0.3s ease-in-out;
@@ -1098,7 +1138,7 @@ a .icon, a .iconInline {
 	text-decoration:none!important; outline:0 none!important; cursor:pointer!important;
 	background:#e7e3d9; 
 	/*border-radius*/-webkit-border-radius:5px; border-radius:5px;
-	/*background-clip*/-moz-background-clip:padding; -webkit-background-clip:padding-box; background-clip:padding-box;
+	/*background-clip*/-moz-background-clip:padding; -webkit-background-clip:padding; background-clip:padding-box;
 	/*user-select*/-webkit-user-select:none; -moz-user-select:none; -ms-user-select:none; user-select:none;
 	/*touch*/-webkit-touch-callout:none; -webkit-tap-highlight-color:rgba(0,0,0,0);
 	/*transition*/
@@ -1117,7 +1157,7 @@ a .icon, a .iconInline {
 		top:15px; right:15px; width:25px; height:25px; margin:0; padding:0; overflow:hidden;
 		background:#d9d4c7; font-size:25px; line-height:1em;
 		/*border-radius*/-webkit-border-radius:50%; border-radius:50%;
-		/*background-clip*/-moz-background-clip:padding; -webkit-background-clip:padding-box; background-clip:padding-box;
+		/*background-clip*/-moz-background-clip:padding; -webkit-background-clip:padding; background-clip:padding-box;
 		/*transition*/
 		/*-webkit-transform:translate3d(0,0,0);*/
 		-webkit-transition:background 0.3s ease-in-out;
@@ -1130,7 +1170,7 @@ a .icon, a .iconInline {
 		top:15px; right:15px; width:25px; height:25px; margin:0; padding:0; overflow:hidden;
 		color:#d9d4c7; background:#d9d4c7; font-size:25px; line-height:1em;
 		/*border-radius*/-webkit-border-radius:50%; border-radius:50%;
-		/*background-clip*/-moz-background-clip:padding; -webkit-background-clip:padding-box; background-clip:padding-box;
+		/*background-clip*/-moz-background-clip:padding; -webkit-background-clip:padding; background-clip:padding-box;
 		/*transform*/
 		-webkit-transform:scale(0);
 		-moz-transform:scale(0);
@@ -1199,7 +1239,7 @@ a .icon, a .iconInline {
 .bgShade { 
 	display:block; position:absolute; margin:0; padding:0; overflow:hidden;
 	/*border-radius*/-webkit-border-radius:50%; border-radius:50%;
-	/*background-clip*/-moz-background-clip:padding; -webkit-background-clip:padding-box; background-clip:padding-box; }
+	/*background-clip*/-moz-background-clip:padding; -webkit-background-clip:padding; background-clip:padding-box; }
 
 
 /* ==========================================================================

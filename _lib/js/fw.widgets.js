@@ -36,6 +36,7 @@ function initAccordions() {
 		acContentCls = 'acContent',
 		iconOpenCls = 'fwicon-plus',
 		iconCloseCls = 'fwicon-minus',
+		openCls = 'open',
 		speed = 600;
 	
 	//update collection obj
@@ -52,6 +53,7 @@ function initAccordions() {
 			ac.$iconClose.show(0);
 			ac.show = true;
 			ac.$content.attr('data-show', '1');
+			ac.$header.addClass(openCls);
 			return token + idx + ' opened';
 		}
 	}
@@ -68,6 +70,7 @@ function initAccordions() {
 			ac.$iconClose.hide(0);
 			ac.show = false;
 			ac.$content.attr('data-show', '0');
+			ac.$header.removeClass(openCls);
 			return token + idx + ' closed';
 		}
 	}
@@ -91,11 +94,13 @@ function initAccordions() {
 			ac.$iconOpen.hide(0);
 			ac.$iconClose.show(0);
 			ac.$content.attr('data-show', '1');
+			ac.$header.addClass(openCls);
 		} else {
 			ac.$content.slideUp(speed);
 			ac.$iconOpen.show(0);
 			ac.$iconClose.hide(0);
 			ac.$content.attr('data-show', '0');
+			ac.$header.removeClass(openCls);
 		}
 		return token + idx + ' refreshed';	
 	}
@@ -120,7 +125,8 @@ function initAccordions() {
 		//update instance
 		accordions.refreshAC(ac.id);
 		//bind hehavior
-		ac.$header.on('click', function(){
+		ac.$header.on('click', function(e){
+			e.preventDefault();
 			accordions.toggleAC(ac.id);	
 		});
 	});
@@ -137,6 +143,7 @@ function initSecAside() {
 		asideCls = 'secAside',
 		activeCls = 'active',
 		isIE7 = $('html').hasClass('ie7'),
+		footerHeight = $('#footer').outerHeight(),
 		getWindowHeight = function(){
 			return $(window).height();
 		};
@@ -218,7 +225,7 @@ function initSecAside() {
 			$btn:		$asBtn,
 			active:		$aside.hasClass(activeCls),
 			gapTop:		topGap,
-			gapBtm:		60//topGap
+			gapBtm:		footerHeight//topGap
 		};
 		asides.count++;
 		

@@ -330,8 +330,8 @@ body {
 		color:#fff; text-align:right; }
 		
 		/* btnGroup */
-		#banner .aside .btnGroup { margin-top:100px; height:60px; }
-		
+		#banner .aside .btnGroup { margin-top:110px; height:55px; }
+		#banner .aside .btnGroup .btn { margin:0!important; }		
 		
 	/* -------------------------------------------------------------------------- */
 	/* extra */
@@ -341,6 +341,11 @@ body {
 		
 		/* tabGroup */
 		#banner .extra .tabGroup { margin-top:20px; height:60px; }
+		
+			
+			
+			
+			
 				
 		
 /* ==========================================================================
@@ -442,7 +447,7 @@ body {
 /* -------------------------------------------------------------------------- */
 /* container */
 .secAside { 
-	position:fixed; top:200px; right:-350px; width:350px; height:auto; margin:0; padding:0; z-index:800;
+	position:fixed; top:190px; right:-350px; width:350px; height:auto; margin:0; padding:0; z-index:800;
 	background:#f7f4ef;
 	/*border-radius*/-webkit-border-radius:5px 0 0 5px; border-radius:5px 0 0 5px;
 	/*background-clip*/-moz-background-clip:padding; -webkit-background-clip:padding; background-clip:padding-box;
@@ -499,7 +504,6 @@ body {
 	
 		.secAside .btnTrigger:hover .label {
 			opacity:1; -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=100)"; filter:alpha(opacity=100); }
-	
 	
 	/* -------------------------------------------------------------------------- */
 	/* header */
@@ -1067,6 +1071,32 @@ a .icon, a .iconInline {
 .btnBox.compact .iconInline { font-size:8px; }
 
 /* -------------------------------------------------------------------------- */
+/* btnTab */
+.btnTab { 
+	display:inline-block; position:relative; width:auto; height:auto; margin:0; padding:20px 0; overflow:hidden;
+	background:#2b3d50; white-space:nowrap; text-overflow:ellipsis;
+	text-decoration:none!important; outline:0 none!important; cursor:pointer;
+	/*background-clip*/-moz-background-clip:padding; -webkit-background-clip:padding; background-clip:padding-box; }
+.btnTab:hover,
+.btnTab:focus,
+.btnTab:active { 
+	background:#33485f; text-decoration:none!important; }
+
+	/* label */
+	.btnTab,
+	.btnTab .label { 
+		color:#fff!important; text-align:center; vertical-align:middle; text-transform:uppercase;
+		font-family:'Montserrat',sans-serif; font-weight:700; font-size:15px; line-height:20px; }	
+	.btnTab:hover .label,
+	.btnTab:focus .label,
+	.btnTab:active .label { 
+		text-decoration:none!important; }
+		
+	/* icon */
+	.btnTab .icon,
+	.btnTab .iconInline { font-size:16px; }
+
+/* -------------------------------------------------------------------------- */
 /* btnSwitch */
 .btnSwitch {
 	display:inline-block; position:relative; width:90px; height:35px; margin:0; padding:0; overflow:hidden;
@@ -1226,6 +1256,25 @@ a .icon, a .iconInline {
 		/*border-radius*/-webkit-border-radius:3px 0 0 3px; border-radius:3px 0 0 3px; }
 	.btnGroup .btn.last { 
 		/*border-radius*/-webkit-border-radius:0 3px 3px 0; border-radius:0 3px 3px 0; }
+		
+/* -------------------------------------------------------------------------- */
+/* tabGroup */
+.tabGroup { 
+	display:block; position:relative; width:auto; height:auto; margin:0; padding:0;
+	background:#3c5f7f; white-space:nowrap;
+	/*border-radius*/-webkit-border-radius:3px 3px 0 0; border-radius:3px 3px 0 0;
+	/*background-clip*/-moz-background-clip:padding; -webkit-background-clip:padding; background-clip:padding-box; }
+
+	/* btn */
+	.tabGroup .btnTab { 
+		margin-left:1px; }	
+	.tabGroup .btnTab.first { 
+		margin-left:0;
+		/*border-radius*/-webkit-border-radius:3px 0 0 0; border-radius:3px 0 0 0; }
+	.tabGroup .btnTab.last { 
+		/*border-radius*/-webkit-border-radius:0 3px 0 0; border-radius:0 3px 0 0; }
+		
+.tabGroup.four .btnTab { width:24.92%; }
 		
 /* -------------------------------------------------------------------------- */
 /* selected */

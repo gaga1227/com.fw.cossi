@@ -266,6 +266,7 @@ function initBtnSwitch(){
 	
 	//bind button event
 	$switches.on('click', function(e){
+		e.preventDefault();
 		var $switch = $(this);
 		updateSwitch($switch, true);
 	});
@@ -284,5 +285,42 @@ function initBtnSwitch(){
 	//init states
 	$.each($switches, function(idx,ele){
 		updateSwitch($(ele), false);
+	});	
+}
+/* ------------------------------------------------------------------------------ */
+/* initBtnCheck */
+/* ------------------------------------------------------------------------------ */
+function initBtnCheck(){
+	var	$checks = $('.btnCheck'),
+		activeCls = 'checked';
+	
+	if (!$checks.length) {
+		return 'no check ctrl found!';
+	}
+	
+	//event handler
+	function updateCheck($tgt, toggle){
+		var $check = $tgt,
+			$chkbox = $check.find('input'),
+			checked = toggle ? !$chkbox.prop('checked') : $chkbox.prop('checked');
+		if (checked) {
+			$check.addClass(activeCls);
+		} else {
+			$check.removeClass(activeCls);
+		}
+		$chkbox.prop('checked', checked);
+		//console.log($chkbox.attr('id'), $chkbox.prop('checked'));
+	}
+	
+	//bind button event
+	$checks.on('click', function(e){
+		e.preventDefault();
+		var $check = $(this);
+		updateCheck($check, true);
+	});
+	
+	//init states
+	$.each($checks, function(idx,ele){
+		updateCheck($(ele), false);
 	});	
 }

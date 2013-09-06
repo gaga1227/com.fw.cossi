@@ -33,6 +33,7 @@ function init(){
 	Accordions = new initAccordions();
 	Asides = new initSecAside();
 	initBtnSwitch();
+	initBtnCheck();
 	
 	//template specific functions
 	

@@ -37,6 +37,7 @@
 <script type="text/javascript" src="_lib/js/jquery-1.8.3.js"></script><!-- jQuery -->
 <!-- JS:LIBS -->
 <script type="text/javascript" src="_lib/js/placeholders.js"></script><!-- placeholders -->
+<script type="text/javascript" src="_lib/js/ckeditor/ckeditor.js"></script><!-- ckeditor -->
 <!-- JS:FW -->
 <script type="text/javascript" src="_lib/js/fw.utils.js"></script><!-- utils -->
 <script type="text/javascript" src="_lib/js/fw.widgets.js"></script><!-- widgets -->
@@ -108,9 +109,10 @@
 			</div>
 		</div>
 	</div><!-- /BANNER -->
+	<!-- FORM -->
+	<form id="formDemo" action="#" method="get">
 	<!-- CONTENT -->
 	<div id="content">
-		
 		<!-- SECTION -->
 		<div class="secHeader bgc-n hoverbgc-l1 acHeader btn">
 			<div class="padder">
@@ -304,11 +306,11 @@
 						<p>
 							<span class="note">- Button Switch</span><br />
 							<a class="btnSwitch" href="#">
-								<input id="chk1" type="checkbox" checked="checked"/>
+								<input id="chk1" name="chk1" type="checkbox" checked="checked"/>
 								<span class="switch-controls"><span class="switch-left">Yes</span><label>&nbsp;</label><span class="switch-right">No</span></span>
 							</a>
 							<a class="btnSwitch" href="#">
-								<input id="chk2" type="checkbox" />
+								<input id="chk2" name="chk2" type="checkbox" />
 								<span class="switch-controls"><span class="switch-left">Yes</span><label>&nbsp;</label><span class="switch-right">No</span></span>
 							</a>
 						</p>
@@ -505,7 +507,10 @@
 					</fieldset>
 					<div class="colFocus acenter">
 						<fieldset>
-							<textarea id="t29" name="t29" cols="100" rows="16" placeholder="Enter text..."></textarea>
+							<textarea class="row double" id="t29" name="t29" cols="100" rows="16" placeholder="Enter text..."></textarea>
+						</fieldset>
+						<fieldset id="editor2Container" class="editorContainer">
+							<textarea id="editor2" name="editor2" cols="100" rows="16" placeholder="Enter text..."></textarea>
 						</fieldset>
 					</div><!-- /TEXTAREAS -->
 				</div>
@@ -514,7 +519,7 @@
 				<div class="padder clearfix contentViewport">
 					<!-- FORM BUTTON -->
 					<div class="colFocus acenter">
-						<a href="#" class="btnBox bgc-n hoverbgc-l1"><span class="label">Save</span></a>
+						<a href="javascript:$('#formDemo').submit();" class="btnBox bgc-n hoverbgc-l1"><span class="label">Save</span></a>
 						<p class="note">Are you ready to Submit the entire form?</p>
 					</div><!-- /FORM BUTTON -->
 				</div>
@@ -791,15 +796,15 @@
 						<span class="label"><span class="c-red">Lira <small>&#9786;</small></span></span>
 					</a>
 					<a href="#" class="btnCheck">
-						<input type="checkbox" id="chk12" name="chk12"/>
+						<input type="checkbox" id="chk12" name="chk12" value=""/>
 						<i class="icon fwicon-tick-sign"></i>
 						<span class="label">The provision of education for the whole child (academically, spiritually, socially, physically, and emotionally).</span>
 					</a>
 				</div><!-- /EVIDENCE -->
 			</div>
-		</div><!-- /SECTION -->
-		
+		</div><!-- /SECTION -->	
 	</div><!-- /CONTENT -->
+	</form><!-- /FORM -->
 	<!-- FOOTER -->
 	<div id="footer" class="section">
 		<div class="padder">

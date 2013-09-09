@@ -50,8 +50,8 @@
 .fwicon-tick-sign:before 			{ content: "\e003"; }
 .fwicon-alert-sign:before 			{ content: "\e004"; }
 .fwicon-upload:before 				{ content: "\e005"; }
-.fwicon-ul:before 					{ content: "\e006"; }
-.fwicon-ol:before 					{ content: "\e007"; }
+.fwicon-bulletedlist:before 		{ content: "\e006"; }
+.fwicon-numberedlist:before 		{ content: "\e007"; }
 .fwicon-menu:before 				{ content: "\e008"; }
 .fwicon-print:before 				{ content: "\e009"; }
 .fwicon-file:before 				{ content: "\e00a"; }

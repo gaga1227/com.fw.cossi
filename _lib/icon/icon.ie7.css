@@ -23,8 +23,8 @@
 .ie7 .fwicon-tick-sign 			{zoom:expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe003;');}
 .ie7 .fwicon-alert-sign 		{zoom:expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe004;');}
 .ie7 .fwicon-upload 			{zoom:expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe005;');}
-.ie7 .fwicon-ul 				{zoom:expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe006;');}
-.ie7 .fwicon-ol 				{zoom:expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe007;');}
+.ie7 .fwicon-bulletedlist		{zoom:expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe006;');}
+.ie7 .fwicon-numberedlist		{zoom:expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe007;');}
 .ie7 .fwicon-menu 				{zoom:expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe008;');}
 .ie7 .fwicon-print 				{zoom:expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe009;');}
 .ie7 .fwicon-file 				{zoom:expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe00a;');}

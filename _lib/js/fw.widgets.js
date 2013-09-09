@@ -324,3 +324,19 @@ function initBtnCheck(){
 		updateCheck($(ele), false);
 	});	
 }
+/* ------------------------------------------------------------------------------ */
+/* initEditors */
+/* ------------------------------------------------------------------------------ */
+function initEditors() {
+	var config = {
+    	customConfig:		'',
+		contentsCss:		'_lib/css/content-viewport.css',
+		bodyClass:			'contentViewport',
+		toolbar: 			'Basic',
+    	uiColor: 			'#687475',
+		skin:				'flat',
+		height:				200,
+		toolbar:			[[ 'Cut', 'Copy', 'Paste', '-', 'Bold', 'Underline', 'Italic', '-', 'BulletedList', 'NumberedList' ]]
+	};
+	CKEDITOR.replace( 'editor2', config );
+}

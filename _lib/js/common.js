@@ -23,7 +23,7 @@ WebFontUtils = {
 /* ------------------------------------------------------------------------------ */
 /* init */
 /* ------------------------------------------------------------------------------ */
-var Accordions, Asides;
+var Accordions, Asides, Editors;
 function init(){
 	//layout assistance
 	//insertFirstLastChild('');
@@ -34,6 +34,7 @@ function init(){
 	Asides = new initSecAside();
 	initBtnSwitch();
 	initBtnCheck();
+	Editors = new initEditors();
 	
 	//template specific functions
 	

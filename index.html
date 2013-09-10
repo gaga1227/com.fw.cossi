@@ -505,17 +505,38 @@
 					<fieldset class="col2 col2b">
 						<textarea class="row double" id="t28" name="t28" cols="50" rows="8" placeholder="Enter text..."></textarea>
 					</fieldset>
-					<div class="colFocus acenter">
+					<!-- /TEXTAREAS -->
+					
+					<!-- EDITOR -->
+					<div class="colFocus">
 						<fieldset>
 							<textarea class="row double" id="t29" name="t29" cols="100" rows="16" placeholder="Enter text..."></textarea>
 						</fieldset>
 						<fieldset id="editor1Container" class="editorContainer row double">
 							<textarea id="editor1" name="editor1" cols="100" rows="16" >1 Enter text...</textarea>
 						</fieldset>
+					</div><!-- EDITOR -->
+					
+					<!-- EDITOR (NOTES)-->
+					<div class="colFull clearfix editorWithNotes" data-notes-open="1">
 						<fieldset id="editor2Container" class="editorContainer">
+							<a href="#" class="btnNotes bgc-n hoverbgc-l1"><i class="icon fwicon-file"></i><span class="label">Notes</span></a>
 							<textarea id="editor2" name="editor2" cols="100" rows="16" >2 Enter text...</textarea>
 						</fieldset>
-					</div><!-- /TEXTAREAS -->
+						<div class="notes">
+							<h3 class="header bgc-n">Notes<a href="#" class="btnClose"><i class="icon fwicon-cross"></i></a></h3>
+							<div class="padder contentViewport">
+								<p>Vivamus luctus urna sed urna ultricies ac tempor dui sagittis.</p>
+								<p>In condimentum facilisis porta. Sed nec diam eu diam mattis viverra. Nulla fringilla, orci ac euismod semper, magna diam porttitor mauris, quis sollicitudin sapien justo in libero.</p>
+								<ul>
+									<li>Donec viverra auctor lobortis.</li>
+									<li>Pellentesque eu est a nulla placerat dignissim.</li>
+									<li>Vestibulum mollis mauris enim.</li>
+									<li>Morbi euismod magna ac lorem rutrum elementum.</li>
+								</ul>
+							</div>
+						</div>
+					</div><!-- EDITOR (NOTES)-->
 				</div>
 			</div>
 			<div class="section">
@@ -819,11 +840,7 @@
 	</div><!-- /FOOTER -->
 	<!-- HELP -->
 	<div id="help" class="secAside">
-		<a href="#" class="btnTrigger bgc-n hoverbgc-l1">
-			<i class="icon fwicon-question-circle iconInactive"></i>
-			<i class="icon fwicon-angle-right iconActive"></i>
-			<span class="label">Help</span>
-		</a>
+		<a href="#" class="btnTrigger bgc-n hoverbgc-l1"><i class="icon fwicon-question-circle iconInactive"></i><i class="icon fwicon-angle-right iconActive"></i><span class="label">Help</span></a>
 		<div class="header"><i class="iconInline left fwicon-question-circle"></i>Help</div>
 		<div class="scroller">
 			<div class="padder contentViewport">

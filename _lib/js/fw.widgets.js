@@ -329,7 +329,8 @@ function initBtnCheck(){
 /* ------------------------------------------------------------------------------ */
 function initEditors() {
 	//vars
-	var $containers = $('.editorContainer'),
+	var editors = { count:0 },
+		$containers = $('.editorContainer'),
 		config = {
 			customConfig:	'',
 			language:		'en-au',
@@ -349,6 +350,51 @@ function initEditors() {
 	$.each($containers, function(idx,ele){
 		var $instance = $(ele),
 			id = $instance.find('textarea').attr('id');
-		if (id) CKEDITOR.replace( id, config );
+		if (id) {
+			editors['editor'+(idx+1)] = CKEDITOR.replace( id, config );
+		}
+		editors.count++;
 	});	
+	
+	//return obj to DOM
+	return editors;
 }
+/* ------------------------------------------------------------------------------ */
+/* initEditorWithNotes */
+/* ------------------------------------------------------------------------------ */
+function initEditorWithNotes() {
+	//vars
+	var $contaienrs = $('.editorWithNotes');
+		activeCls = 'notesActive';
+	
+	//search DOM for as instances
+	$.each($contaienrs, function(idx, ele){
+		var $instance = $(ele),
+			$btnOpen = $instance.find('.btnNotes'),
+			$btnClose = $instance.find('.notes .btnClose'),
+			notesOpen = $instance.attr('data-notes-open') == '1' ? true : false;
+		
+		//update instance
+		if (notesOpen) {
+			$instance.addClass(activeCls);	
+		} else {
+			$instance.removeClass(activeCls);
+		}
+		$(window).trigger('resize');
+		
+		//bind hehavior
+		$btnOpen.on('click', function(e){
+			e.preventDefault();
+			$instance.addClass(activeCls);
+			$(window).trigger('resize');	
+		});
+		$btnClose.on('click', function(e){
+			e.preventDefault();
+			$instance.removeClass(activeCls);
+			$(window).trigger('resize');	
+		});
+	});
+}
+
+
+

@@ -35,6 +35,7 @@ function init(){
 	initBtnSwitch();
 	initBtnCheck();
 	Editors = new initEditors();
+	initEditorWithNotes();
 	
 	//template specific functions
 	

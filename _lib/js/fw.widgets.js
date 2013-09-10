@@ -328,15 +328,27 @@ function initBtnCheck(){
 /* initEditors */
 /* ------------------------------------------------------------------------------ */
 function initEditors() {
-	var config = {
-    	customConfig:		'',
-		contentsCss:		'_lib/css/content-viewport.css',
-		bodyClass:			'contentViewport',
-		toolbar: 			'Basic',
-    	uiColor: 			'#687475',
-		skin:				'flat',
-		height:				200,
-		toolbar:			[[ 'Cut', 'Copy', 'Paste', '-', 'Bold', 'Underline', 'Italic', '-', 'BulletedList', 'NumberedList' ]]
-	};
-	CKEDITOR.replace( 'editor2', config );
+	//vars
+	var $containers = $('.editorContainer'),
+		config = {
+			customConfig:	'',
+			language:		'en-au',
+			contentsCss:	'_lib/css/content-viewport.css',
+			bodyClass:		'contentViewport',
+			toolbar: 		'Basic',
+			uiColor: 		'#687475',
+			skin:			'flat',
+			height:			200,
+			toolbar:		[[ 'Cut', 'Copy', 'Paste', '-', 'Bold', 'Underline', 'Italic', '-', 'BulletedList', 'NumberedList' ]]
+		};
+	
+	//exit
+	if (!$containers.length) return false;
+	
+	//init all instances
+	$.each($containers, function(idx,ele){
+		var $instance = $(ele),
+			id = $instance.find('textarea').attr('id');
+		if (id) CKEDITOR.replace( id, config );
+	});	
 }

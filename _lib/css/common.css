@@ -1413,13 +1413,13 @@ a.btnTab:active {
 	white-space:nowrap; }
 
 	/* btn */
-	.btnGroup .btn 				{ margin-left:1px; /*border-radius*/-webkit-border-radius:0; border-radius:0; }
+	.btnGroup .btn 					{ margin-left:1px; /*border-radius*/-webkit-border-radius:0; border-radius:0; }
 	.btnGroup .btn.first,
-	.btnGroup .btn.first-child 	{ margin-left:0; /*border-radius*/-webkit-border-radius:3px 0 0 3px; border-radius:3px 0 0 3px; }
-	.btnGroup .btn:first-child 	{ margin-left:0; /*border-radius*/-webkit-border-radius:3px 0 0 3px; border-radius:3px 0 0 3px; }
+	.btnGroup > .btn.first-child 	{ margin-left:0; /*border-radius*/-webkit-border-radius:3px 0 0 3px; border-radius:3px 0 0 3px; }
+	.btnGroup > .btn:first-child 	{ margin-left:0; /*border-radius*/-webkit-border-radius:3px 0 0 3px; border-radius:3px 0 0 3px; }
 	.btnGroup .btn.last,
-	.btnGroup .btn.last-child 	{ /*border-radius*/-webkit-border-radius:0 3px 3px 0; border-radius:0 3px 3px 0; }
-	.btnGroup .btn:last-child 	{ /*border-radius*/-webkit-border-radius:0 3px 3px 0; border-radius:0 3px 3px 0; }
+	.btnGroup > .btn.last-child 	{ /*border-radius*/-webkit-border-radius:0 3px 3px 0; border-radius:0 3px 3px 0; }
+	.btnGroup > .btn:last-child 	{ /*border-radius*/-webkit-border-radius:0 3px 3px 0; border-radius:0 3px 3px 0; }
 		
 /* -------------------------------------------------------------------------- */
 /* tabGroup */

@@ -395,6 +395,122 @@ function initEditorWithNotes() {
 		});
 	});
 }
-
+/* ------------------------------------------------------------------------------ */
+/* initSliders */
+/* ------------------------------------------------------------------------------ */
+function initSliders() {
+	//vars
+	var //collection obj
+		sliders = { count:0 },
+		ns = 'slider',
+		
+		//selectors
+		sliderSelector = '.slider',
+		trackSelector = '.sliderTrack',
+		markSelector = '.sliderMark',
+		labelSelector = '.sliderLabel',
+		knobSelector = '.sliderKnob',
+		inputSelector = 'input',
+		
+		//functions
+		getStepValues = function($marks){
+			var vals = [], val, hasVal, i,
+				$mark, steps = $marks.length,
+				avg = 100 / (steps-1);
+			for ( i=0; i<steps; i++ ) {
+				$mark = $marks.eq(i);
+				val = $mark.attr('data-value');
+				hasVal = (val && val.indexOf('%') != -1) ? true : false;
+				//use given value, or calculate average
+				if (hasVal) {
+					vals.push(val);
+				} else {
+					vals.push( Math.round(avg * i) + '%' );
+				}
+			}
+			//console.log('StepValues:', vals);
+			return vals;
+		}
+	
+	//common functions
+	sliders.updateSlider = function(id){
+		//vars
+		var slider = sliders[ns+id];
+		
+		//tracks
+		$.each(slider.$tracks, function(idx,ele){
+			var $track = $(ele),
+				dataStep = $track.attr('data-step'),
+				step = dataStep ? parseInt(dataStep, 10) : 1,
+				val = slider.stepVals[step - 1];
+			//update tracks
+			$track
+				.css('width', val)
+				.attr('data-value', val);
+		});
+				
+		//marks / labels
+		$.each(slider.$marks, function(idx,ele){
+			var $mark = $(ele),
+				$label = slider.$labels.eq(idx),
+				val = slider.stepVals[idx];
+			//update tracks
+			$mark
+				.css('left', val)
+				.attr('data-value', val);
+			$label
+				.css('left', val)
+				.attr('data-value', val);
+		});
+		
+		//knob
+		
+		//value		
+	}
+	
+	//search DOM for instances
+	$.each($(sliderSelector), function(idx, ele){
+		var //control obj
+			slider,
+			
+			//elems
+			sliderID = idx + 1,
+			$slider = $(ele),
+			$sliderInput = $slider.find(inputSelector),
+			$sliderTracks = $slider.find(trackSelector),
+			$sliderMarks = $slider.find(markSelector),
+			$sliderLabels = $slider.find(labelSelector),
+			$sliderKnob = $slider.find(knobSelector).first(); 
+		
+		//add instance to control and collection objs
+		sliders[ns + sliderID] = slider = {
+			//elems
+			$el:		$slider,
+			$tracks:	$sliderTracks,
+			$marks:		$sliderMarks,
+			$labels:	$sliderLabels,
+			$knob:		$sliderKnob,
+			$input:		$sliderInput,
+			
+			//properties/data
+			id:			sliderID,
+			snap:		$slider.attr('data-snap') == '1' ? true : false,
+			steps:		$sliderMarks.length,
+			stepVals:	getStepValues($sliderMarks),
+			
+			//functions
+			init:		function(){ 
+							sliders.updateSlider(sliderID);
+						}			
+		};
+		sliders.count++;
+		
+		//init instance
+		slider.init();
+	});
+	
+	//return to DOM
+	return sliders;	
+}
 
 

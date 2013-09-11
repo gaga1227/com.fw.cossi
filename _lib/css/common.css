@@ -366,11 +366,7 @@ body {
 			.org #banner .extra .tabGroup .btnTab .arrow {  border-top-color:#fc8627; }
 			.red #banner .extra .tabGroup .btnTab .arrow {  border-top-color:#f4564a; }
 			
-			
-			
-			
-				
-		
+
 /* ==========================================================================
    structure - CONTENT SHELL
    ========================================================================== */
@@ -1112,6 +1108,112 @@ body {
 .editorWithNotes.notesActive .btnNotes { 
 	right:0!important; width:70px!important; }
    
+
+/* ==========================================================================
+   comp - SLIDER
+   ========================================================================== */
+   
+/* -------------------------------------------------------------------------- */
+/* container */
+.slider { 
+	position:relative; width:750px; height:80px; margin:0 auto; padding:0 18px; overflow:visible; }
+
+/* extend */
+.slider.withTopLabels { margin-top:35px; }
+
+	/* -------------------------------------------------------------------------- */
+	/* sliderTrack */
+	.sliderTrack { 
+		position:absolute; top:50%; left:0; width:100%; height:16px; margin:-8px 0 0 0; padding:0; overflow:hidden;
+		background:#d9d4c7; font-size:0; line-height:0;
+		/*border-radius*/-webkit-border-radius:8px; border-radius:8px;
+		/*background-clip*/-moz-background-clip:padding; -webkit-background-clip:padding; background-clip:padding-box; }
+	 
+	 /* extend */
+	 .sliderTrack.indicator { width:0; background:#a6a298; } 
+	 .sliderTrack.live 		{ width:0; background-color:#2b3d50; }
+	 
+	/* -------------------------------------------------------------------------- */
+	/* sliderMark */
+	.sliderMark,
+	.sliderKnob .indicator { 
+		position:absolute; top:50%; left:0; width:24px; height:24px; margin:-18px 0 0 -18px; padding:0; overflow:hidden;
+		background:#a6a298; border:6px solid #f0ece4; font-size:0; line-height:0;
+		/*border-radius*/-webkit-border-radius:50%; border-radius:50%;
+		/*background-clip*/-moz-background-clip:padding; -webkit-background-clip:padding; background-clip:padding-box; }
+	
+	/* extend */
+	.sliderMark.passed 		{ background:transparent; }
+	.sliderMark.current 	{ display:none; }
+	.sliderMark.indicator,
+	.sliderKnob .indicator 	{ background:#a6a298; border-width:5px; width:50px; height:50px; margin:-30px 0 0 -30px; }
+	 
+	/* -------------------------------------------------------------------------- */
+	/* sliderLabel */
+	.sliderLabel { 
+		position:absolute; top:-35px; left:0; width:200px; height:20px; margin:0 0 0 -100px; padding:0; overflow:hidden;
+		white-space:nowrap; text-overflow:ellipsis;
+		color:#2b3d50; font-size:15px; font-weight:700; line-height:20px; text-align:center; text-transform:uppercase; }
+		
+	/* label */
+	.sliderLabel .label { display:inline-block; vertical-align:middle; }
+	.oldie .sliderLabel .label { letter-spacing:-1px; }
+		
+	/* custom */
+	#sliderLabelAttention .iconInline	{ color:#e83262; }
+	#sliderLabelDevelop .iconInline 	{ color:#f7941d; }
+	#sliderLabelAchieved .iconInline 	{ color:#00c9a8; }
+	#sliderLabelExemplary .iconInline 	{ color:#f2c500; }	
+	 
+	/* -------------------------------------------------------------------------- */
+	/* sliderKnob */
+	.sliderKnob { 
+		position:absolute; top:50%; left:0; width:70px; height:70px; margin:-40px 0 0 -40px; padding:0; overflow:hidden;
+		background:#2b3d50; border:5px solid #f0ece4; font-size:0; line-height:0;
+		cursor:pointer!important;
+		/*border-radius*/-webkit-border-radius:50%; border-radius:50%;
+		/*background-clip*/-moz-background-clip:padding; -webkit-background-clip:padding; background-clip:padding-box;
+		/*transition*/
+		/*-webkit-transform:translate3d(0,0,0);*/
+		-webkit-transition:width 0.3s ease-in-out, height 0.3s ease-in-out, border-width 0.3s ease-in-out;
+		-moz-transition:width 0.3s ease-in-out, height 0.3s ease-in-out, border-width 0.3s ease-in-out;
+		-o-transition:width 0.3s ease-in-out, height 0.3s ease-in-out, border-width 0.3s ease-in-out;
+		transition:width 0.3s ease-in-out, height 0.3s ease-in-out, border-width 0.3s ease-in-out; }
+	
+	/* interaction */
+	.sliderKnob.overlap { 
+		border-width:0; width:80px; height:80px; }
+	
+		/* indicator */
+		.sliderKnob .indicator { 
+			left:50%; margin:-30px 0 0 -30px;
+			/*transition*/
+			/*-webkit-transform:translate3d(0,0,0);*/
+			-webkit-transition:opacity 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
+			-moz-transition:opacity 0.3s ease-in-out, -moz-transform 0.3s ease-in-out;
+			-ms-transition:opacity 0.3s ease-in-out, -ms-transform 0.3s ease-in-out;
+			transition:opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+			/*opacity*/
+			opacity:0;
+			-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+			filter:alpha(opacity=0);
+			/*transform*/
+			-webkit-transform:scale(0);
+			-moz-transform:scale(0);
+			-ms-transform:scale(0);
+			transform:scale(0); }
+		.sliderKnob.overlap .indicator { 
+			/*opacity*/
+			opacity:1;
+			-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+			filter:alpha(opacity=100);
+			/*transform*/
+			-webkit-transform:scale(1);
+			-moz-transform:scale(1);
+			-ms-transform:scale(1);
+			transform:scale(1); }
+
+
 
 /* ==========================================================================
    common - ICONS

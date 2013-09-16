@@ -402,7 +402,13 @@ function initSliders() {
 	//vars
 	var //collection obj
 		sliders = { count:0 },
+		
+		//properties
 		ns = 'slider',
+		hasTouch = Modernizr.touch,
+		evtDown = hasTouch ? 'touchstart' : 'mousedown',
+		evtUp = hasTouch ? 'touchend' : 'mouseup',
+		evtMove = hasTouch ? 'touchmove' : 'mousemove',
 		
 		//selectors
 		sliderSelector = '.slider',
@@ -414,6 +420,7 @@ function initSliders() {
 		knobSelector = '.sliderKnob',
 		inputSelector = 'input',
 		overlapCls = 'overlap',
+		draggingCls = 'dragging',
 		
 		//functions
 		getStepValues = function($marks){
@@ -491,10 +498,67 @@ function initSliders() {
 			$mark.off();
 			$mark.on('click', function(e){
 				e.preventDefault();
-				slider.$input.val(idx+1);
-				slider.$input.trigger('change');
+				sliders.setSliderByValue(id, idx+1);
 			});
 		});
+	}
+	
+	
+	
+	
+	
+	
+	//ratioToStep
+	sliders.ratioToStep = function(id, ratio){
+		//vars
+		var slider = sliders[ns+id],
+			vals = slider.stepVals,
+			steps = vals.length,
+			ratio = parseInt(ratio,10),
+			value;
+		//update vals to integer
+		while (steps--) {
+			vals[steps] = parseInt(vals[steps],10);
+		}
+		//find neighbors
+		steps = vals.length;
+		while (steps-- && steps > 0) {
+			console.log(vals[steps],vals[steps-1]);
+			if (ratio <= (vals[steps]-vals[steps-1])/2) {
+				value = steps;	
+			} else {
+				value = steps+1;	
+			}
+		}
+		//console.log(value);
+		//return value;
+	}
+	
+	//setSliderByValue
+	sliders.setSliderByValue = function(id, val){
+		//vars
+		var slider = sliders[ns+id],
+			value = val || slider.$knob.attr('data-value');
+		
+		//convert ratio to step
+		value = (String(value).indexOf('%') > 0 ) ? sliders.ratioToStep(id, value) : value;
+		console.log(value);
+		
+		slider.$input.val(String(value));
+		slider.$input.trigger('change');
+	}
+	
+	
+	
+	
+	
+	
+	
+	//setSlider
+	sliders.setSliderByRatio = function(id, ratio){
+		//vars
+		var slider = sliders[ns+id];
+		
 	}
 	
 	//updateMarks
@@ -576,6 +640,74 @@ function initSliders() {
 		slider.$input.val(slider.value);
 	}
 	
+	//initDrag
+	sliders.initDrag = function(id){
+		//vars
+		var slider = sliders[ns+id],
+			hasTouch = Modernizr.touch,
+			$body = $('body');
+		
+		//binding interaction
+		slider.$knob.on(evtDown, function(e) {
+			//console.log(evtDown);
+			$(slider.$el.parents('.section')).prev('.secHeader').find('.label').text('touchstart');
+			e.preventDefault();
+			slider.dragging = true;
+			slider.$el.addClass(draggingCls);
+			slider.domDrag(e);
+		});
+		$body.on(evtMove, function(e) {
+			//console.log(evtMove);
+			$(slider.$el.parents('.section')).prev('.secHeader').find('.label').text('touchmove');
+			if (slider.dragging) {
+				slider.domDrag(e);
+				return $body.css('cursor', 'pointer');
+			}
+		})
+		.on(evtUp, function(e) {
+			//console.log(evtUp);
+			$(slider.$el.parents('.section')).prev('.secHeader').find('.label').text('touchend');
+			if (slider.dragging) {
+				slider.dragging = false;
+				slider.$el.removeClass(draggingCls);
+				sliders.setSliderByValue(id);
+				return $body.css('cursor', 'auto');
+			}
+		});
+		
+		//drag handler
+		slider.pagePos = 0;
+		slider.domDrag = function(e) {
+			//alert(e.originalEvent);
+			var pagePos,
+				pageX = hasTouch ? e.originalEvent.targetTouches[0].pageX : e.pageX,
+				pageY = hasTouch ? e.originalEvent.targetTouches[0].pageY : e.pageY;
+			//determine drag position
+			pagePos = pageX - slider.$el.offset().left;
+			pagePos = Math.min(slider.$el.outerWidth(), pagePos);
+			pagePos = Math.max(0, pagePos);
+			//update drag data if dragged
+			if (slider.pagePos != pagePos) {
+				slider.pagePos = pagePos;
+				slider.ratio = slider.pagePos / slider.$el.outerWidth() * 100;
+				slider.cssRatio = slider.ratio + '%';
+			}
+			/*
+			console.log(pageX, slider.$el.offset().left);
+			console.log(slider.pagePos);
+			console.log(slider.pagePos / slider.$el.outerWidth());
+			console.log(slider.ratio);
+			// */
+			
+			//update knob and track
+			slider.$liveTrack.css('width', slider.cssRatio);
+			slider.$liveTrack.attr('data-value', slider.cssRatio);
+			slider.$knob.css('left', slider.cssRatio);
+			slider.$knob.attr('data-value', slider.cssRatio);
+			//console.log(ns + slider.id, 'domDrag->', slider.cssRatio);
+		};
+	}
+	
 	//search DOM for instances
 	$.each($(sliderSelector), function(idx, ele){
 		var //control obj
@@ -613,6 +745,9 @@ function initSliders() {
 			value:			0,
 			indicatorValue: 0,
 			
+			//dragging
+			dragging:		false,
+			
 			//functions
 			init:			function(){ 
 								//update on init
@@ -622,18 +757,23 @@ function initSliders() {
 								sliders.updateMarks(sliderID);
 								sliders.updateLiveTrack(sliderID);
 								sliders.updateKnob(sliderID);
+								sliders.initDrag(sliderID);
 								
 								//call slider.update on value change
 								this.$input.on('change', this.update);
 								
 								//marks as value trigger
 								sliders.bindMarks(sliderID);
+								
+								console.log(ns + sliderID, 'init->', this.value);
 							},
 			update:			function(e){
 								sliders.validateValue(sliderID);
 								sliders.updateMarks(sliderID);
 								sliders.updateLiveTrack(sliderID);
 								sliders.updateKnob(sliderID);
+								
+								console.log(ns + sliderID, 'update->', this.value);
 							}			
 		};
 		sliders.count++;
@@ -645,5 +785,3 @@ function initSliders() {
 	//return to DOM
 	return sliders;	
 }
-
-

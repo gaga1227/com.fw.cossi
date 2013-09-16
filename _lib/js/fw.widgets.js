@@ -407,10 +407,13 @@ function initSliders() {
 		//selectors
 		sliderSelector = '.slider',
 		trackSelector = '.sliderTrack',
+		liveTrackSelector = '.sliderTrack.live',
+		indicatorTrackSelector = '.sliderTrack.indicator',
 		markSelector = '.sliderMark',
 		labelSelector = '.sliderLabel',
 		knobSelector = '.sliderKnob',
 		inputSelector = 'input',
+		overlapCls = 'overlap',
 		
 		//functions
 		getStepValues = function($marks){
@@ -431,41 +434,146 @@ function initSliders() {
 			//console.log('StepValues:', vals);
 			return vals;
 		}
-	
-	//common functions
-	sliders.updateSlider = function(id){
+
+	//getStepColors
+	sliders.getStepColors = function(id){
 		//vars
 		var slider = sliders[ns+id];
-		
+		//store step colors for the first time
+		$.each(slider.$marks, function(idx,ele){
+			var $mark = $(ele);
+			if (slider.stepColors.length < slider.$marks.length) {
+				slider.stepColors[idx] = $mark.attr('data-color');
+			}	
+		});
+	}
+
+	//validate value
+	sliders.validateValue = function(id){
+		//vars
+		var slider = sliders[ns+id],
+			inputVal = parseInt(slider.$input.val(),10),
+			indicatorVal = parseInt(slider.$indicatorTrack.attr('data-step'),10);
+		//get latest value from DOM
+		slider.value = (inputVal > 1) ? inputVal : 1;
+		slider.indicatorValue = indicatorVal ? indicatorVal : 0;
+		//validate values
+		if (slider.value > slider.steps) slider.value = slider.steps;
+		if (slider.indicatorValue > slider.steps) slider.indicatorValue = slider.steps;
+	}
+	
+	//updateTracks
+	sliders.updateTracks = function(id){
+		//vars
+		var slider = sliders[ns+id];
 		//tracks
 		$.each(slider.$tracks, function(idx,ele){
 			var $track = $(ele),
 				dataStep = $track.attr('data-step'),
 				step = dataStep ? parseInt(dataStep, 10) : 1,
 				val = slider.stepVals[step - 1];
+			//skip liveTrack
+			if ($track.hasClass('live')) return false;
 			//update tracks
 			$track
 				.css('width', val)
 				.attr('data-value', val);
 		});
-				
+	}
+	
+	//bindMarks
+	sliders.bindMarks = function(id){
+		//vars
+		var slider = sliders[ns+id];
+		//marks
+		$.each(slider.$marks, function(idx,ele){
+			var $mark = $(ele);
+			$mark.off();
+			$mark.on('click', function(e){
+				e.preventDefault();
+				slider.$input.val(idx+1);
+				slider.$input.trigger('change');
+			});
+		});
+	}
+	
+	//updateMarks
+	sliders.updateMarks = function(id){
+		//vars
+		var slider = sliders[ns+id];
 		//marks / labels
 		$.each(slider.$marks, function(idx,ele){
 			var $mark = $(ele),
 				$label = slider.$labels.eq(idx),
-				val = slider.stepVals[idx];
-			//update tracks
+				val = slider.stepVals[idx],
+				step = idx+1,
+				norm = passed = current = indicator = false;
+			//determine individual mark state
+			$mark.removeClass('passed current indicator');
+			if (step < slider.value) {
+				passed = true;
+				$mark.addClass('passed');
+			} else if (step == slider.value) {
+				current = true;	
+				$mark.addClass('current');
+			} else if (step > slider.value) {
+				norm = true;
+			}
+			if (step == slider.indicatorValue) {
+				indicator = true;
+				$mark.addClass('indicator');	
+			}
+			//update mark
 			$mark
 				.css('left', val)
 				.attr('data-value', val);
 			$label
 				.css('left', val)
 				.attr('data-value', val);
+			
+			//update mark step color
+			if ($mark.hasClass('passed') && !$mark.hasClass('indicator')) {
+				$mark.css('background-color', slider.stepColors[ slider.value-1 ]);	
+			} else {
+				$mark.css('background-color', '');	
+			}
 		});
-		
-		//knob
-		
-		//value		
+	}
+	
+	//updateLiveTrack
+	sliders.updateLiveTrack = function(id){
+		//vars
+		var slider = sliders[ns+id],
+			val = slider.stepVals[slider.value - 1];
+		//livetrack
+		slider.$liveTrack
+			.attr('data-step', slider.value)
+			.css('width', val)
+			.attr('data-value', val);
+		//livetrack color
+		slider.$liveTrack.css('background-color', slider.stepColors[ slider.value-1 ]);
+	}
+	
+	//updateKnob
+	sliders.updateKnob = function(id){
+		//vars
+		var slider = sliders[ns+id],
+			overlap = (slider.value == slider.indicatorValue) ? true : false;
+		//knob value
+		slider.$knob
+			.css('left', slider.stepVals[slider.value-1])
+			.attr('data-value', slider.stepVals[slider.value-1])
+			.attr('data-step', slider.value);
+		//knob overlap
+		if (overlap) {
+			slider.$knob.addClass(overlapCls);
+		} else {
+			slider.$knob.removeClass(overlapCls);	
+		}
+		//knob color
+		slider.$knob.css('background-color', slider.stepColors[ slider.value-1 ]);
+		//value
+		slider.$input.val(slider.value);
 	}
 	
 	//search DOM for instances
@@ -478,6 +586,8 @@ function initSliders() {
 			$slider = $(ele),
 			$sliderInput = $slider.find(inputSelector),
 			$sliderTracks = $slider.find(trackSelector),
+			$sliderTrackLive = $slider.find(liveTrackSelector),
+			$sliderTrackIndicator = $slider.find(indicatorTrackSelector),
 			$sliderMarks = $slider.find(markSelector),
 			$sliderLabels = $slider.find(labelSelector),
 			$sliderKnob = $slider.find(knobSelector).first(); 
@@ -485,23 +595,46 @@ function initSliders() {
 		//add instance to control and collection objs
 		sliders[ns + sliderID] = slider = {
 			//elems
-			$el:		$slider,
-			$tracks:	$sliderTracks,
-			$marks:		$sliderMarks,
-			$labels:	$sliderLabels,
-			$knob:		$sliderKnob,
-			$input:		$sliderInput,
+			$el:			$slider,
+			$tracks:		$sliderTracks,
+			$liveTrack:		$sliderTrackLive,
+			$indicatorTrack:$sliderTrackIndicator,
+			$marks:			$sliderMarks,
+			$labels:		$sliderLabels,
+			$knob:			$sliderKnob,
+			$input:			$sliderInput,
 			
 			//properties/data
-			id:			sliderID,
-			snap:		$slider.attr('data-snap') == '1' ? true : false,
-			steps:		$sliderMarks.length,
-			stepVals:	getStepValues($sliderMarks),
+			id:				sliderID,
+			snap:			$slider.attr('data-snap') == '1' ? true : false,
+			steps:			$sliderMarks.length,
+			stepVals:		getStepValues($sliderMarks),
+			stepColors:		[],
+			value:			0,
+			indicatorValue: 0,
 			
 			//functions
-			init:		function(){ 
-							sliders.updateSlider(sliderID);
-						}			
+			init:			function(){ 
+								//update on init
+								sliders.getStepColors(sliderID);
+								sliders.validateValue(sliderID);
+								sliders.updateTracks(sliderID);
+								sliders.updateMarks(sliderID);
+								sliders.updateLiveTrack(sliderID);
+								sliders.updateKnob(sliderID);
+								
+								//call slider.update on value change
+								this.$input.on('change', this.update);
+								
+								//marks as value trigger
+								sliders.bindMarks(sliderID);
+							},
+			update:			function(e){
+								sliders.validateValue(sliderID);
+								sliders.updateMarks(sliderID);
+								sliders.updateLiveTrack(sliderID);
+								sliders.updateKnob(sliderID);
+							}			
 		};
 		sliders.count++;
 		

@@ -4,11 +4,11 @@
 function initHeaderMenus() {
 	//check if DOM elem exists
 	if ( !$('#header').length || !$('#menuDeanery').length || !$('#menuSystem').length ) return false;
-	
+
 	//vars
 	var $btnMenus = $('#header').find('.btnMenu'),
 		activeCls = 'active';
-	
+
 	//handler
 	function updateMenus(e){
 		var $this = $(this),
@@ -18,10 +18,10 @@ function initHeaderMenus() {
 	}
 	function clickout(e){
 		if (!$btnMenus.has(e.target).length) {
-			$btnMenus.removeClass(activeCls);	
+			$btnMenus.removeClass(activeCls);
 		}
 	}
-	
+
 	//bind behavior
 	$btnMenus.on('click', updateMenus);
 	$('#container').bind('click', clickout);
@@ -38,7 +38,7 @@ function initAccordions() {
 		iconCloseCls = 'fwicon-minus',
 		openCls = 'open',
 		speed = 600;
-	
+
 	//update collection obj
 	accordions.openAC = function(idx){
 		var token = 'ac',
@@ -46,7 +46,7 @@ function initAccordions() {
 		if (!ac) return 'no AC instance';
 		if (ac.show){
 			//console.log('already show');
-			return token + idx + ' already show';	
+			return token + idx + ' already show';
 		} else {
 			ac.$content.slideDown(speed);
 			ac.$iconOpen.hide(0);
@@ -63,7 +63,7 @@ function initAccordions() {
 		if (!ac) return 'no AC instance';
 		if (!ac.show){
 			//console.log('already NOT show');
-			return token + idx + ' already NOT show';	
+			return token + idx + ' already NOT show';
 		} else {
 			ac.$content.slideUp(speed);
 			ac.$iconOpen.show(0);
@@ -102,9 +102,9 @@ function initAccordions() {
 			ac.$content.attr('data-show', '0');
 			ac.$header.removeClass(openCls);
 		}
-		return token + idx + ' refreshed';	
+		return token + idx + ' refreshed';
 	}
-	
+
 	//search DOM for ac instances
 	$.each($('.'+acHeaderCls), function(idx, ele){
 		var ac,
@@ -127,12 +127,12 @@ function initAccordions() {
 		//bind hehavior
 		ac.$header.on('click', function(e){
 			e.preventDefault();
-			accordions.toggleAC(ac.id);	
+			accordions.toggleAC(ac.id);
 		});
 	});
-	
+
 	//return to DOM
-	return accordions;	
+	return accordions;
 }
 /* ------------------------------------------------------------------------------ */
 /* initSecAside */
@@ -147,7 +147,7 @@ function initSecAside() {
 		getWindowHeight = function(){
 			return $(window).height();
 		};
-	
+
 	//update collection obj
 	asides.openAS = function(idx){
 		var token = 'as',
@@ -155,7 +155,7 @@ function initSecAside() {
 		if (!as) return 'no AS instance';
 		if (as.active){
 			//console.log('already active');
-			return token + idx + ' already active';	
+			return token + idx + ' already active';
 		} else {
 			as.$el.addClass(activeCls);
 			as.active = true;
@@ -169,7 +169,7 @@ function initSecAside() {
 		if (!as) return 'no AS instance';
 		if (!as.active){
 			//console.log('already NOT active');
-			return token + idx + ' already NOT active';	
+			return token + idx + ' already NOT active';
 		} else {
 			as.$el.removeClass(activeCls);
 			as.active = false;
@@ -198,16 +198,16 @@ function initSecAside() {
 			newHeight,
 			paddings;
 		if (!as) return 'no AS instance';
-		
+
 		//update content height
 		//paddings = Math.abs(as.$content.height() - as.$content.innerHeight());
 		newHeight = getWindowHeight() - as.gapTop - as.gapBtm - ( as.$header.length ? as.$header.height() : 0 );// - ( isIE7 ? paddings : 0);
 		as.$content.height( newHeight );
 		//console.log( getWindowHeight(), as.gapTop, as.gapBtm, as.$header.height());
-				
-		return token + idx + ' refreshed';	
+
+		return token + idx + ' refreshed';
 	}
-	
+
 	//search DOM for as instances
 	$.each($('.'+asideCls), function(idx, ele){
 		var as,
@@ -228,16 +228,16 @@ function initSecAside() {
 			gapBtm:		footerHeight//topGap
 		};
 		asides.count++;
-		
+
 		//bind hehavior
 		as.$btn.on('click', function(e){
 			e.preventDefault();
-			asides.toggleAS(as.id);	
+			asides.toggleAS(as.id);
 		});
 	});
-	
+
 	//return to DOM
-	return asides;	
+	return asides;
 }
 /* ------------------------------------------------------------------------------ */
 /* initBtnSwitch */
@@ -245,11 +245,11 @@ function initSecAside() {
 function initBtnSwitch(){
 	var	$switches = $('.btnSwitch'),
 		activeCls = 'checked';
-	
+
 	if (!$switches.length) {
 		return 'no switch ctrl found!';
 	}
-	
+
 	//event handler
 	function updateSwitch($tgt, toggle){
 		var $switch = $tgt,
@@ -263,14 +263,14 @@ function initBtnSwitch(){
 		$chkbox.prop('checked', checked);
 		//console.log($chkbox.attr('id'), $chkbox.prop('checked'));
 	}
-	
+
 	//bind button event
 	$switches.on('click', function(e){
 		e.preventDefault();
 		var $switch = $(this);
 		updateSwitch($switch, true);
 	});
-	
+
 	/*
 	$switches.on('swipeLeft swipeRight', function(e){
 		var $switch = $(this),
@@ -281,11 +281,11 @@ function initBtnSwitch(){
 		}
 	});
 	*/
-	
+
 	//init states
 	$.each($switches, function(idx,ele){
 		updateSwitch($(ele), false);
-	});	
+	});
 }
 /* ------------------------------------------------------------------------------ */
 /* initBtnCheck */
@@ -293,11 +293,11 @@ function initBtnSwitch(){
 function initBtnCheck(){
 	var	$checks = $('.btnCheck'),
 		activeCls = 'checked';
-	
+
 	if (!$checks.length) {
 		return 'no check ctrl found!';
 	}
-	
+
 	//event handler
 	function updateCheck($tgt, toggle){
 		var $check = $tgt,
@@ -311,18 +311,18 @@ function initBtnCheck(){
 		$chkbox.prop('checked', checked);
 		//console.log($chkbox.attr('id'), $chkbox.prop('checked'));
 	}
-	
+
 	//bind button event
 	$checks.on('click', function(e){
 		e.preventDefault();
 		var $check = $(this);
 		updateCheck($check, true);
 	});
-	
+
 	//init states
 	$.each($checks, function(idx,ele){
 		updateCheck($(ele), false);
-	});	
+	});
 }
 /* ------------------------------------------------------------------------------ */
 /* initEditors */
@@ -342,10 +342,10 @@ function initEditors() {
 			height:			200,
 			toolbar:		[[ 'Cut', 'Copy', 'Paste', '-', 'Bold', 'Underline', 'Italic', '-', 'BulletedList', 'NumberedList' ]]
 		};
-	
+
 	//exit
 	if (!$containers.length) return false;
-	
+
 	//init all instances
 	$.each($containers, function(idx,ele){
 		var $instance = $(ele),
@@ -354,8 +354,8 @@ function initEditors() {
 			editors['editor'+(idx+1)] = CKEDITOR.replace( id, config );
 		}
 		editors.count++;
-	});	
-	
+	});
+
 	//return obj to DOM
 	return editors;
 }
@@ -366,32 +366,32 @@ function initEditorWithNotes() {
 	//vars
 	var $contaienrs = $('.editorWithNotes');
 		activeCls = 'notesActive';
-	
+
 	//search DOM for as instances
 	$.each($contaienrs, function(idx, ele){
 		var $instance = $(ele),
 			$btnOpen = $instance.find('.btnNotes'),
 			$btnClose = $instance.find('.notes .btnClose'),
 			notesOpen = $instance.attr('data-notes-open') == '1' ? true : false;
-		
+
 		//update instance
 		if (notesOpen) {
-			$instance.addClass(activeCls);	
+			$instance.addClass(activeCls);
 		} else {
 			$instance.removeClass(activeCls);
 		}
 		$(window).trigger('resize');
-		
+
 		//bind hehavior
 		$btnOpen.on('click', function(e){
 			e.preventDefault();
 			$instance.addClass(activeCls);
-			$(window).trigger('resize');	
+			$(window).trigger('resize');
 		});
 		$btnClose.on('click', function(e){
 			e.preventDefault();
 			$instance.removeClass(activeCls);
-			$(window).trigger('resize');	
+			$(window).trigger('resize');
 		});
 	});
 }
@@ -402,14 +402,14 @@ function initSliders() {
 	//vars
 	var //collection obj
 		sliders = { count:0 },
-		
+
 		//properties
 		ns = 'slider',
 		hasTouch = Modernizr.touch,
 		evtDown = hasTouch ? 'touchstart' : 'mousedown',
 		evtUp = hasTouch ? 'touchend' : 'mouseup',
 		evtMove = hasTouch ? 'touchmove' : 'mousemove',
-		
+
 		//selectors
 		sliderSelector = '.slider',
 		trackSelector = '.sliderTrack',
@@ -421,7 +421,7 @@ function initSliders() {
 		inputSelector = 'input',
 		overlapCls = 'overlap',
 		draggingCls = 'dragging',
-		
+
 		//functions
 		getStepValues = function($marks){
 			var vals = [], val, hasVal, i,
@@ -451,7 +451,7 @@ function initSliders() {
 			var $mark = $(ele);
 			if (slider.stepColors.length < slider.$marks.length) {
 				slider.stepColors[idx] = $mark.attr('data-color');
-			}	
+			}
 		});
 	}
 
@@ -468,7 +468,7 @@ function initSliders() {
 		if (slider.value > slider.steps) slider.value = slider.steps;
 		if (slider.indicatorValue > slider.steps) slider.indicatorValue = slider.steps;
 	}
-	
+
 	//updateTracks
 	sliders.updateTracks = function(id){
 		//vars
@@ -487,7 +487,7 @@ function initSliders() {
 				.attr('data-value', val);
 		});
 	}
-	
+
 	//bindMarks
 	sliders.bindMarks = function(id){
 		//vars
@@ -502,65 +502,56 @@ function initSliders() {
 			});
 		});
 	}
-	
-	
-	
-	
-	
-	
-	//ratioToStep
-	sliders.ratioToStep = function(id, ratio){
+
+	//ratioToValue
+	sliders.ratioToValue = function(id, ratio){
 		//vars
 		var slider = sliders[ns+id],
-			vals = slider.stepVals,
+			vals = slider.stepVals.slice(0),
 			steps = vals.length,
-			ratio = parseInt(ratio,10),
+			stepDiff,
 			value;
 		//update vals to integer
 		while (steps--) {
-			vals[steps] = parseInt(vals[steps],10);
+			vals[steps] = parseInt(vals[steps], 10);
 		}
 		//find neighbors
 		steps = vals.length;
 		while (steps-- && steps > 0) {
-			console.log(vals[steps],vals[steps-1]);
-			if (ratio <= (vals[steps]-vals[steps-1])/2) {
-				value = steps;	
+			stepDiff = vals[steps] - vals[steps-1];
+			if (ratio >= (vals[steps-1] + stepDiff/2)) {
+				value = steps + 1;
+				console.log('['+steps+']', 'mark: '+(vals[steps-1] + stepDiff/2), 'ratio: '+ratio, 'value: '+value);
+				break;
 			} else {
-				value = steps+1;	
+				value = steps;
+				//console.log('['+steps+']', (vals[steps-1] + stepDiff/2), ratio, value);
 			}
 		}
-		//console.log(value);
-		//return value;
+		return value;
 	}
-	
+
 	//setSliderByValue
 	sliders.setSliderByValue = function(id, val){
 		//vars
-		var slider = sliders[ns+id],
-			value = val || slider.$knob.attr('data-value');
-		
-		//convert ratio to step
-		value = (String(value).indexOf('%') > 0 ) ? sliders.ratioToStep(id, value) : value;
-		console.log(value);
-		
-		slider.$input.val(String(value));
+		var slider = sliders[ns+id];
+		slider.$input.val(val);
 		slider.$input.trigger('change');
 	}
-	
-	
-	
-	
-	
-	
-	
-	//setSlider
-	sliders.setSliderByRatio = function(id, ratio){
+
+	//setSliderByRatio
+	sliders.setSliderByRatio = function(id){
 		//vars
-		var slider = sliders[ns+id];
-		
+		var slider = sliders[ns+id],
+			ratio = slider.ratio,
+			value;
+		//convert ratio to step
+		sliders.value = value = sliders.ratioToValue(id, ratio);
+		console.log('ratioToValue ->', value);
+		//set value
+		sliders.setSliderByValue(id, value);
 	}
-	
+
 	//updateMarks
 	sliders.updateMarks = function(id){
 		//vars
@@ -578,14 +569,14 @@ function initSliders() {
 				passed = true;
 				$mark.addClass('passed');
 			} else if (step == slider.value) {
-				current = true;	
+				current = true;
 				$mark.addClass('current');
 			} else if (step > slider.value) {
 				norm = true;
 			}
 			if (step == slider.indicatorValue) {
 				indicator = true;
-				$mark.addClass('indicator');	
+				$mark.addClass('indicator');
 			}
 			//update mark
 			$mark
@@ -594,16 +585,16 @@ function initSliders() {
 			$label
 				.css('left', val)
 				.attr('data-value', val);
-			
+
 			//update mark step color
 			if ($mark.hasClass('passed') && !$mark.hasClass('indicator')) {
-				$mark.css('background-color', slider.stepColors[ slider.value-1 ]);	
+				$mark.css('background-color', slider.stepColors[ slider.value-1 ]);
 			} else {
-				$mark.css('background-color', '');	
+				$mark.css('background-color', '');
 			}
 		});
 	}
-	
+
 	//updateLiveTrack
 	sliders.updateLiveTrack = function(id){
 		//vars
@@ -617,7 +608,7 @@ function initSliders() {
 		//livetrack color
 		slider.$liveTrack.css('background-color', slider.stepColors[ slider.value-1 ]);
 	}
-	
+
 	//updateKnob
 	sliders.updateKnob = function(id){
 		//vars
@@ -632,25 +623,25 @@ function initSliders() {
 		if (overlap) {
 			slider.$knob.addClass(overlapCls);
 		} else {
-			slider.$knob.removeClass(overlapCls);	
+			slider.$knob.removeClass(overlapCls);
 		}
 		//knob color
 		slider.$knob.css('background-color', slider.stepColors[ slider.value-1 ]);
 		//value
 		slider.$input.val(slider.value);
 	}
-	
+
 	//initDrag
 	sliders.initDrag = function(id){
 		//vars
 		var slider = sliders[ns+id],
 			hasTouch = Modernizr.touch,
 			$body = $('body');
-		
+
 		//binding interaction
 		slider.$knob.on(evtDown, function(e) {
 			//console.log(evtDown);
-			$(slider.$el.parents('.section')).prev('.secHeader').find('.label').text('touchstart');
+			//$(slider.$el.parents('.section')).prev('.secHeader').find('.label').text(evtDown);
 			e.preventDefault();
 			slider.dragging = true;
 			slider.$el.addClass(draggingCls);
@@ -658,7 +649,7 @@ function initSliders() {
 		});
 		$body.on(evtMove, function(e) {
 			//console.log(evtMove);
-			$(slider.$el.parents('.section')).prev('.secHeader').find('.label').text('touchmove');
+			//$(slider.$el.parents('.section')).prev('.secHeader').find('.label').text(evtMove);
 			if (slider.dragging) {
 				slider.domDrag(e);
 				return $body.css('cursor', 'pointer');
@@ -666,15 +657,15 @@ function initSliders() {
 		})
 		.on(evtUp, function(e) {
 			//console.log(evtUp);
-			$(slider.$el.parents('.section')).prev('.secHeader').find('.label').text('touchend');
+			//$(slider.$el.parents('.section')).prev('.secHeader').find('.label').text(evtUp);
 			if (slider.dragging) {
 				slider.dragging = false;
 				slider.$el.removeClass(draggingCls);
-				sliders.setSliderByValue(id);
+				sliders.setSliderByRatio(id);
 				return $body.css('cursor', 'auto');
 			}
 		});
-		
+
 		//drag handler
 		slider.pagePos = 0;
 		slider.domDrag = function(e) {
@@ -698,7 +689,6 @@ function initSliders() {
 			console.log(slider.pagePos / slider.$el.outerWidth());
 			console.log(slider.ratio);
 			// */
-			
 			//update knob and track
 			slider.$liveTrack.css('width', slider.cssRatio);
 			slider.$liveTrack.attr('data-value', slider.cssRatio);
@@ -707,12 +697,12 @@ function initSliders() {
 			//console.log(ns + slider.id, 'domDrag->', slider.cssRatio);
 		};
 	}
-	
+
 	//search DOM for instances
 	$.each($(sliderSelector), function(idx, ele){
 		var //control obj
 			slider,
-			
+
 			//elems
 			sliderID = idx + 1,
 			$slider = $(ele),
@@ -722,8 +712,8 @@ function initSliders() {
 			$sliderTrackIndicator = $slider.find(indicatorTrackSelector),
 			$sliderMarks = $slider.find(markSelector),
 			$sliderLabels = $slider.find(labelSelector),
-			$sliderKnob = $slider.find(knobSelector).first(); 
-		
+			$sliderKnob = $slider.find(knobSelector).first();
+
 		//add instance to control and collection objs
 		sliders[ns + sliderID] = slider = {
 			//elems
@@ -735,7 +725,7 @@ function initSliders() {
 			$labels:		$sliderLabels,
 			$knob:			$sliderKnob,
 			$input:			$sliderInput,
-			
+
 			//properties/data
 			id:				sliderID,
 			snap:			$slider.attr('data-snap') == '1' ? true : false,
@@ -744,12 +734,12 @@ function initSliders() {
 			stepColors:		[],
 			value:			0,
 			indicatorValue: 0,
-			
+
 			//dragging
 			dragging:		false,
-			
+
 			//functions
-			init:			function(){ 
+			init:			function(){
 								//update on init
 								sliders.getStepColors(sliderID);
 								sliders.validateValue(sliderID);
@@ -758,13 +748,13 @@ function initSliders() {
 								sliders.updateLiveTrack(sliderID);
 								sliders.updateKnob(sliderID);
 								sliders.initDrag(sliderID);
-								
+
 								//call slider.update on value change
 								this.$input.on('change', this.update);
-								
+
 								//marks as value trigger
 								sliders.bindMarks(sliderID);
-								
+
 								console.log(ns + sliderID, 'init->', this.value);
 							},
 			update:			function(e){
@@ -772,16 +762,16 @@ function initSliders() {
 								sliders.updateMarks(sliderID);
 								sliders.updateLiveTrack(sliderID);
 								sliders.updateKnob(sliderID);
-								
+
 								console.log(ns + sliderID, 'update->', this.value);
-							}			
+							}
 		};
 		sliders.count++;
-		
+
 		//init instance
 		slider.init();
 	});
-	
+
 	//return to DOM
-	return sliders;	
+	return sliders;
 }

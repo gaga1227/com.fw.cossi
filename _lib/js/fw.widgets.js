@@ -399,7 +399,7 @@ function initEditorWithNotes() {
 /* initSliders */
 /* ------------------------------------------------------------------------------ */
 function initSliders() {
-	
+
 	/* -------------------------------------------------------------------------- */
 	//vars
 	var //collection obj
@@ -443,10 +443,10 @@ function initSliders() {
 			//console.log('StepValues:', vals);
 			return vals;
 		}
-	
+
 	/* -------------------------------------------------------------------------- */
 	/* utils */
-	
+
 	//getStepColors
 	sliders.getStepColors = function(id){
 		//vars
@@ -504,7 +504,7 @@ function initSliders() {
 
 	/* -------------------------------------------------------------------------- */
 	/* setSlider */
-	
+
 	//setSliderByValue
 	sliders.setSliderByValue = function(id, val){
 		//vars
@@ -525,10 +525,10 @@ function initSliders() {
 		//set value
 		sliders.setSliderByValue(id, value);
 	};
-	
+
 	/* -------------------------------------------------------------------------- */
 	/* update */
-	
+
 	//updateTracks
 	sliders.updateTracks = function(id){
 		//vars
@@ -547,7 +547,7 @@ function initSliders() {
 				.attr('data-value', val);
 		});
 	};
-	
+
 	//updateMarks
 	sliders.updateMarks = function(id){
 		//vars
@@ -629,15 +629,14 @@ function initSliders() {
 
 	/* -------------------------------------------------------------------------- */
 	/* interaction */
-	
-	
+
 	//cleanUpDragStyle
 	sliders.cleanUpDragStyle = function(id){
 		//vars
 		var slider = sliders[ns+id];
 		slider.$liveTrack.css('background-image','');
 	};
-		
+
 	//bindMarks
 	sliders.bindMarks = function(id){
 		//vars
@@ -652,7 +651,7 @@ function initSliders() {
 			});
 		});
 	};
-	
+
 	//initDrag
 	sliders.initDrag = function(id){
 		//vars
@@ -673,16 +672,16 @@ function initSliders() {
 					{hex:'#ffffff', pos:100}
 				]
 			},
-			
+
 			//updateDraggingValue
 			updateDraggingValue = function(){
 				slider.$liveTrack.css('width', slider.cssRatio);
 				slider.$liveTrack.attr('data-value', slider.cssRatio);
 				slider.$knob.css('left', slider.cssRatio);
 				slider.$knob.attr('data-value', slider.cssRatio);
-				//console.log(ns + slider.id, 'domDrag->', slider.cssRatio);	
+				//console.log(ns + slider.id, 'domDrag->', slider.cssRatio);
 			},
-			
+
 			//updateDraggingBg
 			updateDraggingBg = function(){
 				//var
@@ -696,16 +695,16 @@ function initSliders() {
 					$track = slider.$liveTrack,
 					$knob = slider.$knob;
 					//console.log(ratio, value, colorStart, colorEnd);
-				
+
 				//update gradient
 				gradientSettings.gradients[0].hex = colorStart;
 				gradientSettings.gradients[1].hex = colorEnd;
 				cssGradient = Gradient.generateAll(gradientSettings);
-				
+
 				//update view
 				$knob.css('background', colorEnd);
 				$track.css('background-color', colorEnd);
-				if (hasCSSGradient) $track[0].style.cssText += cssGradient;				
+				if (hasCSSGradient) $track[0].style.cssText += cssGradient;
 			};
 
 		//drag handler
@@ -715,19 +714,19 @@ function initSliders() {
 			var pagePos,
 				pageX = hasTouch ? e.originalEvent.targetTouches[0].pageX : e.pageX,
 				pageY = hasTouch ? e.originalEvent.targetTouches[0].pageY : e.pageY;
-			
+
 			//determine drag position
 			pagePos = pageX - slider.$el.offset().left;
 			pagePos = Math.min(slider.$el.outerWidth(), pagePos);
 			pagePos = Math.max(0, pagePos);
-			
+
 			//convert drag position to ratio
 			if (slider.pagePos != pagePos) {
 				slider.pagePos = pagePos;
 				slider.ratio = slider.pagePos / slider.$el.outerWidth() * 100;
 				slider.cssRatio = slider.ratio + '%';
 			}
-			
+
 			//update view
 			updateDraggingValue();
 			updateDraggingBg();
@@ -762,16 +761,16 @@ function initSliders() {
 			}
 		});
 	};
-	
+
 	/* -------------------------------------------------------------------------- */
 	/* instances */
-	
+
 	//search DOM for instances
 	$.each($(sliderSelector), function(idx, ele){
 		var //control obj
 			slider,
 			sliderID = idx + 1,
-			
+
 			//elems
 			$slider = $(ele),
 			$sliderInput = $slider.find(inputSelector),
@@ -846,7 +845,7 @@ function initSliders() {
 /* initCharts */
 /* ------------------------------------------------------------------------------ */
 function initCharts() {
-	
+
 	/* -------------------------------------------------------------------------- */
 	//vars
 	var //collection obj
@@ -855,10 +854,10 @@ function initCharts() {
 		//properties
 		ns = 'chart',
 		hasCanvas = Modernizr.canvas,
-			
+
 		//selectors
 		chartSelector = '.chart';
-	
+
 	/* -------------------------------------------------------------------------- */
 	/* properties */
 	charts.defaultConfig = {
@@ -875,19 +874,19 @@ function initCharts() {
 		onStop		:	function(val){},
 		onStep		:	function(val){ /*console.log(this.$el)*/ }
 	};
-	
+
 	/* -------------------------------------------------------------------------- */
 	/* functions */
-	
+
 	/* prepChart */
 	charts.prepChart = function(id){
 		//vars
 		var chart = charts[ns+id];
-		
+
 		//merge chart config with default config
 		chart.config = $.extend(chart.config, charts.defaultConfig);
 	};
-	
+
 	/* drawChart */
 	charts.drawChart = function(id){
 		//vars
@@ -896,25 +895,25 @@ function initCharts() {
 		chart.$el.easyPieChart(chart.config);
 		chart.$easyPieChart = chart.$el.data('easyPieChart');
 	};
-	
+
 	/* updateChart */
 	charts.updateChart = function(id){
 		//vars
 		var chart = charts[ns+id];
-		
+
 		//call plugin in instance obj
 		chart.$easyPieChart.update( chart.value );
 	};
-		
+
 	/* -------------------------------------------------------------------------- */
 	/* instances */
-	
+
 	//search DOM for instances
 	$.each($(chartSelector), function(idx, ele){
 		var //control obj
 			chart,
 			chartID = idx + 1,
-			
+
 			//elems
 			$chart = $(ele);
 
@@ -922,23 +921,23 @@ function initCharts() {
 		charts[ns + chartID] = chart = {
 			//elems
 			$el:			$chart,
-			
+
 			//properties/data
 			id:				chartID,
 			config:			{},
 			value:			0,
-			
+
 			//functions
 			init:			function(){
 								charts.prepChart(chartID);
 								charts.drawChart(chartID);
-								
+
 								console.log(ns + chartID, 'init->', this.value);
 							},
 			update:			function(){
 								charts.prepChart(chartID);
 								charts.updateChart(chartID);
-								
+
 								console.log(ns + chartID, 'update->', this.value);
 							}
 		};

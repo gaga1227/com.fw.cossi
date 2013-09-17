@@ -1233,14 +1233,28 @@ body {
 
 /* -------------------------------------------------------------------------- */
 /* dragging */
-.dragging .sliderKnob,
-.dragging .sliderTrack.live { 
+.slider.dragging .sliderKnob,
+.slider.dragging .sliderTrack.live { 
 	/*transition*/
 	/*-webkit-transform:translate3d(0,0,0);*/
 	-webkit-transition:none 0.3s ease-in-out;
 	-moz-transition:none 0.3s ease-in-out;
 	-o-transition:none 0.3s ease-in-out;
 	transition:none 0.3s ease-in-out; }
+
+
+/* ==========================================================================
+   comp - CHART
+   ========================================================================== */
+   
+/* -------------------------------------------------------------------------- */
+/* easyPieChart */
+.easyPieChart { position:relative; text-align:center; }
+.easyPieChart canvas { position:absolute; top:0; left:0; }
+
+
+
+
 
 
 /* ==========================================================================

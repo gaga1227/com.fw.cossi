@@ -23,22 +23,25 @@ WebFontUtils = {
 /* ------------------------------------------------------------------------------ */
 /* init */
 /* ------------------------------------------------------------------------------ */
-var Accordions, Asides, Editors, Sliders;
+var Accordions, Asides, Editors, Sliders, Charts;
 function init(){
 	//layout assistance
 	//insertFirstLastChild('');
 	
-	//widgets
+	//page widgets
 	initHeaderMenus();
 	Accordions = new initAccordions();
 	Asides = new initSecAside();
+	
+	//chart widgets
+	Charts = new initCharts();
+	
+	//form widgets
 	initBtnSwitch();
 	initBtnCheck();
 	Editors = new initEditors();
 	initEditorWithNotes();
 	Sliders = new initSliders();
-	
-	//template specific functions
 	
 	//debug
 	displayDebugInfo('#debugInfo');

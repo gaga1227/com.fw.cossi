@@ -399,6 +399,8 @@ function initEditorWithNotes() {
 /* initSliders */
 /* ------------------------------------------------------------------------------ */
 function initSliders() {
+	
+	/* -------------------------------------------------------------------------- */
 	//vars
 	var //collection obj
 		sliders = { count:0 },
@@ -456,7 +458,7 @@ function initSliders() {
 				slider.stepColors[idx] = $mark.attr('data-color');
 			}
 		});
-	}
+	};
 
 	//validateValue
 	sliders.validateValue = function(id){
@@ -470,7 +472,7 @@ function initSliders() {
 		//validate values
 		if (slider.value > slider.steps) slider.value = slider.steps;
 		if (slider.indicatorValue > slider.steps) slider.indicatorValue = slider.steps;
-	}
+	};
 
 	//ratioToValue
 	sliders.ratioToValue = function(id, ratio){
@@ -498,7 +500,7 @@ function initSliders() {
 			}
 		}
 		return value;
-	}
+	};
 
 	/* -------------------------------------------------------------------------- */
 	/* setSlider */
@@ -509,7 +511,7 @@ function initSliders() {
 		var slider = sliders[ns+id];
 		slider.$input.val(val);
 		slider.$input.trigger('change');
-	}
+	};
 
 	//setSliderByRatio
 	sliders.setSliderByRatio = function(id){
@@ -522,7 +524,7 @@ function initSliders() {
 		//console.log('ratioToValue ->', value);
 		//set value
 		sliders.setSliderByValue(id, value);
-	}
+	};
 	
 	/* -------------------------------------------------------------------------- */
 	/* update */
@@ -544,7 +546,7 @@ function initSliders() {
 				.css('width', val)
 				.attr('data-value', val);
 		});
-	}
+	};
 	
 	//updateMarks
 	sliders.updateMarks = function(id){
@@ -587,7 +589,7 @@ function initSliders() {
 				$mark.css('background-color', '');
 			}
 		});
-	}
+	};
 
 	//updateLiveTrack
 	sliders.updateLiveTrack = function(id){
@@ -601,7 +603,7 @@ function initSliders() {
 			.attr('data-value', val);
 		//livetrack color
 		slider.$liveTrack.css('background-color', slider.stepColors[ slider.value-1 ]);
-	}
+	};
 
 	//updateKnob
 	sliders.updateKnob = function(id){
@@ -623,7 +625,7 @@ function initSliders() {
 		slider.$knob.css('background-color', slider.stepColors[ slider.value-1 ]);
 		//value
 		slider.$input.val(slider.value);
-	}
+	};
 
 	/* -------------------------------------------------------------------------- */
 	/* interaction */
@@ -634,7 +636,7 @@ function initSliders() {
 		//vars
 		var slider = sliders[ns+id];
 		slider.$liveTrack.css('background-image','');
-	}
+	};
 		
 	//bindMarks
 	sliders.bindMarks = function(id){
@@ -649,7 +651,7 @@ function initSliders() {
 				sliders.setSliderByValue(id, idx+1);
 			});
 		});
-	}
+	};
 	
 	//initDrag
 	sliders.initDrag = function(id){
@@ -759,7 +761,7 @@ function initSliders() {
 				return $body.css('cursor', 'auto');
 			}
 		});
-	}
+	};
 	
 	/* -------------------------------------------------------------------------- */
 	/* instances */
@@ -768,9 +770,9 @@ function initSliders() {
 	$.each($(sliderSelector), function(idx, ele){
 		var //control obj
 			slider,
-
-			//elems
 			sliderID = idx + 1,
+			
+			//elems
 			$slider = $(ele),
 			$sliderInput = $slider.find(inputSelector),
 			$sliderTracks = $slider.find(trackSelector),
@@ -839,4 +841,113 @@ function initSliders() {
 
 	//return to DOM
 	return sliders;
+}
+/* ------------------------------------------------------------------------------ */
+/* initCharts */
+/* ------------------------------------------------------------------------------ */
+function initCharts() {
+	
+	/* -------------------------------------------------------------------------- */
+	//vars
+	var //collection obj
+		charts = { count:0 },
+
+		//properties
+		ns = 'chart',
+		hasCanvas = Modernizr.canvas,
+			
+		//selectors
+		chartSelector = '.chart';
+	
+	/* -------------------------------------------------------------------------- */
+	/* properties */
+	charts.defaultConfig = {
+		barColor	:	'#87827b',
+		trackColor	:	'#dad6cf',
+		scaleColor	:	false,
+		lineCap		:	'butt',
+		lineWidth	:	12,
+		size		:	160,
+		rotate		:	0,
+		animate		:	hasCanvas ? 3000 : false,
+		delay		:	false,
+		onStart		:	function(){},
+		onStop		:	function(val){},
+		onStep		:	function(val){ /*console.log(this.$el)*/ }
+	};
+	
+	/* -------------------------------------------------------------------------- */
+	/* functions */
+	
+	/* prepChart */
+	charts.prepChart = function(id){
+		//vars
+		var chart = charts[ns+id];
+		
+		//merge chart config with default config
+		chart.config = $.extend(chart.config, charts.defaultConfig);
+	};
+	
+	/* drawChart */
+	charts.drawChart = function(id){
+		//vars
+		var chart = charts[ns+id];
+		//init plugin instance and store in instance obj
+		chart.$el.easyPieChart(chart.config);
+		chart.$easyPieChart = chart.$el.data('easyPieChart');
+	};
+	
+	/* updateChart */
+	charts.updateChart = function(id){
+		//vars
+		var chart = charts[ns+id];
+		
+		//call plugin in instance obj
+		chart.$easyPieChart.update( chart.value );
+	};
+		
+	/* -------------------------------------------------------------------------- */
+	/* instances */
+	
+	//search DOM for instances
+	$.each($(chartSelector), function(idx, ele){
+		var //control obj
+			chart,
+			chartID = idx + 1,
+			
+			//elems
+			$chart = $(ele);
+
+		//add instance to control and collection objs
+		charts[ns + chartID] = chart = {
+			//elems
+			$el:			$chart,
+			
+			//properties/data
+			id:				chartID,
+			config:			{},
+			value:			0,
+			
+			//functions
+			init:			function(){
+								charts.prepChart(chartID);
+								charts.drawChart(chartID);
+								
+								console.log(ns + chartID, 'init->', this.value);
+							},
+			update:			function(){
+								charts.prepChart(chartID);
+								charts.updateChart(chartID);
+								
+								console.log(ns + chartID, 'update->', this.value);
+							}
+		};
+		charts.count++;
+
+		//init instance
+		chart.init();
+	});
+
+	//return to DOM
+	return charts;
 }

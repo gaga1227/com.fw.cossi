@@ -441,7 +441,10 @@ function initSliders() {
 			//console.log('StepValues:', vals);
 			return vals;
 		}
-
+	
+	/* -------------------------------------------------------------------------- */
+	/* utils */
+	
 	//getStepColors
 	sliders.getStepColors = function(id){
 		//vars
@@ -455,7 +458,7 @@ function initSliders() {
 		});
 	}
 
-	//validate value
+	//validateValue
 	sliders.validateValue = function(id){
 		//vars
 		var slider = sliders[ns+id],
@@ -467,40 +470,6 @@ function initSliders() {
 		//validate values
 		if (slider.value > slider.steps) slider.value = slider.steps;
 		if (slider.indicatorValue > slider.steps) slider.indicatorValue = slider.steps;
-	}
-
-	//updateTracks
-	sliders.updateTracks = function(id){
-		//vars
-		var slider = sliders[ns+id];
-		//tracks
-		$.each(slider.$tracks, function(idx,ele){
-			var $track = $(ele),
-				dataStep = $track.attr('data-step'),
-				step = dataStep ? parseInt(dataStep, 10) : 1,
-				val = slider.stepVals[step - 1];
-			//skip liveTrack
-			if ($track.hasClass('live')) return false;
-			//update tracks
-			$track
-				.css('width', val)
-				.attr('data-value', val);
-		});
-	}
-
-	//bindMarks
-	sliders.bindMarks = function(id){
-		//vars
-		var slider = sliders[ns+id];
-		//marks
-		$.each(slider.$marks, function(idx,ele){
-			var $mark = $(ele);
-			$mark.off();
-			$mark.on('click', function(e){
-				e.preventDefault();
-				sliders.setSliderByValue(id, idx+1);
-			});
-		});
 	}
 
 	//ratioToValue
@@ -521,7 +490,7 @@ function initSliders() {
 			stepDiff = vals[steps] - vals[steps-1];
 			if (ratio >= (vals[steps-1] + stepDiff/2)) {
 				value = steps + 1;
-				console.log('['+steps+']', 'mark: '+(vals[steps-1] + stepDiff/2), 'ratio: '+ratio, 'value: '+value);
+				console.log('[Range '+steps+']', 'Mark: '+(vals[steps-1] + stepDiff/2), 'Ratio: '+ratio, 'Value: '+value);
 				break;
 			} else {
 				value = steps;
@@ -531,6 +500,9 @@ function initSliders() {
 		return value;
 	}
 
+	/* -------------------------------------------------------------------------- */
+	/* setSlider */
+	
 	//setSliderByValue
 	sliders.setSliderByValue = function(id, val){
 		//vars
@@ -551,7 +523,29 @@ function initSliders() {
 		//set value
 		sliders.setSliderByValue(id, value);
 	}
-
+	
+	/* -------------------------------------------------------------------------- */
+	/* update */
+	
+	//updateTracks
+	sliders.updateTracks = function(id){
+		//vars
+		var slider = sliders[ns+id];
+		//tracks
+		$.each(slider.$tracks, function(idx,ele){
+			var $track = $(ele),
+				dataStep = $track.attr('data-step'),
+				step = dataStep ? parseInt(dataStep, 10) : 1,
+				val = slider.stepVals[step - 1];
+			//skip liveTrack
+			if ($track.hasClass('live')) return false;
+			//update tracks
+			$track
+				.css('width', val)
+				.attr('data-value', val);
+		});
+	}
+	
 	//updateMarks
 	sliders.updateMarks = function(id){
 		//vars
@@ -631,12 +625,111 @@ function initSliders() {
 		slider.$input.val(slider.value);
 	}
 
+	/* -------------------------------------------------------------------------- */
+	/* interaction */
+	
+	
+	//cleanUpDragStyle
+	sliders.cleanUpDragStyle = function(id){
+		//vars
+		var slider = sliders[ns+id];
+		slider.$liveTrack.css('background-image','');
+	}
+		
+	//bindMarks
+	sliders.bindMarks = function(id){
+		//vars
+		var slider = sliders[ns+id];
+		//marks
+		$.each(slider.$marks, function(idx,ele){
+			var $mark = $(ele);
+			$mark.off();
+			$mark.on('click', function(e){
+				e.preventDefault();
+				sliders.setSliderByValue(id, idx+1);
+			});
+		});
+	}
+	
 	//initDrag
 	sliders.initDrag = function(id){
 		//vars
 		var slider = sliders[ns+id],
 			hasTouch = Modernizr.touch,
-			$body = $('body');
+			$body = $('body'),
+			hasCSSGradient = Modernizr.cssgradients,
+			gradientSettings = {
+				gradientProps:{
+					'type'   : 'linear',
+					'xStart' : 'left',
+					'yStart' : 'top',
+					'xEnd'   : 'right',
+					'yEnd'   : 'top'
+				},
+				gradients:[
+					{hex:'#000000', pos:0},
+					{hex:'#ffffff', pos:100}
+				]
+			},
+			
+			//updateDraggingValue
+			updateDraggingValue = function(){
+				slider.$liveTrack.css('width', slider.cssRatio);
+				slider.$liveTrack.attr('data-value', slider.cssRatio);
+				slider.$knob.css('left', slider.cssRatio);
+				slider.$knob.attr('data-value', slider.cssRatio);
+				//console.log(ns + slider.id, 'domDrag->', slider.cssRatio);	
+			},
+			
+			//updateDraggingBg
+			updateDraggingBg = function(){
+				//var
+				var //value and colors
+					ratio = slider.ratio,
+					value = sliders.ratioToValue(id, ratio),
+					colorStart = slider.stepColors[0],
+					colorEnd = slider.stepColors[value-1],
+					cssGradient,
+					//elems
+					$track = slider.$liveTrack,
+					$knob = slider.$knob;
+					//console.log(ratio, value, colorStart, colorEnd);
+				
+				//update gradient
+				gradientSettings.gradients[0].hex = colorStart;
+				gradientSettings.gradients[1].hex = colorEnd;
+				cssGradient = Gradient.generateAll(gradientSettings);
+				
+				//update view
+				$knob.css('background', colorEnd);
+				$track.css('background-color', colorEnd);
+				if (hasCSSGradient) $track[0].style.cssText += cssGradient;				
+			};
+
+		//drag handler
+		slider.pagePos = 0;
+		slider.domDrag = function(e) {
+			//vars
+			var pagePos,
+				pageX = hasTouch ? e.originalEvent.targetTouches[0].pageX : e.pageX,
+				pageY = hasTouch ? e.originalEvent.targetTouches[0].pageY : e.pageY;
+			
+			//determine drag position
+			pagePos = pageX - slider.$el.offset().left;
+			pagePos = Math.min(slider.$el.outerWidth(), pagePos);
+			pagePos = Math.max(0, pagePos);
+			
+			//convert drag position to ratio
+			if (slider.pagePos != pagePos) {
+				slider.pagePos = pagePos;
+				slider.ratio = slider.pagePos / slider.$el.outerWidth() * 100;
+				slider.cssRatio = slider.ratio + '%';
+			}
+			
+			//update view
+			updateDraggingValue();
+			updateDraggingBg();
+		};
 
 		//binding interaction
 		slider.$knob.on(evtDown, function(e) {
@@ -661,43 +754,16 @@ function initSliders() {
 			if (slider.dragging) {
 				slider.dragging = false;
 				slider.$el.removeClass(draggingCls);
+				sliders.cleanUpDragStyle(id);
 				sliders.setSliderByRatio(id);
 				return $body.css('cursor', 'auto');
 			}
 		});
-
-		//drag handler
-		slider.pagePos = 0;
-		slider.domDrag = function(e) {
-			//alert(e.originalEvent);
-			var pagePos,
-				pageX = hasTouch ? e.originalEvent.targetTouches[0].pageX : e.pageX,
-				pageY = hasTouch ? e.originalEvent.targetTouches[0].pageY : e.pageY;
-			//determine drag position
-			pagePos = pageX - slider.$el.offset().left;
-			pagePos = Math.min(slider.$el.outerWidth(), pagePos);
-			pagePos = Math.max(0, pagePos);
-			//update drag data if dragged
-			if (slider.pagePos != pagePos) {
-				slider.pagePos = pagePos;
-				slider.ratio = slider.pagePos / slider.$el.outerWidth() * 100;
-				slider.cssRatio = slider.ratio + '%';
-			}
-			/*
-			console.log(pageX, slider.$el.offset().left);
-			console.log(slider.pagePos);
-			console.log(slider.pagePos / slider.$el.outerWidth());
-			console.log(slider.ratio);
-			// */
-			//update knob and track
-			slider.$liveTrack.css('width', slider.cssRatio);
-			slider.$liveTrack.attr('data-value', slider.cssRatio);
-			slider.$knob.css('left', slider.cssRatio);
-			slider.$knob.attr('data-value', slider.cssRatio);
-			//console.log(ns + slider.id, 'domDrag->', slider.cssRatio);
-		};
 	}
-
+	
+	/* -------------------------------------------------------------------------- */
+	/* instances */
+	
 	//search DOM for instances
 	$.each($(sliderSelector), function(idx, ele){
 		var //control obj

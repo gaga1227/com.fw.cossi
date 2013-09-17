@@ -490,7 +490,7 @@ function initSliders() {
 			stepDiff = vals[steps] - vals[steps-1];
 			if (ratio >= (vals[steps-1] + stepDiff/2)) {
 				value = steps + 1;
-				console.log('[Range '+steps+']', 'Mark: '+(vals[steps-1] + stepDiff/2), 'Ratio: '+ratio, 'Value: '+value);
+				//console.log('[Range '+steps+']', 'Mark: '+(vals[steps-1] + stepDiff/2), 'Ratio: '+ratio, 'Value: '+value);
 				break;
 			} else {
 				value = steps;
@@ -519,7 +519,7 @@ function initSliders() {
 			value;
 		//convert ratio to step
 		sliders.value = value = sliders.ratioToValue(id, ratio);
-		console.log('ratioToValue ->', value);
+		//console.log('ratioToValue ->', value);
 		//set value
 		sliders.setSliderByValue(id, value);
 	}
@@ -794,7 +794,6 @@ function initSliders() {
 
 			//properties/data
 			id:				sliderID,
-			snap:			$slider.attr('data-snap') == '1' ? true : false,
 			steps:			$sliderMarks.length,
 			stepVals:		getStepValues($sliderMarks),
 			stepColors:		[],

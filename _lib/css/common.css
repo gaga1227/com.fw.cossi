@@ -360,12 +360,15 @@ body {
 			#banner .extra .tabGroup .btnTab.active .arrow { display:block; }
 			
 			/* arrow themes */
-			.trg #banner .extra .tabGroup .btnTab .arrow {  border-top-color:#00d5b1; }
+			.trq #banner .extra .tabGroup .btnTab .arrow {  border-top-color:#00d5b1; }
 			.blu #banner .extra .tabGroup .btnTab .arrow {  border-top-color:#36b3ea; }
 			.sun #banner .extra .tabGroup .btnTab .arrow {  border-top-color:#ffd215; }
 			.org #banner .extra .tabGroup .btnTab .arrow {  border-top-color:#fc8627; }
 			.red #banner .extra .tabGroup .btnTab .arrow {  border-top-color:#f4564a; }
-			
+			.ngt #banner .extra .tabGroup .btnTab .arrow {  border-top-color:#2c6996; }
+			.neu #banner .extra .tabGroup .btnTab .arrow {  border-top-color:#ccc3b8; }
+			.gry #banner .extra .tabGroup .btnTab .arrow {  border-top-color:#8c9899; }
+
 
 /* ==========================================================================
    structure - CONTENT SHELL
@@ -1249,9 +1252,16 @@ body {
    
 /* -------------------------------------------------------------------------- */
 /* easyPieChart */
-.easyPieChart { position:relative; text-align:center; }
-.easyPieChart canvas { position:absolute; top:0; left:0; }
+.easyPieChart { 
+	display:block; position:relative; overflow:hidden;
+	text-align:center; }
+	
+	.easyPieChart canvas { 
+		position:absolute; top:0; left:0; }
 
+/* -------------------------------------------------------------------------- */
+/* chart */
+.chart {  }
 
 
 
@@ -1714,6 +1724,63 @@ a.btnTab:active {
 .newTheme > .neu .active.activebgc-l1	{ background-color:#ccc3b8!important; }
 
 /* -------------------------------------------------------------------------- */
+/* gry */
+
+/* c */
+			.gry .c-n,
+.newTheme > .gry .c-n					{ color:#7c8a8b!important; }
+			.gry .c-d,
+.newTheme > .gry .c-d					{ color:#6a7777!important; }
+			.gry .c-d1,
+.newTheme > .gry .c-d1					{ color:#5a6666!important; }
+			.gry .c-l1,
+.newTheme > .gry .c-l1					{ color:#8c9899!important; }
+			.gry .c-l2,
+.newTheme > .gry .c-l2					{ color:#a5adac!important; }
+			.gry .c-l3,
+.newTheme > .gry .c-l3					{ color:#bfc4c4!important; }
+			.gry .c-l4,
+.newTheme > .gry .c-l4					{ color:#d7dbdb!important; }
+/* bgc */
+			.gry .bgc-n,
+.newTheme > .gry .bgc-n					{ background-color:#7c8a8b!important; }
+			.gry .bgc-d,
+.newTheme > .gry .bgc-d					{ background-color:#6a7777!important; }
+			.gry .bgc-d1,
+.newTheme > .gry .bgc-d1				{ background-color:#5a6666!important; }
+			.gry .bgc-l1,
+.newTheme > .gry .bgc-l1				{ background-color:#8c9899!important; }
+			.gry .bgc-l2,
+.newTheme > .gry .bgc-l2				{ background-color:#a5adac!important; }
+			.gry .bgc-l3,
+.newTheme > .gry .bgc-l3				{ background-color:#bfc4c4!important; }
+			.gry .bgc-l4,
+.newTheme > .gry .bgc-l4				{ background-color:#d7dbdb!important; }
+/* hoverc */
+			.gry .hoverc-n:hover,		
+.newTheme > .gry .hoverc-n:hover		{ color:#7c8a8b!important; }
+			.gry .hoverc-d:hover,
+.newTheme > .gry .hoverc-d:hover		{ color:#6a7777!important; }
+			.gry .hoverc-d1:hover,
+.newTheme > .gry .hoverc-d1:hover		{ color:#5a6666!important; }
+			.gry .hoverc-l1:hover,
+.newTheme > .gry .hoverc-l1:hover		{ color:#8c9899!important; }
+/* hoverbgc */
+			.gry .hoverbgc-n:hover,
+.newTheme > .gry .hoverbgc-n:hover		{ background-color:#7c8a8b!important; }
+			.gry .hoverbgc-d:hover,
+.newTheme > .gry .hoverbgc-d:hover		{ background-color:#6a7777!important; }
+			.gry .hoverbgc-d1:hover,
+.newTheme > .gry .hoverbgc-d1:hover		{ background-color:#5a6666!important; }
+			.gry .hoverbgc-l1:hover,
+.newTheme > .gry .hoverbgc-l1:hover		{ background-color:#8c9899!important; }
+/* activec */
+			.gry .active.activebgc-n,
+.newTheme > .gry .active.activebgc-n	{ background-color:#7c8a8b!important; }
+			.gry .active.activebgc-l1,
+.newTheme > .gry .active.activebgc-l1	{ background-color:#8c9899!important; }
+
+/* -------------------------------------------------------------------------- */
 /* trq */
 
 /* c */
@@ -2032,7 +2099,7 @@ a.btnTab:active {
 			.ngt .bgc-l4,
 .newTheme > .ngt .bgc-l4				{ background-color:#88a8b5!important; }
 			.ngt .bgc-s1,
-.newTheme > .ngt .bgc-s1				{ background-color:#c9c9c6!important; }
+.newTheme > .ngt .bgc-s1				{ background-color:#c9c9c6!important; } /* special 1, for btnAdd */
 /* hoverc */
 			.ngt .hoverc-n:hover,		
 .newTheme > .ngt .hoverc-n:hover		{ color:#3c5f7f!important; }

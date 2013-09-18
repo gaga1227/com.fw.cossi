@@ -1,4 +1,33 @@
 /* ------------------------------------------------------------------------------ */
+/* Scheme */
+/* ------------------------------------------------------------------------------ */
+var Scheme = {
+	/* trq */
+	trqN : '#00bd9b', trqD : '#00a185', trqD1: '#00806a',
+	trqL1: '#00d5b1', trqL2: '#76c6b4', trqL3: '#a7e1d1', trqL4: '#ceece6',
+	/* blu */
+	bluN : '#2d97de', bluD : '#227fbb', bluD1: '#1f6272',
+	bluL1: '#36b3ea', bluL2: '#67bfd3', bluL3: '#96e1ed', bluL4: '#c1eff4',
+	/* sun */
+	sunN : '#f2c500', sunD : '#f59d00', sunD1: '#c1780c',
+	sunL1: '#ffd215', sunL2: '#ead371', sunL3: '#f7e09f', sunL4: '#fcf2d2',
+	/* org */
+	orgN : '#e87e04', orgD : '#d55400', orgD1: '#a8410e',
+	orgL1: '#fc8627', orgL2: '#eaaf7f', orgL3: '#ead4bb', orgL4: '#efe5df',
+	/* red */
+	redN : '#ea4b35', redD : '#c23824', redD1: '#99231a',
+	redL1: '#f4564a', redL2: '#d3a5a5', redL3: '#eabfbe', redL4: '#f2d4d3',
+	/* ngt */
+	ngtN : '#3c5f7f', ngtD : '#33485f', ngtD1: '#2b3d50',
+	ngtL1: '#2c6996', ngtL2: '#58778c', ngtL3: '#7195aa', ngtL4: '#88a8b5',
+	/* neu */
+	neuN : '#bab6ae', neuD : '#a8a49d', neuD1: '#87827b',
+	neuL1: '#ccc3b8', neuL2: '#d9d4c7', neuL3: '#f0ece4', neuL4: '#f7f4ef',
+	/* gry */
+	gryN : '#7c8a8b', gryD : '#6a7777', gryD1: '#5a6666',
+	gryL1: '#8c9899', gryL2: '#a5adac', gryL3: '#bfc4c4', gryL4: '#d7dbdb'
+};
+/* ------------------------------------------------------------------------------ */
 /* initHeaderMenus */
 /* ------------------------------------------------------------------------------ */
 function initHeaderMenus() {
@@ -854,9 +883,11 @@ function initCharts() {
 		//properties
 		ns = 'chart',
 		hasCanvas = Modernizr.canvas,
+		valueBase = 4,
 
 		//selectors
-		chartSelector = '.chart';
+		chartSelector = '.chart',
+		textValueSelector = '.value';
 
 	/* -------------------------------------------------------------------------- */
 	/* properties */
@@ -877,14 +908,34 @@ function initCharts() {
 
 	/* -------------------------------------------------------------------------- */
 	/* functions */
-
+	
 	/* prepChart */
 	charts.prepChart = function(id){
 		//vars
-		var chart = charts[ns+id];
-
-		//merge chart config with default config
+		var chart = charts[ns+id],
+			$chart = chart.$el,
+			$textValue = $chart.find(textValueSelector),
+			valueIsPercent = $textValue.hasClass('percent');
+					
+		//copy default config to instance
 		chart.config = $.extend(chart.config, charts.defaultConfig);
+		
+		//update config
+		chart.config.size = parseInt($chart.data('size'), 10);
+		chart.config.lineWidth = parseInt($chart.data('lineWidth'), 10);
+		chart.config.barColor = Scheme[$chart.data('c1')];
+		chart.config.trackColor = Scheme[$chart.data('c2')];
+		
+		//get value and percent
+		chart.value = parseFloat($textValue.text());
+		chart.value = Math.min( valueIsPercent ? 100 : valueBase, Math.max(0, chart.value));
+		chart.percent = valueIsPercent ? chart.value : Math.floor((chart.value / valueBase) * 100);
+		
+		//update DOM
+		$chart.attr({
+			'data-value': 	chart.value,
+			'data-percent': chart.percent	
+		});		
 	};
 
 	/* drawChart */

@@ -46,7 +46,7 @@ var Color = function(){
 	/* -------------------------------------------------------------------------- */
 	//methods
 	function mix(color1, color2, ratio) {
-		var med = null,
+		var color = null,
 			rgb1 = hexToRgb(color1, true),
 			rgb2 = hexToRgb(color2, true);
 
@@ -55,11 +55,27 @@ var Color = function(){
 				g = Math.floor((rgb1[1] + rgb2[1]) * ratio),
 				b = Math.floor((rgb1[2] + rgb2[2]) * ratio);
 
-			med = rgbToHex('rgb(' + r + ', ' + g + ', ' + b + ')');
+			color = rgbToHex('rgb(' + r + ', ' + g + ', ' + b + ')');
 		}
 
-		return med;
-	};
+		return color;
+	}
+
+	function gradient(begin, end, pos) {
+		var color = null,
+			rgb1 = hexToRgb(begin, true),
+			rgb2 = hexToRgb(end, true);
+
+		if (rgb1 !== null && rgb2 !== null) {
+			var r = parseInt((rgb1[0] + pos * (rgb2[0] - rgb1[0])), 10),
+				g = parseInt((rgb1[1] + pos * (rgb2[1] - rgb1[1])), 10),
+				b = parseInt((rgb1[2] + pos * (rgb2[2] - rgb1[2])), 10);
+
+			color = rgbToHex('rgb(' + r + ', ' + g + ', ' + b + ')');
+		}
+
+		return color;
+	}
 
 	function hexToRgb(hex, array) {
 		var tmp = hexToArray(hex),
@@ -97,6 +113,7 @@ var Color = function(){
 	return {
 		//methods
 		mix			: mix,
+		gradient	: gradient,
 		hexToRgb	: hexToRgb,
 		rgbToHex	: rgbToHex
 	};

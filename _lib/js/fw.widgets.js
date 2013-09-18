@@ -722,13 +722,29 @@ function initSliders() {
 					cssGradient,
 					//elems
 					$track = slider.$liveTrack,
-					$knob = slider.$knob;
+					$knob = slider.$knob,
+					$marks = slider.$marks;
 					//console.log(ratio, value, colorStart, colorEnd);
 
 				//update gradient
 				gradientSettings.gradients[0].hex = colorStart;
 				gradientSettings.gradients[1].hex = colorEnd;
 				cssGradient = Gradient.generateAll(gradientSettings);
+
+				//update marks view
+				$.each($marks, function(idx, ele){
+					var $mark = $(ele),
+						markValue = parseInt(slider.stepVals[idx], 10),
+						markRatio = markValue/ratio,
+						markColor,
+						passed = parseInt(ratio, 10) >= markValue;
+					//skip indicator
+					if ($mark.hasClass('indicator')) { return false; }
+					//apply right color
+					markColor = hasCSSGradient ? ((idx == 0) ? colorStart : Color.gradient(colorStart, colorEnd, markRatio)) : colorEnd;
+					$mark.css('background-color', passed ? markColor : slider.defaultMarkColor);
+					//console.log('m', idx+1, markRatio);
+				});
 
 				//update view
 				$knob.css('background', colorEnd);
@@ -813,53 +829,54 @@ function initSliders() {
 		//add instance to control and collection objs
 		sliders[ns + sliderID] = slider = {
 			//elems
-			$el:			$slider,
-			$tracks:		$sliderTracks,
-			$liveTrack:		$sliderTrackLive,
-			$indicatorTrack:$sliderTrackIndicator,
-			$marks:			$sliderMarks,
-			$labels:		$sliderLabels,
-			$knob:			$sliderKnob,
-			$input:			$sliderInput,
+			$el:				$slider,
+			$tracks:			$sliderTracks,
+			$liveTrack:			$sliderTrackLive,
+			$indicatorTrack: 	$sliderTrackIndicator,
+			$marks:				$sliderMarks,
+			$labels:			$sliderLabels,
+			$knob:				$sliderKnob,
+			$input:				$sliderInput,
 
 			//properties/data
-			id:				sliderID,
-			steps:			$sliderMarks.length,
-			stepVals:		getStepValues($sliderMarks),
-			stepColors:		[],
-			value:			0,
-			indicatorValue: 0,
+			id:					sliderID,
+			steps:				$sliderMarks.length,
+			stepVals:			getStepValues($sliderMarks),
+			stepColors:			[],
+			value:				0,
+			indicatorValue: 	0,
+			defaultMarkColor: 	$sliderMarks.eq(0).css('background-color'),
 
 			//dragging
-			dragging:		false,
+			dragging:			false,
 
 			//functions
-			init:			function(){
-								//update on init
-								sliders.getStepColors(sliderID);
-								sliders.validateValue(sliderID);
-								sliders.updateTracks(sliderID);
-								sliders.updateMarks(sliderID);
-								sliders.updateLiveTrack(sliderID);
-								sliders.updateKnob(sliderID);
-								sliders.initDrag(sliderID);
+			init: function(){
+				//update on init
+				sliders.getStepColors(sliderID);
+				sliders.validateValue(sliderID);
+				sliders.updateTracks(sliderID);
+				sliders.updateMarks(sliderID);
+				sliders.updateLiveTrack(sliderID);
+				sliders.updateKnob(sliderID);
+				sliders.initDrag(sliderID);
 
-								//call slider.update on value change
-								this.$input.on('change', this.update);
+				//call slider.update on value change
+				this.$input.on('change', this.update);
 
-								//marks as value trigger
-								sliders.bindMarks(sliderID);
+				//marks as value trigger
+				sliders.bindMarks(sliderID);
 
-								console.log(ns + sliderID, 'init->', this.value);
-							},
-			update:			function(e){
-								sliders.validateValue(sliderID);
-								sliders.updateMarks(sliderID);
-								sliders.updateLiveTrack(sliderID);
-								sliders.updateKnob(sliderID);
+				console.log(ns + sliderID, 'init->', this.value);
+			},
+			update: function(e){
+				sliders.validateValue(sliderID);
+				sliders.updateMarks(sliderID);
+				sliders.updateLiveTrack(sliderID);
+				sliders.updateKnob(sliderID);
 
-								console.log(ns + sliderID, 'update->', this.value);
-							}
+				console.log(ns + sliderID, 'update->', this.value);
+			}
 		};
 		sliders.count++;
 
@@ -908,7 +925,7 @@ function initCharts() {
 
 	/* -------------------------------------------------------------------------- */
 	/* functions */
-	
+
 	/* prepChart */
 	charts.prepChart = function(id){
 		//vars
@@ -916,26 +933,26 @@ function initCharts() {
 			$chart = chart.$el,
 			$textValue = $chart.find(textValueSelector),
 			valueIsPercent = $textValue.hasClass('percent');
-					
+
 		//copy default config to instance
 		chart.config = $.extend(chart.config, charts.defaultConfig);
-		
+
 		//update config
 		chart.config.size = parseInt($chart.data('size'), 10);
 		chart.config.lineWidth = parseInt($chart.data('lineWidth'), 10);
 		chart.config.barColor = Scheme[$chart.data('c1')];
 		chart.config.trackColor = Scheme[$chart.data('c2')];
-		
+
 		//get value and percent
 		chart.value = parseFloat($textValue.text());
 		chart.value = Math.min( valueIsPercent ? 100 : valueBase, Math.max(0, chart.value));
 		chart.percent = valueIsPercent ? chart.value : Math.floor((chart.value / valueBase) * 100);
-		
+
 		//update DOM
 		$chart.attr({
 			'data-value': 	chart.value,
-			'data-percent': chart.percent	
-		});		
+			'data-percent': chart.percent
+		});
 	};
 
 	/* drawChart */

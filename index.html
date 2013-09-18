@@ -36,7 +36,7 @@
 <script type="text/javascript" src="_lib/js/modernizr.all.js"></script><!-- modernizr -->
 <script type="text/javascript" src="_lib/js/jquery-1.8.3.js"></script><!-- jQuery -->
 <!-- JS:LIBS -->
-<!--[if lt IE 9 ]><script type="text/javascript" src="_lib/js/excanvas.js"></script><![endif]--><!-- excanvas -->
+<!--[if lt IE 9]><script type="text/javascript" src="_lib/js/excanvas.js"></script><![endif]--><!-- excanvas -->
 <script type="text/javascript" src="_lib/js/placeholders.js"></script><!-- placeholders -->
 <script type="text/javascript" src="_lib/js/jquery.easy-pie-chart.js"></script><!-- easy-pie-chart -->
 <script type="text/javascript" src="_lib/js/ckeditor/ckeditor.js"></script><!-- ckeditor -->
@@ -105,10 +105,10 @@
 			</div>
 			<div class="extra padTop20">
 				<div id="indicatorStatus" class="tabGroup four"><!--
-					--><span href="#" id="btnAttention" class="btnTab first activebgc-l1"><i class="iconInline sz2 left fwicon-alert-sign"></i><span class="label">Needs Attention</span><span class="arrow"></span></span><!--
-					--><span href="#" id="btnDevelop" class="btnTab activebgc-l1"><i class="iconInline sz2 left fwicon-clock-sign"></i><span class="label">Developing</span><span class="arrow"></span></span><!--
-					--><span href="#" id="btnAchieved" class="btnTab activebgc-l1"><i class="iconInline sz2 left fwicon-tick-sign"></i><span class="label">Achieved</span><span class="arrow"></span></span><!--
-					--><span href="#" id="btnExemplary" class="btnTab last activebgc-l1 active"><i class="iconInline sz2 left fwicon-star"></i><span class="label">Exemplary</span><span class="arrow"></span></span><!--
+					--><span id="btnAttention" class="btnTab first activebgc-l1"><i class="iconInline sz2 left fwicon-alert-sign"></i><span class="label">Needs Attention</span><span class="arrow"></span></span><!--
+					--><span id="btnDevelop" class="btnTab activebgc-l1"><i class="iconInline sz2 left fwicon-clock-sign"></i><span class="label">Developing</span><span class="arrow"></span></span><!--
+					--><span id="btnAchieved" class="btnTab activebgc-l1"><i class="iconInline sz2 left fwicon-tick-sign"></i><span class="label">Achieved</span><span class="arrow"></span></span><!--
+					--><span id="btnExemplary" class="btnTab last activebgc-l1 active"><i class="iconInline sz2 left fwicon-star"></i><span class="label">Exemplary</span><span class="arrow"></span></span><!--
 				--></div>
 			</div>
 		</div>
@@ -909,13 +909,67 @@
 				</h3>
 			</div>
 		</div>
-		<div class="section bgLite acContent" data-show="1">
+		<div class="section acContent" data-show="1">
 			<div class="padder clearfix">
-
-				<div id="chart1" class="chart" data-size="130" data-line-width="6" data-c1="trqD" data-c2="trqL3">
-					<div class="chartText"><span class="value">0.0</span><sup class="aster">*</sup></div>
-				</div>
+				<!-- DIMENSIONS -->
+				<div class="dashboard dimensions cleafix newTheme">
+					<div class="col trq">
+						<a href="#" class="btnChart rndCorner1001">
+							<span class="header"><span class="label">Leadership</span><span class="arrow"></span></span>
+							<span class="padder">
+								<span class="chart ring1" data-size="160" data-line-width="12" data-c1="trqD" data-c2="trqL2">
+									<span class="chartText half bgc-l1"><span class="value">3.0</span><span class="aster">*</span></span>
+								</span>
+								<span class="chart ring2" data-size="180" data-line-width="7" data-c1="trqN" data-c2="trqL3">
+									<span class="chartText half bgc-n c-l3"><span class="label">Average</span><span class="value">3.7</span></span>
+								</span>
+								<span class="meter">
+									<span class="dot bgc-n done"></span>
+									<span class="dot bgc-n done"></span>
+									<span class="dot bgc-n done"></span>
+									<span class="dot bgc-n done"></span>
+									<span class="dot bgc-n done"></span>
+									<span class="dot bgc-l4"></span>
+									<span class="dot bgc-l4"></span>
+									<span class="label">*5 of 7 indicators</span>
+								</span>
+								<span class="term">November 2013</span>
+								<span class="arrow bgc-n"><i class="iconInline fwicon-angle-down"></i></span>
+							</span>
+						</a>
+					</div>
+					<div class="col org">
+						<div class="extraHeader rndCorner1100 bgc-l1">Full School Review</div>
+						<a href="#" class="btnChart">
+							<span class="header"><span class="label">Learning<br />&amp; Teaching</span><span class="arrow"></span></span>
+							<span class="padder">
+								<span class="chart ring1" data-size="160" data-line-width="12" data-c1="orgD" data-c2="orgL2">
+									<span class="chartText css3pie half bgc-l1"><span class="value">3.3</span><span class="aster">*</span></span>
+								</span>
+								<span class="chart ring2" data-size="180" data-line-width="7" data-c1="orgN" data-c2="orgL3">
+									<span class="chartText css3pie half bgc-n c-l3"><span class="label">Average</span><span class="value">2.5</span></span>
+								</span>
+								<span class="meter">
+									<span class="dot bgc-n done"></span>
+									<span class="dot bgc-n done"></span>
+									<span class="dot bgc-n done"></span>
+									<span class="dot bgc-n done"></span>
+									<span class="dot bgc-n done"></span>
+									<span class="dot bgc-n done"></span>
+									<span class="dot bgc-n done"></span>
+									<span class="label c-n">Completed</span>
+								</span>
+								<span class="term">December 2013</span>
+								<span class="arrow bgc-n"><i class="iconInline fwicon-angle-down"></i></span>
+							</span>
+						</a>
+					</div>
+					
+				</div><!-- /DIMENSIONS -->
 				
+				
+				
+				<!--
 				<div id="chart2" class="chart" data-size="160" data-line-width="7" data-c1="bluD" data-c2="bluL3">
 					<div class="chartText"><span class="label">Average</span><span class="value">1.8</span></div>
 				</div>
@@ -935,6 +989,7 @@
 				<div id="chart6" class="chart" data-size="200" data-line-width="15" data-c1="gryD" data-c2="gryL3">
 					<div class="chartText"><span class="value hidden">4.0</span></div>
 				</div>
+				-->
 
 			</div>
 		</div><!-- /SECTION -->

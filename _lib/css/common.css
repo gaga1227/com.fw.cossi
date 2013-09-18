@@ -1259,12 +1259,207 @@ body {
 	.easyPieChart canvas { 
 		position:absolute; top:0; left:0; }
 
+
+/* ==========================================================================
+   comp - DASHBOARD
+   ========================================================================== */
+
 /* -------------------------------------------------------------------------- */
-/* chart */
-.chart {  }
+/* container */
+.dashboard { 
+	position:relative; width:980px; height:auto; margin:0 0 0 -10px; padding:0; overflow:hidden; }
+ 
+	/* col */
+	.dashboard > .col { 
+		position:relative; width:auto; height:auto; margin:0; padding:0; overflow:hidden; float:left; }
+		
+		/* -------------------------------------------------------------------------- */
+		/* extraHeader */
+		.dashboard .extraHeader {
+			display:block; width:auto; height:auto; margin:0 0 0 1px; padding:0 15px; overflow:hidden;
+			white-space:nowrap; text-overflow:ellipsis;
+			color:#fff;	background:#8c9899;
+			font-size:12px; font-weight:700; line-height:30px; text-align:center; text-transform:uppercase; }
+		
+		/* custom */
+		.dashboard > .col:first-child .extraHeader { margin:0; }
+		
+		/* -------------------------------------------------------------------------- */
+		/* btnChart */
+		.btnChart { 
+			display:block; position:relative; width:auto; height:auto; margin:30px 0 0 0; padding:0; overflow:hidden;
+			background:#f0ece4; border-left:1px solid #ddd8cc;
+			cursor:pointer; }
+			
+		/* interaction */
+		.no-touch .btnChart:hover { 
+			background:#f9f7f3; }
+		
+		/* custom */
+		.dashboard > .col:first-child .btnChart { border:none; }
+		.dashboard .extraHeader + .btnChart { margin-top:0; }
+			
+			/* common */
+			.btnChart span { 
+				display:block; position:relative; width:auto; height:auto; margin:0; padding:0; overflow:hidden; }
+			.btnChart,
+			.btnChart span { 
+				vertical-align:middle; text-align:center;
+				text-decoration:none!important; outline:0 none!important; }
+			
+			/* -------------------------------------------------------------------------- */
+			/* header */
+			.btnChart .header {
+				height:40px; padding:15px 15px 15px 14px; overflow:visible; z-index:100;
+				color:#fff;	background:#7c8a8b; text-transform:uppercase;
+				font-size:15px; font-weight:700; line-height:20px;
+				/*transition*/
+				/*-webkit-transform:translate3d(0,0,0);*/
+				-webkit-transition:background 0.3s ease-in-out;
+				-moz-transition:background 0.3s ease-in-out;
+				-o-transition:background 0.3s ease-in-out;
+				transition:background 0.3s ease-in-out; }
+				
+				/* label */
+				.btnChart .header:before { 
+					content:''; display:inline-block; width:0; height:40px; vertical-align:middle; }
+				.btnChart .header .label {
+					display:inline-block; }
+					
+				/* arrow */
+				.btnChart .header > .arrow { 
+					position:absolute; left:50%; bottom:0; width:0; height:0; margin:0 0 -14px -7px;
+					color:transparent; background:transparent; border:7px solid transparent; border-top-color:#7c8a8b;
+					font-size:0; line-height:0; }
+					
+			/* -------------------------------------------------------------------------- */
+			/* padder */
+			.btnChart > .padder { height:190px; padding-top:260px; }			
+				
+				/* -------------------------------------------------------------------------- */
+				/* charts */
+				.btnChart .chart 		{ position:absolute; left:50%; }
+				.btnChart .chart.ring1 	{ top:60px; margin-left:-80px; }
+				.btnChart .chart.ring2 	{ top:50px; margin-left:-90px; }
+				
+					/* chartText */
+					.btnChart .chart .chartText { 
+						position:absolute; top:50%; left:50%; width:136px; height:136px; margin:-68px 0 0 -68px;
+						color:#fff; background:#7c8a8b; letter-spacing:-3px;
+						font-size:45px; font-weight:400; line-height:136px;
+						/*border-radius*/-webkit-border-radius:50%; border-radius:50%; }
+					.btnChart .chart.ring2 .chartText {
+						color:#a5adac; background:#6a7777; }
+						
+					/* custom */
+					.btnChart .chart .chartText.half { 
+						height:68px; margin-top:0;
+						line-height:1em; }
+					.btnChart .chart.ring1 .chartText.half { 
+						top:12px; 
+						-webkit-border-radius:136px 136px 0 0; border-radius:136px 136px 0 0; }
+					.btnChart .chart.ring2 .chartText.half { 
+						top:auto; bottom:22px; 
+						-webkit-border-radius:0 0 136px 136px; border-radius:0 0 136px 136px; }
+					
+					/* oldie fallback */
+					.oldie .btnChart .chart .chartText,
+					.oldie .btnChart .chart .chartText *,
+					.oldie .btnChart .chart .chartText.half,
+					.oldie .btnChart .chart .chartText.half * { 
+						color:#7c8a8b!important; background:none!important; }
+					.oldie .btnChart .chart.ring2 .chartText.half,
+					.oldie .btnChart .chart.ring2 .chartText.half * { 
+						color:#bab6ae!important; }
+						
+						/* common */
+						.btnChart .chart .chartText span,
+						.btnChart .chart .chartText sup { 
+							display:block; overflow:hidden; white-space:nowrap; }
+						
+						/* value */
+						.btnChart .chart.ring1 .chartText.half .value { 
+							margin-top:20px; }
+						.btnChart .chart.ring2 .chartText.half .value { 
+							margin:1px 0 0 0; font-size:35px; line-height:1em; letter-spacing:-2px; }
+						
+						/* aster */
+						.btnChart .chart .chartText .aster { 
+							position:absolute; top:22px; right:18px; width:25px; height:25px;
+							color:#fff; font-size:25px; line-height:1em; }
+						
+						/* label */
+						.btnChart .chart .chartText .label { 
+							margin:10px 0 0 0; text-transform:uppercase; letter-spacing:0;
+							font-size:10px; font-weight:700; line-height:1em; }
+						
+				/* -------------------------------------------------------------------------- */
+				/* meter */
+				.btnChart .meter { 
+					padding:0 15px;
+					color:#363b40; font-weight:700; text-transform:uppercase;
+					font-size:0; line-height:0; }
+					
+					/* dot */
+					.btnChart .meter .dot {
+						display:inline-block; width:8px; height:8px; margin:0 2px; padding:0; overflow:hidden;
+						background:#f7f4ef; font-size:0; line-height:0; } 
+					.btnChart .meter .dot.done { 
+						background:#bab6ae; }
+						
+					/* label */
+					.btnChart .meter .label { 
+						display:block; margin-top:12px; font-size:12px; line-height:1em; }
+						
+				/* -------------------------------------------------------------------------- */
+				/* arrow */
+				.btnChart > .padder .arrow { 
+					display:block; position:absolute; bottom:53px; left:50%; width:24px; height:24px; margin:0 0 0 -17px;
+					color:#fff; background:#7c8a8b; border:5px solid #f0ece4;
+					/*border-radius*/-webkit-border-radius:50%; border-radius:50%;
+					/*transition*/
+					/*-webkit-transform:translate3d(0,0,0);*/
+					-webkit-transition:border-color 0.3s ease-in-out;
+					-moz-transition:border-color 0.3s ease-in-out;
+					-o-transition:border-color 0.3s ease-in-out;
+					transition:border-color 0.3s ease-in-out; }
+				.no-touch .btnChart:hover > .padder .arrow { 
+					border-color:#f9f7f3; }
+					
+					/* iconInline*/
+					.btnChart > .padder .arrow .iconInline { padding:0; font-size:24px; line-height:25px; }
+				
+				/* -------------------------------------------------------------------------- */
+				/* term */
+				.btnChart .term { 
+					position:absolute; bottom:0; left:0; width:100%; height:65px;
+					white-space:nowrap; text-overflow:ellipsis;
+					color:#464a4d; background:#e5e1d8;
+					font-size:15px; font-weight:700; line-height:65px; text-transform:uppercase;
+					/*transition*/
+					/*-webkit-transform:translate3d(0,0,0);*/
+					-webkit-transition:background 0.3s ease-in-out;
+					-moz-transition:background 0.3s ease-in-out;
+					-o-transition:background 0.3s ease-in-out;
+					transition:background 0.3s ease-in-out; }
+				.no-touch .btnChart:hover .term { 
+					background:#efede6; }
+								 
+		
 
+/* ==========================================================================
+   comp - DASHBOARD CUSTOM
+   ========================================================================== */
 
+/* -------------------------------------------------------------------------- */
+/* dimensions */
+.dashboard.dimensions > .col { width:196px; } 
 
+/* -------------------------------------------------------------------------- */
+/* indicators */
+
+/* -------------------------------------------------------------------------- */
+/* summary */
 
 
 /* ==========================================================================
@@ -1608,6 +1803,30 @@ a.btnTab:active {
 	display:block; position:absolute; margin:0; padding:0; overflow:hidden;
 	/*border-radius*/-webkit-border-radius:50%; border-radius:50%;
 	/*background-clip*/-moz-background-clip:padding; -webkit-background-clip:padding; background-clip:padding-box; }
+
+	
+/* ==========================================================================
+   common - CORNER
+   ========================================================================== */
+   
+/* -------------------------------------------------------------------------- */
+/* default 5px */
+.rndCorner0000 { -webkit-border-radius:0; 				border-radius:0; }
+.rndCorner0001 { -webkit-border-radius:0 0 0 5px; 		border-radius:0 0 0 5px; }
+.rndCorner0010 { -webkit-border-radius:0 0 5px 0; 		border-radius:0 0 5px 0; }
+.rndCorner0011 { -webkit-border-radius:0 0 5px 5px; 	border-radius:0 0 5px 5px; }
+.rndCorner0100 { -webkit-border-radius:0 5px 0 0; 		border-radius:0 5px 0 0; }
+.rndCorner0101 { -webkit-border-radius:0 5px 0 5px; 	border-radius:0 5px 0 5px; }
+.rndCorner0110 { -webkit-border-radius:0 5px 5px 0; 	border-radius:0 5px 5px 0; }
+.rndCorner0111 { -webkit-border-radius:0 5px 5px 5px; 	border-radius:0 5px 5px 5px; }
+.rndCorner1000 { -webkit-border-radius:5px 0 0 0; 		border-radius:5px 0 0 0; }
+.rndCorner1001 { -webkit-border-radius:5px 0 0 5px; 	border-radius:5px 0 0 5px; }
+.rndCorner1010 { -webkit-border-radius:5px 0 5px 0; 	border-radius:5px 0 5px 0; }
+.rndCorner1011 { -webkit-border-radius:5px 0 5px 5px; 	border-radius:5px 0 5px 5px; }
+.rndCorner1100 { -webkit-border-radius:5px 5px 0 0; 	border-radius:5px 5px 0 0; }
+.rndCorner1101 { -webkit-border-radius:5px 5px 0 5px; 	border-radius:5px 5px 0 5px; }
+.rndCorner1110 { -webkit-border-radius:5px 5px 5px 0; 	border-radius:5px 5px 5px 0; }
+.rndCorner1111 { -webkit-border-radius:5px; 			border-radius:5px; }
 
 
 /* ==========================================================================

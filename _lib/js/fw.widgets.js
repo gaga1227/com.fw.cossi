@@ -25,7 +25,9 @@ var Scheme = {
 	neuL1: '#ccc3b8', neuL2: '#d9d4c7', neuL3: '#f0ece4', neuL4: '#f7f4ef',
 	/* gry */
 	gryN : '#7c8a8b', gryD : '#6a7777', gryD1: '#5a6666',
-	gryL1: '#8c9899', gryL2: '#a5adac', gryL3: '#bfc4c4', gryL4: '#d7dbdb'
+	gryL1: '#8c9899', gryL2: '#a5adac', gryL3: '#bfc4c4', gryL4: '#d7dbdb',
+	/* common */
+	wht:   '#ffffff'
 };
 /* ------------------------------------------------------------------------------ */
 /* initHeaderMenus */

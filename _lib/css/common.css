@@ -300,6 +300,7 @@ body {
 
 	/* custom */
 	#banner .main.lessTopGap { padding-top:50px; }
+	#banner .main.moreBtmGap { padding-bottom:120px; }
 
 		/* common */
 		#banner .main .h1,
@@ -380,29 +381,46 @@ body {
 
 	/* -------------------------------------------------------------------------- */
 	/* secHeader */
-	#content > .secHeader {
+	#content .secHeader {
 		height:60px; background:#2c3e51; border-bottom:1px solid rgba(0,0,0,0.1);
 		/*box-sizing*/-webkit-box-sizing:border-box; -moz-box-sizing:border-box; box-sizing:border-box; }
 
 		/* heading */
-		#content > .secHeader .heading {
+		#content .secHeader .heading {
 			position:relative; width:auto; height:24px; margin:0; padding:18px 80px; overflow:hidden;
 			color:#fff; font-size:17px; font-weight:700; line-height:24px; }
 
 			/* label */
-			#content > .secHeader .heading .label {
+			#content .secHeader .heading .label {
 				display:block; width:100%; height:auto; margin:0; padding:0; overflow:hidden;
 				white-space:nowrap; text-overflow:ellipsis; }
 
 			/* index */
-			#content > .secHeader .heading .index {
+			#content .secHeader .heading .index {
 				position:absolute; top:0; left:0; width:55px; height:100%; min-height:60px; margin:0; padding:0; overflow:hidden; zoom:1;
 				color:#f8f6f3; font-family:'Chaparral',georgia,serif; font-size:32px; font-weight:700; line-height:60px; text-align:center; }
 
 			/* icon */
-			#content > .secHeader .heading .icon {
+			#content .secHeader .heading .icon {
 				position:absolute; top:0; right:0; width:55px; height:60px; margin:0; padding:0; overflow:hidden;
 				font-size:16px; line-height:60px; }
+				
+			/* labelRight */
+			#content .secHeader .heading .labelRight {
+				display:block; position:absolute; right:0; top:0; max-width:30%; height:100%; overflow:hidden;
+				white-space:nowrap; text-overflow:ellipsis; 
+				text-align:right; line-height:60px; }
+			#content .secHeader .heading .icon + .labelRight {
+				right:80px; }
+				
+	/* -------------------------------------------------------------------------- */
+	/* secHeader compact*/
+	#content .secHeader.compact { height:40px; }
+	
+		/* heading */
+		#content .secHeader.compact .heading { 
+			height:20px; padding:10px 0;
+			font-size:15px; line-height:20px; text-align:center; }
 
 
 /* ==========================================================================
@@ -456,6 +474,65 @@ body {
 		/*opacity*/opacity:1; -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=100)"; filter:alpha(opacity=100); }
 
 
+/* ==========================================================================
+   structure - INSTRUCTIONS
+   ========================================================================== */
+
+/* -------------------------------------------------------------------------- */
+/* instructions */
+.instructions { 
+	position:relative; width:auto; height:auto; margin:0; padding:0; }
+	
+	/* -------------------------------------------------------------------------- */
+	/* bg */
+	.instructions .bg { 
+		display:block; position:absolute; bottom:0; left:0; width:36.5%; height:100%; margin:0; padding:6px 0 0 0; overflow:hidden;
+		background:#7c8a8b; font-size:0; line-height:0; }
+	
+	/* -------------------------------------------------------------------------- */
+	/* main */
+	.instructions .main { 
+		position:relative; width:36.5%; float:left; clear:left;
+		color:#d7dbdb; }
+		
+	/* -------------------------------------------------------------------------- */
+	/* aside */
+	.instructions .aside { 
+		position:relative; width:63%; float:right; clear:right; }
+		
+		/* padder */
+		.instructions .main > .padder,
+		.instructions .aside > .padder { 
+			padding:25px 35px 10px 35px; }
+			
+	/* -------------------------------------------------------------------------- */
+	/* content */
+	.instructions h1,
+	.instructions h2,
+	.instructions h3,
+	.instructions h4,
+	.instructions h5 { color:#565a5e!important; }
+	
+	.instructions li,
+	.instructions p,
+	.instructions a { color:#565a5e!important; font-size:13px!important; line-height:20px!important; }
+	
+	/* content main */
+	.instructions .bg + .main h1,
+	.instructions .bg + .main h2,
+	.instructions .bg + .main h3,
+	.instructions .bg + .main h4,
+	.instructions .bg + .main h5 { color:#f8f6f3!important; }
+	
+	.instructions .bg + .main li,
+	.instructions .bg + .main p,
+	.instructions .bg + .main a { color:#e5e8e8!important; }
+	
+	/* -------------------------------------------------------------------------- */
+	/* insChart */
+	#insChart .content { margin:20px 0 0 180px; }
+	
+	
 /* ==========================================================================
    structure - SECASIDE / HELP
    ========================================================================== */
@@ -591,7 +668,9 @@ body {
 .col7d,
 .col7e,
 .col7f,
-.col7g { display:block; position:relative; height:auto; margin:0; padding:0; }
+.col7g 		{ display:block; position:relative; height:auto; margin:0; padding:0; }
+
+.col2Gutter { display:block; position:absolute; top:0; height:100%; margin:0; padding:0; }
 
 /* -------------------------------------------------------------------------- */
 /* contentViewport */
@@ -633,6 +712,8 @@ body {
 .col2b { width:48%; }
 .col2a { float:left; clear:left; }
 .col2b { float:right; clear:right; }
+
+.col2Gutter { left:50%; width:4%; margin-left:-2%; }
 
 /* -------------------------------------------------------------------------- */
 /* col3 */
@@ -1533,6 +1614,48 @@ body {
 			.btnChart.dark.inactive .term { color:#58778c; background:#33485f; }
 			.no-touch .btnChart.dark.inactive:hover .term { color:#7195aa; background:#3c5f7f; }
 		
+		/* -------------------------------------------------------------------------- */
+		/* btnChart - demo */
+		.btnChart.demo { 
+			width:150px; height:150px;
+			background:none!important; border:none;
+			cursor:default; }
+			
+			/* chart */
+			.btnChart.demo .chart.ring1 { top:10px; margin-left:-65px; }
+			.btnChart.demo .chart.ring2 { top:0px; margin-left:-75px; }
+
+				/* chartText */
+				.btnChart.demo .chart .chartText {
+					width:110px; height:110px; margin:-55px 0 0 -55px;
+					font-size:40px; line-height:110px; }
+
+				/* custom */
+				.btnChart.demo .chart .chartText.half {
+					height:55px; line-height:1em; }
+				.btnChart.demo .chart.ring1 .chartText.half {
+					top:10px; margin-top:0;
+					-webkit-border-radius:110px 110px 0 0; border-radius:110px 110px 0 0; }
+				.btnChart.demo .chart.ring2 .chartText.half {
+					top:auto; bottom:20px;
+					-webkit-border-radius:0 0 110px 110px; border-radius:0 0 110px 110px; }
+					
+				/* value */
+				.btnChart.demo .chart.ring1 .chartText.half .value {
+					margin-top:14px; }
+				.btnChart.demo .chart.ring2 .chartText.half .value {
+					margin:1px 0 0 0; font-size:30px; letter-spacing:-2px; }
+
+				/* aster */
+				.btnChart.demo .chart .chartText .aster {
+					position:absolute; top:10px; right:16px; width:25px; height:25px;
+					color:#fff; font-size:18px; line-height:1em; }
+
+				/* label */
+				.btnChart.demo .chart .chartText .label {
+					margin:8px 0 0 0; text-transform:uppercase; letter-spacing:0;
+					font-size:8px; font-weight:700; line-height:1em; }
+		
 
 /* ==========================================================================
    comp - DASHBOARD CUSTOM
@@ -1602,10 +1725,58 @@ body {
 			.dashboard.indicators .btnChart > .padder .status .label { display:inline; }
 			.dashboard.indicators .btnChart.inactive > .padder .status .label { color:#a8a49d; }
 			
-			
-
 /* -------------------------------------------------------------------------- */
 /* summary */
+
+/* container */
+.dashboard.summary { 
+	position:absolute; top:0; right:0; width:440px; height:100%; }
+
+	/* btnChart */
+	.dashboard.summary .btnChart { 
+		position:absolute; top:0; left:0; width:220px; height:100%; margin:0;
+		background:none!important; border:none;
+		cursor:default!important; }
+	.dashboard.summary .btnChart + .btnChart { 
+		left:auto; right:0; width:219px; border-left:1px solid rgba(255,255,255,0.3); }
+		
+		/* header */
+		.dashboard.summary .btnChart .header { 
+			position:absolute; top:50%; left:0; width:100%; margin:-110px 0 0 0; padding:0;
+			background:none!important; white-space:nowrap; text-overflow:ellipsis; }
+		.dashboard.summary .btnChart .header,
+		.dashboard.summary .btnChart .header:before { height:20px; line-height:20px; }
+			
+			/* charts */
+			.dashboard.summary .btnChart .chart.ring1 { top:50%; margin:-65px 0 0 -65px; }
+			
+				/* chartText */
+				.dashboard.summary .btnChart .chart .chartText {
+					top:0; left:0; width:100%; height:100%; margin:0;
+					color:#fff; background:none; letter-spacing:0;
+					font-size:43px; line-height:130px; }
+					
+				/* oldie fallback */
+				.oldie .dashboard.summary .btnChart .chart .chartText,
+				.oldie .dashboard.summary .btnChart .chart .chartText * {
+					color:#fff!important; }
+				
+				/* unit */
+				.dashboard.summary .btnChart .chart .chartText .unit { 
+					display:inline-block; margin-top:5px;
+					font-size:25px; line-height:1em; vertical-align:middle; }
+			
+			/* status */
+			.dashboard.summary .btnChart .status { 
+				position:absolute; left:0; top:50%; width:100%; height:20px; margin:90px 0 0 0; overflow:visible;
+				white-space:nowrap; text-overflow:ellipsis;
+				color:#fff; font-size:13px; font-weight:700; line-height:20px; text-transform:uppercase; }
+				
+				/* label */
+				.dashboard.summary .btnChart .status .label { display:inline; }
+				
+					/* value */
+					.dashboard.summary .btnChart .status .value { display:inline; font-size:22px; font-weight:400; }
 
 
 /* ==========================================================================
@@ -2521,7 +2692,6 @@ a.btnTab:active {
 .txtBold	      	{ font-weight:bold!important; }
 .txtNoDeco			{ text-decoration:none!important; }
 .txtUnderline		{ text-decoration:underline!important; }
-
 
 /* -------------------------------------------------------------------------- */
 /* layout */

@@ -105,10 +105,10 @@
 			</div>
 			<div class="extra padTop20">
 				<div id="indicatorStatus" class="tabGroup four"><!--
-					--><span id="btnAttention" class="btnTab first activebgc-l1"><i class="iconInline sz2 left fwicon-alert-sign"></i><span class="label">Needs Attention</span><span class="arrow"></span></span><!--
-					--><span id="btnDevelop" class="btnTab activebgc-l1"><i class="iconInline sz2 left fwicon-clock-sign"></i><span class="label">Developing</span><span class="arrow"></span></span><!--
-					--><span id="btnAchieved" class="btnTab activebgc-l1"><i class="iconInline sz2 left fwicon-tick-sign"></i><span class="label">Achieved</span><span class="arrow"></span></span><!--
-					--><span id="btnExemplary" class="btnTab last activebgc-l1 active"><i class="iconInline sz2 left fwicon-star"></i><span class="label">Exemplary</span><span class="arrow"></span></span><!--
+					--><span class="btnTab first activebgc-l1 statusAttention"><i class="iconInline sz2 left fwicon-alert-sign"></i><span class="label">Needs Attention</span><span class="arrow"></span></span><!--
+					--><span class="btnTab activebgc-l1 statusDevelop"><i class="iconInline sz2 left fwicon-clock-sign"></i><span class="label">Developing</span><span class="arrow"></span></span><!--
+					--><span class="btnTab activebgc-l1 statusAchieved"><i class="iconInline sz2 left fwicon-tick-sign"></i><span class="label">Achieved</span><span class="arrow"></span></span><!--
+					--><span class="btnTab last activebgc-l1 statusExemplary active"><i class="iconInline sz2 left fwicon-star"></i><span class="label">Exemplary</span><span class="arrow"></span></span><!--
 				--></div>
 			</div>
 		</div>
@@ -117,6 +117,7 @@
 	<form id="formDemo" action="#" method="get">
 	<!-- CONTENT -->
 	<div id="content">
+		
 		<!-- SECTION -->
 		<div class="secHeader bgc-n hoverbgc-l1 acHeader btn">
 			<div class="padder">
@@ -904,15 +905,20 @@
 			<div class="padder">
 				<h3 class="heading">
 					<span class="index bgc-d1">9</span>
-					<span class="label">Charts</span>
+					<span class="label">Charts (Dimensions)</span>
 					<i class="icon fwicon-plus"></i><i class="icon fwicon-minus"></i>
 				</h3>
 			</div>
 		</div>
 		<div class="section acContent" data-show="1">
-			<div class="padder clearfix">
+			<div class="section bgLite">
+				<div class="padder full" style="min-height:55px;">
+					<!-- this is a spacer for demo only -->
+				</div>
+			</div>
+			<div class="padder full padTop0 clearfix">
 				<!-- DIMENSIONS -->
-				<div class="dashboard dimensions cleafix newTheme">
+				<div class="dashboard dimensions shiftUp cleafix newTheme">
 					<div class="col trq">
 						<a href="#" class="btnChart rndCorner1001">
 							<span class="header"><span class="label">Leadership</span><span class="arrow"></span></span>
@@ -939,15 +945,14 @@
 						</a>
 					</div>
 					<div class="col org">
-						<div class="extraHeader rndCorner1100 bgc-l1">Full School Review</div>
 						<a href="#" class="btnChart">
 							<span class="header"><span class="label">Learning<br />&amp; Teaching</span><span class="arrow"></span></span>
 							<span class="padder">
 								<span class="chart ring1" data-size="160" data-line-width="12" data-c1="orgD" data-c2="orgL2">
-									<span class="chartText css3pie half bgc-l1"><span class="value">3.3</span><span class="aster">*</span></span>
+									<span class="chartText half bgc-l1"><span class="value">3.3</span><span class="aster">*</span></span>
 								</span>
 								<span class="chart ring2" data-size="180" data-line-width="7" data-c1="orgN" data-c2="orgL3">
-									<span class="chartText css3pie half bgc-n c-l3"><span class="label">Average</span><span class="value">2.5</span></span>
+									<span class="chartText half bgc-n c-l3"><span class="label">Average</span><span class="value">2.5</span></span>
 								</span>
 								<span class="meter">
 									<span class="dot bgc-n done"></span>
@@ -964,35 +969,206 @@
 							</span>
 						</a>
 					</div>
-					
+					<div class="col red">
+						<a href="#" class="btnChart">
+							<span class="header"><span class="label">Pastoral<br />Wellbeing</span><span class="arrow"></span></span>
+							<span class="padder">
+								<span class="chart ring1" data-size="160" data-line-width="12" data-c1="redD" data-c2="redL2">
+									<span class="chartText half bgc-l1"><span class="value">1.5</span><span class="aster">*</span></span>
+								</span>
+								<span class="chart ring2" data-size="180" data-line-width="7" data-c1="redN" data-c2="redL3">
+									<span class="chartText half bgc-n c-l3"><span class="label">Average</span><span class="value">3.0</span></span>
+								</span>
+								<span class="meter">
+									<span class="dot bgc-n done"></span>
+									<span class="dot bgc-n done"></span>
+									<span class="dot bgc-n done"></span>
+									<span class="dot bgc-n done"></span>
+									<span class="dot bgc-l4"></span>
+									<span class="dot bgc-l4"></span>
+									<span class="dot bgc-l4"></span>
+									<span class="label">*5 of 7 indicators</span>
+								</span>
+								<span class="term">July 2013</span>
+								<span class="arrow bgc-n"><i class="iconInline fwicon-angle-down"></i></span>
+							</span>
+						</a>
+						<a href="#" class="btn btnBox bgc-n hoverbgc-l1"><span class="label compact">OH&amp;S REVIEW</span><i class="iconInline right fwicon-angle-right"></i></a>
+					</div>
+					<div class="col sun">
+						<a href="#" class="btnChart inactive">
+							<span class="header"><span class="label">Stewardship<br />of Resources</span><span class="arrow"></span></span>
+							<span class="padder">
+								<span class="chart ring1" data-size="160" data-line-width="12" data-c1="neuD" data-c2="neuL2">
+									<span class="chartText half"><span class="value">0.0</span><span class="aster">*</span></span>
+								</span>
+								<span class="chart ring2" data-size="180" data-line-width="7" data-c1="neuN" data-c2="neuL2">
+									<span class="chartText half"><span class="label">Average</span><span class="value">0.2</span></span>
+								</span>
+								<span class="meter">
+									<span class="dot"></span>
+									<span class="dot"></span>
+									<span class="dot"></span>
+									<span class="dot"></span>
+									<span class="dot"></span>
+									<span class="dot"></span>
+									<span class="dot"></span>
+									<span class="label">Not Commenced</span>
+								</span>
+								<span class="term">April 2014</span>
+								<span class="arrow"><i class="iconInline fwicon-angle-down"></i></span>
+							</span>
+						</a>
+					</div>
+					<div class="col blu">
+						<div class="extraHeader rndCorner1100 bgc-l1">Full School Review</div>
+						<a href="#" class="btnChart dark">
+							<span class="header"><span class="label">Catholic Identity</span><span class="arrow"></span></span>
+							<span class="padder">
+								<span class="chart ring1" data-size="160" data-line-width="12" data-c1="bluD" data-c2="ngtN">
+									<span class="chartText half bgc-l1"><span class="value">1.6</span><span class="aster">*</span></span>
+								</span>
+								<span class="chart ring2" data-size="180" data-line-width="7" data-c1="bluN" data-c2="ngtN">
+									<span class="chartText half bgc-n c-l3"><span class="label">Average</span><span class="value">1.8</span></span>
+								</span>
+								<span class="meter">
+									<span class="dot bgc-n done"></span>
+									<span class="dot bgc-n done"></span>
+									<span class="dot bgc-d1"></span>
+									<span class="dot bgc-d1"></span>
+									<span class="dot bgc-d1"></span>
+									<span class="dot bgc-d1"></span>
+									<span class="dot bgc-d1"></span>
+									<span class="label">*2 of 7 indicators</span>
+								</span>
+								<span class="term">September 2015</span>
+								<span class="arrow bgc-n"><i class="iconInline fwicon-angle-down"></i></span>
+							</span>
+						</a>
+						<a href="#" class="btn btnBox bgc-d hoverbgc-d disabled"><span class="label compact c-l1">Progress Report</span><i class="iconInline right fwicon-angle-right c-l1"></i></a>
+					</div>
 				</div><!-- /DIMENSIONS -->
-				
-				
-				
-				<!--
-				<div id="chart2" class="chart" data-size="160" data-line-width="7" data-c1="bluD" data-c2="bluL3">
-					<div class="chartText"><span class="label">Average</span><span class="value">1.8</span></div>
-				</div>
-				
-				<div id="chart3" class="chart" data-size="170" data-line-width="11" data-c1="sunD" data-c2="sunL3">
-					<div class="chartText"><span class="value">2.6</span></div>
-				</div>
-				
-				<div id="chart4" class="chart" data-size="180" data-line-width="12" data-c1="redD" data-c2="redL3">
-					<div class="chartText"><span class="value percent">75</span><span class="percent">%</span></div>
-				</div>
-				
-				<div id="chart5" class="chart" data-size="190" data-line-width="13" data-c1="ngtD" data-c2="ngtL3">
-					<div class="chartText"><span class="value">3.2</span></div>
-				</div>
-				
-				<div id="chart6" class="chart" data-size="200" data-line-width="15" data-c1="gryD" data-c2="gryL3">
-					<div class="chartText"><span class="value hidden">4.0</span></div>
-				</div>
-				-->
-
 			</div>
 		</div><!-- /SECTION -->
+		
+		<!-- SECTION -->
+		<div class="secHeader bgc-n hoverbgc-l1 acHeader btn">
+			<div class="padder">
+				<h3 class="heading">
+					<span class="index bgc-d1">10</span>
+					<span class="label">Charts (Indicators)</span>
+					<i class="icon fwicon-plus"></i><i class="icon fwicon-minus"></i>
+				</h3>
+			</div>
+		</div>
+		<div class="section acContent" data-show="1">
+			<div class="padder full clearfix">
+				<!-- INDICATORS -->
+				<div class="dashboard indicators cleafix newTheme">
+					<div class="col trq">
+						<a href="#" class="btnChart">
+							<span class="header"><span class="label">Shape Culture</span><span class="arrow"></span></span>
+							<span class="padder">
+								<span class="chart ring1" data-size="166" data-line-width="12" data-c1="trqD" data-c2="trqL2">
+									<span class="chartText bgc-l1"><span class="value">3</span></span>
+								</span>
+								<span class="chart ring2" data-size="186" data-line-width="7" data-c1="trqN" data-c2="trqL3">
+									<span class="chartText hidden"><span class="value">3.7</span></span>
+								</span>
+								<span class="status statusAchieved"><i class="iconInline sz2 left fwicon-tick-sign"></i><span class="label">Achieved</span></span>
+							</span>
+						</a>
+					</div>
+					<div class="col trq">
+						<a href="#" class="btnChart">
+							<span class="header"><span class="label">Transform Community</span><span class="arrow"></span></span>
+							<span class="padder">
+								<span class="chart ring1" data-size="166" data-line-width="12" data-c1="trqD" data-c2="trqL2">
+									<span class="chartText bgc-l1"><span class="value">4</span></span>
+								</span>
+								<span class="chart ring2" data-size="186" data-line-width="7" data-c1="trqN" data-c2="trqL3">
+									<span class="chartText hidden"><span class="value">3.9</span></span>
+								</span>
+								<span class="status statusExemplary"><i class="iconInline sz2 left fwicon-star"></i><span class="label">Exemplary</span></span>
+							</span>
+						</a>
+					</div>
+					<div class="col trq">
+						<a href="#" class="btnChart">
+							<span class="header"><span class="label">Develop Governance Structures</span><span class="arrow"></span></span>
+							<span class="padder">
+								<span class="chart ring1" data-size="166" data-line-width="12" data-c1="trqD" data-c2="trqL2">
+									<span class="chartText bgc-l1"><span class="value">3</span></span>
+								</span>
+								<span class="chart ring2" data-size="186" data-line-width="7" data-c1="trqN" data-c2="trqL3">
+									<span class="chartText hidden"><span class="value">3.1</span></span>
+								</span>
+								<span class="status statusAchieved"><i class="iconInline sz2 left fwicon-tick-sign"></i><span class="label">Achieved</span></span>
+							</span>
+						</a>
+					</div>
+					<div class="col trq">
+						<a href="#" class="btnChart">
+							<span class="header"><span class="label">Focus on Learning</span><span class="arrow"></span></span>
+							<span class="padder">
+								<span class="chart ring1" data-size="166" data-line-width="12" data-c1="trqD" data-c2="trqL2">
+									<span class="chartText bgc-l1"><span class="value">2</span></span>
+								</span>
+								<span class="chart ring2" data-size="186" data-line-width="7" data-c1="trqN" data-c2="trqL3">
+									<span class="chartText hidden"><span class="value">2.5</span></span>
+								</span>
+								<span class="status statusDevelop"><i class="iconInline sz2 left fwicon-clock-sign"></i><span class="label">Developing</span></span>
+							</span>
+						</a>
+					</div>
+				</div>
+				<div class="dashboard indicators cleafix newTheme">
+					<div class="col trq">
+						<a href="#" class="btnChart">
+							<span class="header"><span class="label">Build Capacity</span><span class="arrow"></span></span>
+							<span class="padder">
+								<span class="chart ring1" data-size="166" data-line-width="12" data-c1="trqD" data-c2="trqL2">
+									<span class="chartText bgc-l1"><span class="value">1</span></span>
+								</span>
+								<span class="chart ring2" data-size="186" data-line-width="7" data-c1="trqN" data-c2="trqL3">
+									<span class="chartText hidden"><span class="value">1.6</span></span>
+								</span>
+								<span class="status statusAttention"><i class="iconInline sz2 left fwicon-alert-sign"></i><span class="label">Needs Attention</span></span>
+							</span>
+						</a>
+					</div>
+					<div class="col trq">
+						<a href="#" class="btnChart">
+							<span class="header"><span class="label">Enhance Performance</span><span class="arrow"></span></span>
+							<span class="padder">
+								<span class="chart ring1" data-size="166" data-line-width="12" data-c1="trqD" data-c2="trqL2">
+									<span class="chartText bgc-l1"><span class="value">3</span></span>
+								</span>
+								<span class="chart ring2" data-size="186" data-line-width="7" data-c1="trqN" data-c2="trqL3">
+									<span class="chartText hidden"><span class="value">3.4</span></span>
+								</span>
+								<span class="status statusAchieved"><i class="iconInline sz2 left fwicon-tick-sign"></i><span class="label">Achieved</span></span>
+							</span>
+						</a>
+					</div>
+					<div class="col trq">
+						<a href="#" class="btnChart inactive">
+							<span class="header"><span class="label">Steward Resources</span><span class="arrow"></span></span>
+							<span class="padder">
+								<span class="chart ring1" data-size="166" data-line-width="12" data-c1="neuD" data-c2="neuL2">
+									<span class="chartText"><span class="value">0</span></span>
+								</span>
+								<span class="chart ring2" data-size="186" data-line-width="7" data-c1="neuN" data-c2="neuL2">
+									<span class="chartText hidden"><span class="value">0.6</span></span>
+								</span>
+								<span class="status"><span class="label">NOT YET ASSESSED</span></span>
+							</span>
+						</a>
+					</div>
+				</div><!-- /INDICATORS -->
+			</div>
+		</div><!-- /SECTION -->
+		
 	</div><!-- /CONTENT -->
 	</form><!-- /FORM -->
 	<!-- FOOTER -->

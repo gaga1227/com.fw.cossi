@@ -2,8 +2,11 @@
 /* webfonts */
 /* ------------------------------------------------------------------------------ */
 WebFontConfig = { 
+	google: { 
+		families: 	['Montserrat:400,700:latin'] 
+	},
 	custom: {
-		families: 	['Chaparral:n7', 'Montserrat:n4,n7'],
+		families: 	['Chaparral:n4,n7'],
 		urls: 		['_lib/font/fonts.css']
 	},
 	loading: 		function() { console.log('[WF] loading'); 	WebFontUtils.onWFLoading(); },

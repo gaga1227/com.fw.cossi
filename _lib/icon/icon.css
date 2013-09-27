@@ -52,7 +52,7 @@
 .fwicon-upload:before 				{ content: "\e005"; }
 .fwicon-bulletedlist:before 		{ content: "\e006"; }
 .fwicon-numberedlist:before 		{ content: "\e007"; }
-.fwicon-menu:before 				{ content: "\e008"; }
+.fwicon-menu:before 				{ content: "\e023"; }
 .fwicon-print:before 				{ content: "\e009"; }
 .fwicon-file:before 				{ content: "\e00a"; }
 .fwicon-copy:before 				{ content: "\e00b"; }
@@ -66,7 +66,7 @@
 .fwicon-eye:before 					{ content: "\e013"; }
 .fwicon-user:before 				{ content: "\e014"; }
 .fwicon-star:before 				{ content: "\e015"; }
-.fwicon-question-circle:before 		{ content: "\e016"; }
+.fwicon-question-circle:before 		{ content: "\e022"; }
 .fwicon-clock-sign:before 			{ content: "\e017"; }
 .fwicon-cross:before 				{ content: "\e018"; }
 .fwicon-angle-left:before 			{ content: "\e019"; }

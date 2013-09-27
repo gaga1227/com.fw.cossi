@@ -25,7 +25,7 @@
 .ie7 .fwicon-upload 			{zoom:expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe005;');}
 .ie7 .fwicon-bulletedlist		{zoom:expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe006;');}
 .ie7 .fwicon-numberedlist		{zoom:expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe007;');}
-.ie7 .fwicon-menu 				{zoom:expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe008;');}
+.ie7 .fwicon-menu 				{zoom:expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe023;');}
 .ie7 .fwicon-print 				{zoom:expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe009;');}
 .ie7 .fwicon-file 				{zoom:expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe00a;');}
 .ie7 .fwicon-copy 				{zoom:expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe00b;');}
@@ -39,7 +39,7 @@
 .ie7 .fwicon-eye 				{zoom:expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe013;');}
 .ie7 .fwicon-user 				{zoom:expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe014;');}
 .ie7 .fwicon-star 				{zoom:expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe015;');}
-.ie7 .fwicon-question-circle 	{zoom:expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe016;');}
+.ie7 .fwicon-question-circle 	{zoom:expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe022;');}
 .ie7 .fwicon-clock-sign 		{zoom:expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe017;');}
 .ie7 .fwicon-cross 				{zoom:expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe018;');}
 .ie7 .fwicon-angle-left 		{zoom:expression(this.runtimeStyle['zoom']='1',this.innerHTML='&#xe019;');}

@@ -18,6 +18,7 @@
     font-weight:700;
     font-style:normal;
 }
+/*
 @font-face {
     font-family:'Montserrat';
     src: url('montserrat-regular-webfont.eot');
@@ -38,9 +39,10 @@
     font-weight:700;
     font-style:normal;
 }
+*/
 /* force chrome to render SVG font */
 @media screen and (-webkit-min-device-pixel-ratio:0) {
-    @font-face {
+	@font-face {
         font-family:'Chaparral';
 		src:url('chaparralpro-regular-webfont.svg#ChaparralProRegular') format('svg');
 		font-weight:400;

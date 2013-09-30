@@ -2201,7 +2201,7 @@ a.btnTab.active {
 .c-n									{ color:#bab6ae!important; }
 .c-d									{ color:#a8a49d!important; }
 .c-d1									{ color:#87827b!important; }
-.c-d2									{ color:#78736c!important; }
+.c-d2									{ color:#6b6763!important; }
 .c-l1									{ color:#ccc3b8!important; }
 .c-l2									{ color:#d9d4c7!important; }
 .c-l3									{ color:#f0ece4!important; }
@@ -2210,7 +2210,7 @@ a.btnTab.active {
 .bgc-n									{ background-color:#bab6ae!important; }
 .bgc-d									{ background-color:#a8a49d!important; }
 .bgc-d1									{ background-color:#87827b!important; }
-.bgc-d1									{ background-color:#78736c!important; }
+.bgc-d2									{ background-color:#6b6763!important; }
 .bgc-l1									{ background-color:#ccc3b8!important; }
 .bgc-l2									{ background-color:#d9d4c7!important; }
 .bgc-l3									{ background-color:#f0ece4!important; }
@@ -2219,13 +2219,13 @@ a.btnTab.active {
 .hoverc-n:hover							{ color:#bab6ae!important; }
 .hoverc-d:hover							{ color:#a8a49d!important; }
 .hoverc-d1:hover						{ color:#87827b!important; }
-.hoverc-d2:hover						{ color:#78736c!important; }
+.hoverc-d2:hover						{ color:#6b6763!important; }
 .hoverc-l1:hover						{ color:#ccc3b8!important; }
 /* hoverbgc */
 .hoverbgc-n:hover						{ background-color:#bab6ae!important; }
 .hoverbgc-d:hover						{ background-color:#a8a49d!important; }
 .hoverbgc-d1:hover						{ background-color:#87827b!important; }
-.hoverbgc-d2:hover						{ background-color:#78736c!important; }
+.hoverbgc-d2:hover						{ background-color:#6b6763!important; }
 .hoverbgc-l1:hover						{ background-color:#ccc3b8!important; }
 /* activec */
 .active.activebgc-n						{ background-color:#bab6ae!important; }
@@ -2242,7 +2242,7 @@ a.btnTab.active {
 			.neu .c-d1,
 .newTheme > .neu .c-d1					{ color:#87827b!important; }
 			.neu .c-d2,
-.newTheme > .neu .c-d2					{ color:#78736c!important; }
+.newTheme > .neu .c-d2					{ color:#6b6763!important; }
 			.neu .c-l1,
 .newTheme > .neu .c-l1					{ color:#ccc3b8!important; }
 			.neu .c-l2,
@@ -2259,7 +2259,7 @@ a.btnTab.active {
 			.neu .bgc-d1,
 .newTheme > .neu .bgc-d1				{ background-color:#87827b!important; }
 			.neu .bgc-d2,
-.newTheme > .neu .bgc-d2				{ background-color:#78736c!important; }
+.newTheme > .neu .bgc-d2				{ background-color:#6b6763!important; }
 			.neu .bgc-l1,
 .newTheme > .neu .bgc-l1				{ background-color:#ccc3b8!important; }
 			.neu .bgc-l2,
@@ -2276,7 +2276,7 @@ a.btnTab.active {
 			.neu .hoverc-d1:hover,
 .newTheme > .neu .hoverc-d1:hover		{ color:#87827b!important; }
 			.neu .hoverc-d2:hover,
-.newTheme > .neu .hoverc-d2:hover		{ color:#78736c!important; }
+.newTheme > .neu .hoverc-d2:hover		{ color:#6b6763!important; }
 			.neu .hoverc-l1:hover,
 .newTheme > .neu .hoverc-l1:hover		{ color:#ccc3b8!important; }
 /* hoverbgc */
@@ -2287,7 +2287,7 @@ a.btnTab.active {
 			.neu .hoverbgc-d1:hover,
 .newTheme > .neu .hoverbgc-d1:hover		{ background-color:#87827b!important; }
 			.neu .hoverbgc-d2:hover,
-.newTheme > .neu .hoverbgc-d2:hover		{ background-color:#78736c!important; }
+.newTheme > .neu .hoverbgc-d2:hover		{ background-color:#6b6763!important; }
 			.neu .hoverbgc-l1:hover,
 .newTheme > .neu .hoverbgc-l1:hover		{ background-color:#ccc3b8!important; }
 /* activec */
@@ -2307,7 +2307,7 @@ a.btnTab.active {
 			.gry .c-d1,
 .newTheme > .gry .c-d1					{ color:#5a6666!important; }
 			.gry .c-d2,
-.newTheme > .gry .c-d2					{ color:#4d5757!important; }
+.newTheme > .gry .c-d2					{ color:#474f4f!important; }
 			.gry .c-l1,
 .newTheme > .gry .c-l1					{ color:#8c9899!important; }
 			.gry .c-l2,
@@ -2324,7 +2324,7 @@ a.btnTab.active {
 			.gry .bgc-d1,
 .newTheme > .gry .bgc-d1				{ background-color:#5a6666!important; }
 			.gry .bgc-d2,
-.newTheme > .gry .bgc-d2				{ background-color:#4d5757!important; }
+.newTheme > .gry .bgc-d2				{ background-color:#474f4f!important; }
 			.gry .bgc-l1,
 .newTheme > .gry .bgc-l1				{ background-color:#8c9899!important; }
 			.gry .bgc-l2,
@@ -2341,7 +2341,7 @@ a.btnTab.active {
 			.gry .hoverc-d1:hover,
 .newTheme > .gry .hoverc-d1:hover		{ color:#5a6666!important; }
 			.gry .hoverc-d2:hover,
-.newTheme > .gry .hoverc-d2:hover		{ color:#4d5757!important; }
+.newTheme > .gry .hoverc-d2:hover		{ color:#474f4f!important; }
 			.gry .hoverc-l1:hover,
 .newTheme > .gry .hoverc-l1:hover		{ color:#8c9899!important; }
 /* hoverbgc */
@@ -2352,7 +2352,7 @@ a.btnTab.active {
 			.gry .hoverbgc-d1:hover,
 .newTheme > .gry .hoverbgc-d1:hover		{ background-color:#5a6666!important; }
 			.gry .hoverbgc-d2:hover,
-.newTheme > .gry .hoverbgc-d2:hover		{ background-color:#4d5757!important; }
+.newTheme > .gry .hoverbgc-d2:hover		{ background-color:#474f4f!important; }
 			.gry .hoverbgc-l1:hover,
 .newTheme > .gry .hoverbgc-l1:hover		{ background-color:#8c9899!important; }
 /* activec */
@@ -2372,7 +2372,7 @@ a.btnTab.active {
 			.trq .c-d1,
 .newTheme > .trq .c-d1					{ color:#00806a!important; }
 			.trq .c-d2,
-.newTheme > .trq .c-d2					{ color:#00705d!important; }
+.newTheme > .trq .c-d2					{ color:#006350!important; }
 			.trq .c-l1,
 .newTheme > .trq .c-l1					{ color:#00d5b1!important; }
 			.trq .c-l2,
@@ -2389,7 +2389,7 @@ a.btnTab.active {
 			.trq .bgc-d1,
 .newTheme > .trq .bgc-d1				{ background-color:#00806a!important; }
 			.trq .bgc-d2,
-.newTheme > .trq .bgc-d2				{ background-color:#00705d!important; }
+.newTheme > .trq .bgc-d2				{ background-color:#006350!important; }
 			.trq .bgc-l1,
 .newTheme > .trq .bgc-l1				{ background-color:#00d5b1!important; }
 			.trq .bgc-l2,
@@ -2406,7 +2406,7 @@ a.btnTab.active {
 			.trq .hoverc-d1:hover,
 .newTheme > .trq .hoverc-d1:hover		{ color:#00806a!important; }
 			.trq .hoverc-d2:hover,
-.newTheme > .trq .hoverc-d2:hover		{ color:#00705d!important; }
+.newTheme > .trq .hoverc-d2:hover		{ color:#006350!important; }
 			.trq .hoverc-l1:hover,
 .newTheme > .trq .hoverc-l1:hover		{ color:#00d5b1!important; }
 /* hoverbgc */
@@ -2417,7 +2417,7 @@ a.btnTab.active {
 			.trq .hoverbgc-d1:hover,
 .newTheme > .trq .hoverbgc-d1:hover		{ background-color:#00806a!important; }
 			.trq .hoverbgc-d2:hover,
-.newTheme > .trq .hoverbgc-d2:hover		{ background-color:#00705d!important; }
+.newTheme > .trq .hoverbgc-d2:hover		{ background-color:#006350!important; }
 			.trq .hoverbgc-l1:hover,
 .newTheme > .trq .hoverbgc-l1:hover		{ background-color:#00d5b1!important; }
 /* activec */
@@ -2437,7 +2437,7 @@ a.btnTab.active {
 			.blu .c-d1,
 .newTheme > .blu .c-d1					{ color:#1f6272!important; }
 			.blu .c-d2,
-.newTheme > .blu .c-d2					{ color:#0c5566!important; }
+.newTheme > .blu .c-d2					{ color:#09484f!important; }
 			.blu .c-l1,
 .newTheme > .blu .c-l1					{ color:#36b3ea!important; }
 			.blu .c-l2,
@@ -2454,7 +2454,7 @@ a.btnTab.active {
 			.blu .bgc-d1,
 .newTheme > .blu .bgc-d1				{ background-color:#1f6272!important; }
 			.blu .bgc-d2,
-.newTheme > .blu .bgc-d2				{ background-color:#0c5566!important; }
+.newTheme > .blu .bgc-d2				{ background-color:#09484f!important; }
 			.blu .bgc-l1,
 .newTheme > .blu .bgc-l1				{ background-color:#36b3ea!important; }
 			.blu .bgc-l2,
@@ -2471,7 +2471,7 @@ a.btnTab.active {
 			.blu .hoverc-d1:hover,
 .newTheme > .blu .hoverc-d1:hover		{ color:#1f6272!important; }
 			.blu .hoverc-d2:hover,
-.newTheme > .blu .hoverc-d2:hover		{ color:#0c5566!important; }
+.newTheme > .blu .hoverc-d2:hover		{ color:#09484f!important; }
 			.blu .hoverc-l1:hover,
 .newTheme > .blu .hoverc-l1:hover		{ color:#36b3ea!important; }
 /* hoverbgc */
@@ -2482,7 +2482,7 @@ a.btnTab.active {
 			.blu .hoverbgc-d1:hover,
 .newTheme > .blu .hoverbgc-d1:hover		{ background-color:#1f6272!important; }
 			.blu .hoverbgc-d2:hover,
-.newTheme > .blu .hoverbgc-d2:hover		{ background-color:#0c5566!important; }
+.newTheme > .blu .hoverbgc-d2:hover		{ background-color:#09484f!important; }
 			.blu .hoverbgc-l1:hover,
 .newTheme > .blu .hoverbgc-l1:hover		{ background-color:#36b3ea!important; }
 /* activec */
@@ -2502,7 +2502,7 @@ a.btnTab.active {
 			.sun .c-d1,
 .newTheme > .sun .c-d1					{ color:#c1780c!important; }
 			.sun .c-d2,
-.newTheme > .sun .c-d2					{ color:#a66910!important; }
+.newTheme > .sun .c-d2					{ color:#935a0f!important; }
 			.sun .c-l1,
 .newTheme > .sun .c-l1					{ color:#ffd215!important; }
 			.sun .c-l2,
@@ -2519,7 +2519,7 @@ a.btnTab.active {
 			.sun .bgc-d1,
 .newTheme > .sun .bgc-d1				{ background-color:#c1780c!important; }
 			.sun .bgc-d2,
-.newTheme > .sun .bgc-d2				{ background-color:#a66910!important; }
+.newTheme > .sun .bgc-d2				{ background-color:#935a0f!important; }
 			.sun .bgc-l1,
 .newTheme > .sun .bgc-l1				{ background-color:#ffd215!important; }
 			.sun .bgc-l2,
@@ -2536,7 +2536,7 @@ a.btnTab.active {
 			.sun .hoverc-d1:hover,
 .newTheme > .sun .hoverc-d1:hover		{ color:#c1780c!important; }
 			.sun .hoverc-d2:hover,
-.newTheme > .sun .hoverc-d2:hover		{ color:#a66910!important; }
+.newTheme > .sun .hoverc-d2:hover		{ color:#935a0f!important; }
 			.sun .hoverc-l1:hover,
 .newTheme > .sun .hoverc-l1:hover		{ color:#ffd215!important; }
 /* hoverbgc */
@@ -2547,7 +2547,7 @@ a.btnTab.active {
 			.sun .hoverbgc-d1:hover,
 .newTheme > .sun .hoverbgc-d1:hover		{ background-color:#c1780c!important; }
 			.sun .hoverbgc-d2:hover,
-.newTheme > .sun .hoverbgc-d2:hover		{ background-color:#a66910!important; }
+.newTheme > .sun .hoverbgc-d2:hover		{ background-color:#935a0f!important; }
 			.sun .hoverbgc-l1:hover,
 .newTheme > .sun .hoverbgc-l1:hover		{ background-color:#ffd215!important; }
 /* activec */
@@ -2567,7 +2567,7 @@ a.btnTab.active {
 			.org .c-d1,
 .newTheme > .org .c-d1					{ color:#a8410e!important; }
 			.org .c-d2,
-.newTheme > .org .c-d2					{ color:#963c0f!important; }
+.newTheme > .org .c-d2					{ color:#7c2e0f!important; }
 			.org .c-l1,
 .newTheme > .org .c-l1					{ color:#fc8627!important; }
 			.org .c-l2,
@@ -2584,7 +2584,7 @@ a.btnTab.active {
 			.org .bgc-d1,
 .newTheme > .org .bgc-d1				{ background-color:#a8410e!important; }
 			.org .bgc-d2,
-.newTheme > .org .bgc-d2				{ background-color:#963c0f!important; }
+.newTheme > .org .bgc-d2				{ background-color:#7c2e0f!important; }
 			.org .bgc-l1,
 .newTheme > .org .bgc-l1				{ background-color:#fc8627!important; }
 			.org .bgc-l2,
@@ -2601,7 +2601,7 @@ a.btnTab.active {
 			.org .hoverc-d1:hover,
 .newTheme > .org .hoverc-d1:hover		{ color:#a8410e!important; }
 			.org .hoverc-d2:hover,
-.newTheme > .org .hoverc-d2:hover		{ color:#963c0f!important; }
+.newTheme > .org .hoverc-d2:hover		{ color:#7c2e0f!important; }
 			.org .hoverc-l1:hover,
 .newTheme > .org .hoverc-l1:hover		{ color:#fc8627!important; }
 /* hoverbgc */
@@ -2612,7 +2612,7 @@ a.btnTab.active {
 			.org .hoverbgc-d1:hover,
 .newTheme > .org .hoverbgc-d1:hover		{ background-color:#a8410e!important; }
 			.org .hoverbgc-d2:hover,
-.newTheme > .org .hoverbgc-d2:hover		{ background-color:#963c0f!important; }
+.newTheme > .org .hoverbgc-d2:hover		{ background-color:#7c2e0f!important; }
 			.org .hoverbgc-l1:hover,
 .newTheme > .org .hoverbgc-l1:hover		{ background-color:#fc8627!important; }
 /* activec */
@@ -2632,7 +2632,7 @@ a.btnTab.active {
 			.red .c-d1,
 .newTheme > .red .c-d1					{ color:#99231a!important; }
 			.red .c-d2,
-.newTheme > .red .c-d2					{ color:#851810!important; }
+.newTheme > .red .c-d2					{ color:#71140d!important; }
 			.red .c-l1,
 .newTheme > .red .c-l1					{ color:#f4564a!important; }
 			.red .c-l2,
@@ -2649,7 +2649,7 @@ a.btnTab.active {
 			.red .bgc-d1,
 .newTheme > .red .bgc-d1				{ background-color:#99231a!important; }
 			.red .bgc-d2,
-.newTheme > .red .bgc-d2				{ background-color:#851810!important; }
+.newTheme > .red .bgc-d2				{ background-color:#71140d!important; }
 			.red .bgc-l1,
 .newTheme > .red .bgc-l1				{ background-color:#f4564a!important; }
 			.red .bgc-l2,
@@ -2666,7 +2666,7 @@ a.btnTab.active {
 			.red .hoverc-d1:hover,
 .newTheme > .red .hoverc-d1:hover		{ color:#99231a!important; }
 			.red .hoverc-d2:hover,
-.newTheme > .red .hoverc-d2:hover		{ color:#851810!important; }
+.newTheme > .red .hoverc-d2:hover		{ color:#71140d!important; }
 			.red .hoverc-l1:hover,
 .newTheme > .red .hoverc-l1:hover		{ color:#f4564a!important; }
 /* hoverbgc */
@@ -2677,7 +2677,7 @@ a.btnTab.active {
 			.red .hoverbgc-d1:hover,
 .newTheme > .red .hoverbgc-d1:hover		{ background-color:#99231a!important; }
 			.red .hoverbgc-d2:hover,
-.newTheme > .red .hoverbgc-d2:hover		{ background-color:#851810!important; }
+.newTheme > .red .hoverbgc-d2:hover		{ background-color:#71140d!important; }
 			.red .hoverbgc-l1:hover,
 .newTheme > .red .hoverbgc-l1:hover		{ background-color:#f4564a!important; }
 /* activec */
@@ -2697,7 +2697,7 @@ a.btnTab.active {
 			.ngt .c-d1,
 .newTheme > .ngt .c-d1					{ color:#2b3d50!important; }
 			.ngt .c-d2,
-.newTheme > .ngt .c-d2					{ color:#1f3042!important; }
+.newTheme > .ngt .c-d2					{ color:#172430!important; }
 			.ngt .c-l1,
 .newTheme > .ngt .c-l1					{ color:#2c6996!important; }
 			.ngt .c-l2,
@@ -2714,7 +2714,7 @@ a.btnTab.active {
 			.ngt .bgc-d1,
 .newTheme > .ngt .bgc-d1				{ background-color:#2b3d50!important; }
 			.ngt .bgc-d2,
-.newTheme > .ngt .bgc-d2				{ background-color:#1f3042!important; }
+.newTheme > .ngt .bgc-d2				{ background-color:#172430!important; }
 			.ngt .bgc-l1,
 .newTheme > .ngt .bgc-l1				{ background-color:#2c6996!important; }
 			.ngt .bgc-l2,
@@ -2733,7 +2733,7 @@ a.btnTab.active {
 			.ngt .hoverc-d1:hover,
 .newTheme > .ngt .hoverc-d1:hover		{ color:#2b3d50!important; }
 			.ngt .hoverc-d2:hover,
-.newTheme > .ngt .hoverc-d2:hover		{ color:#1f3042!important; }
+.newTheme > .ngt .hoverc-d2:hover		{ color:#172430!important; }
 			.ngt .hoverc-l1:hover,
 .newTheme > .ngt .hoverc-l1:hover		{ color:#2c6996!important; }
 /* hoverbgc */
@@ -2744,7 +2744,7 @@ a.btnTab.active {
 			.ngt .hoverbgc-d1:hover,
 .newTheme > .ngt .hoverbgc-d1:hover		{ background-color:#2b3d50!important; }
 			.ngt .hoverbgc-d2:hover,
-.newTheme > .ngt .hoverbgc-d2:hover		{ background-color:#1f3042!important; }
+.newTheme > .ngt .hoverbgc-d2:hover		{ background-color:#172430!important; }
 			.ngt .hoverbgc-l1:hover,
 .newTheme > .ngt .hoverbgc-l1:hover		{ background-color:#2c6996!important; }
 /* activec */

@@ -2018,7 +2018,6 @@ a.btnTab.active {
 /* btnCheck */
 .btnCheck {
 	display:block; position:relative; width:auto; height:auto; margin:0 0 3px 0; padding:20px 60px 20px 25px; overflow:hidden;
-	text-decoration:none!important; outline:0 none!important; cursor:pointer!important;
 	background:#e7e3d9;
 	/*border-radius*/-webkit-border-radius:5px; border-radius:5px;
 	/*background-clip*/-moz-background-clip:padding; -webkit-background-clip:padding; background-clip:padding-box;
@@ -2030,6 +2029,7 @@ a.btnTab.active {
 	-moz-transition:background-color 0.3s ease-in-out;
 	-o-transition:background-color 0.3s ease-in-out;
 	transition:background-color 0.3s ease-in-out; }
+a.btnCheck { text-decoration:none!important; outline:0 none!important; cursor:pointer!important; }
 
  	/* input */
  	.btnCheck input { display:none; }
@@ -2079,11 +2079,11 @@ a.btnTab.active {
 		color:#7d8690; font-size:15px; font-weight:400; line-height:22px; }
 
 /* interaction */
-.no-touch .btnCheck:hover { background:#f7f4ef; }
+.no-touch a.btnCheck:hover { background:#f7f4ef; }
 
 /* checked */
 .btnCheck.checked { background:#fff; }
-.no-touch .btnCheck.checked:hover { background:#f7f6f4; }
+.no-touch a.btnCheck.checked:hover { background:#f7f6f4; }
 .btnCheck.checked:before { background:transparent; }
 .btnCheck.checked .icon {
 	color:#1bb05d; background:transparent;
